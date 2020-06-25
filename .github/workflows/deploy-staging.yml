@@ -25,3 +25,5 @@ jobs:
       with:
         build_dir: dist
         fqdn: books-staging.teva-shalem.com
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
