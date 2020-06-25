@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ stage, world ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,10 +20,20 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: GitHub Pages
+    - name: Deploy Stage
+      if: github.ref == 'refs/heads/stage'
       uses: crazy-max/ghaction-github-pages@v2.1.0
       with:
         build_dir: dist
         fqdn: books-staging.teva-shalem.com
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Deploy World
+      if: github.ref == 'refs/heads/world'
+      uses: crazy-max/ghaction-github-pages@v2.1.0
+      with:
+        build_dir: dist
+        fqdn: books.teva-shalem.com
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
