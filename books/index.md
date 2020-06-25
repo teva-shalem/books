@@ -8,5 +8,7 @@ permalink: /
 [דרך הפעימה](/derech-hapeima)
 <br/>
 [משוואות הפעימה](/mishvaot-hapeima)
+<br/>
+[ספר יצירה](/sefer-yetzira)
 
 </div>
