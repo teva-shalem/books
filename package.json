@@ -9,7 +9,7 @@
     "build": "vuepress build books",
     "deploy": "git branch -D $TARGET && git checkout -b $TARGET && npm run build && git push -f -u origin $TARGET && git checkout master",
     "deploy:stage": "git push -f stage master",
-    "deploy:world": "env TARGET=world npm run deploy"
+    "deploy:world": "git push -f world master"
   },
   "dependencies": {
     "v-tooltip": "^2.0.3",
