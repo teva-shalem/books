@@ -8,7 +8,7 @@
     "dev": "vuepress dev books --no-clear-screen",
     "build": "vuepress build books",
     "deploy": "git branch -D $TARGET && git checkout -b $TARGET && npm run build && git push -f -u origin $TARGET && git checkout master",
-    "deploy:stage": "env TARGET=stage npm run deploy",
+    "deploy:stage": "git push -f stage master",
     "deploy:world": "env TARGET=world npm run deploy"
   },
   "dependencies": {
