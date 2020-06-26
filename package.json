@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "vuepress dev books --no-clear-screen",
     "build": "vuepress build books",
-    "deploy": "git branch -D $TARGET && git checkout -b $TARGET && npm run build && git push -f -u origin $TARGET && git checkout master",
     "deploy:stage": "git push -f stage master",
     "deploy:world": "git push -f world master"
   },
@@ -20,8 +19,6 @@
     "@vuepress/plugin-google-analytics": "^1.4.0",
     "@vuepress/plugin-medium-zoom": "^1.4.0",
     "@vuepress/plugin-pwa": "^1.4.1",
-    "gh-pages": "^2.2.0",
-    "surge": "^0.21.3",
     "typescript": "^3.8.3",
     "vuepress": "^1.4.0",
     "vuepress-plugin-smooth-scroll": "^0.0.9",
