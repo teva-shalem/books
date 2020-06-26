@@ -22,3 +22,12 @@ jobs:
         fqdn: books-staging.teva-shalem.com
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Deploy World
+      if: github.repository == 'teva-shalem/books-world'
+      uses: crazy-max/ghaction-github-pages@v2.1.0
+      with:
+        build_dir: dist
+        fqdn: books.teva-shalem.com
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
