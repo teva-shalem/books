@@ -3,7 +3,7 @@ title: ספרים
 permalink: /
 ---
 
-<div style="height: calc(100vh - 2em);display: flex;justify-content: center;align-items: center;font-size: xxx-large;text-align: center;">
+<div class="books-list">
 
 [דרך הפעימה](/derech-hapeima)
 <br/>
@@ -17,3 +17,19 @@ permalink: /
 [ספר איכויות](/rosetta-stone)
 
 </div>
+
+<style lang="scss">
+.books-list {
+  height: calc(100vh - 2em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xxx-large;
+  text-align: center;
+
+  & > p {
+    margin: 0;
+  }
+}
+</style>

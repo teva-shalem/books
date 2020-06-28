@@ -1,6 +1,6 @@
 <template>
 <section>
-  <b-field grouped group-multiline>
+  <b-field grouped group-multiline class="column-toggles">
       <div v-for="(column, index) in columnsTemplate" 
           :key="index"
           class="control">
@@ -62,5 +62,9 @@ export default {
 <style lang="stylus">
 .right-aligned {
   text-align: right;
+}
+.column-toggles {
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>
