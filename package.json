@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "buefy": "^0.8.20",
+    "mathjax": "^3.0.5",
     "v-tooltip": "^2.0.3",
     "vuepress-theme-derech-hapeima": "file:books/.vuepress/theme"
   },
