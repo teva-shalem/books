@@ -1,7 +1,7 @@
 <template>
 <section>
   <b-field grouped group-multiline class="column-toggles">
-      <div v-for="(column, index) in columnsTemplate" 
+      <div v-for="(column, index) in columnsTemplate"
           :key="index"
           class="control">
           <b-checkbox v-model="column.visible">
@@ -26,7 +26,7 @@
             :numeric="column.numeric"
             :centered="column.centered"
             :cell-class="column['cell-class']">
-            {{ props.row[column.field] || '—' }}
+            {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
         </b-table-column>
       </template>
   </b-table>
