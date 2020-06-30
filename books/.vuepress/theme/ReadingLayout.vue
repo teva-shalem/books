@@ -3,3 +3,6 @@
         <Layout><Content/></Layout>
     </div>
 </template>
+<style lang="scss">
+
+</style>
