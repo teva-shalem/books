@@ -18,7 +18,6 @@
                 :hoverable="true"
                 :focusable="true"
                 :sticky-header="true">
-
             <template slot-scope="props">
                 <b-table-column v-for="(column, index) in columns"
                                 :key="index"
@@ -28,7 +27,14 @@
                                 :centered="column.centered"
                                 :sticky="column.sticky"
                                 :cell-class="column['cell-class']">
-                    {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
+                    <div v-if="column.meta && column.meta.type === 'textImage'" class="field-type-text-image">
+                        {{props.row[column.field][0]}}<Img :path="props.row[column.field][1]" />
+                    </div>
+                    <!-- <div v-else-if="type === 'B'">
+                    </div> -->
+                    <div v-else>
+                        {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
+                    </div>
                 </b-table-column>
             </template>
         </b-table>
@@ -40,13 +46,17 @@ export default {
     props: {
         data   : {type: Array, required: true},
         columns: {type: Array, required: true},
-    }
+    },
 }
 </script>
 <style lang="scss">
 .b-table .table td.is-sticky,
 .b-table .table th.is-sticky {
     right: 0;
+}
+
+.b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td::before {
+    margin: auto 0;
 }
 
 .right-aligned {
@@ -56,5 +66,21 @@ export default {
 .column-toggles {
     display: flex;
     flex-wrap: wrap;
+}
+
+.field-type-text-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 0 1 30%;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+
+        & > img {
+            max-width: 30%;
+        }
+    }
 }
 </style>

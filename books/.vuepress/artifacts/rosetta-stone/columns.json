@@ -5,7 +5,7 @@
     {"title": "אות", "field": "hebrew-letter", "visible": true},
     {"title": "ערך מספרי", "field": "numerical-value", "visible": true, "numeric": true},
     {"title": "משוואה מתמטית", "field": "mathematical-equation", "visible": true},
-    {"title": "ערך גאומטרי", "field": "geometrical-value", "visible": true},
+    {"title": "ערך גאומטרי", "field": "geometrical-value", "visible": true, "meta": {"type": "textImage"}},
     {"title": "מרכיבי האיכות", "field": "quality-constructs", "visible": true, "centered": true},
     {"title": "עולם", "field": "space", "visible": true},
     {"title": "שנה", "field": "time", "visible": true},

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Fire</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Fire" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M329.720033,337.455081 C366.220472,302.996244 389,254.158344 389,200 C389,95.6181823 304.381818,11 200,11 L200,206" id="Path" stroke="#000000" stroke-width="2" fill="#438ACE"></path>
+        <path d="M200.25,206 C200.25,74 200.166667,9 200,11" id="Path" stroke="#000000" stroke-width="2"></path>
+        <line x1="200" y1="206" x2="331" y2="337" id="Path-2" stroke="#000000" stroke-width="2"></line>
+        <line x1="200" y1="206" x2="69" y2="337" id="Path-3" stroke="#000000" stroke-width="2"></line>
+    </g>
+</svg>

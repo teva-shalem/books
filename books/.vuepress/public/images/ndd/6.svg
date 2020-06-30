@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>6</title>
+    <desc>Created with Sketch.</desc>
+    <g id="6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#438ACE" stroke-width="5" fill-opacity="0" fill="#FFFFFF" cx="200" cy="200" r="200"></circle>
+        <path d="M252.9375,8.83984375 C233.246033,8.5059988 231.410008,7.39530108 207.261719,15.34375 C182.232024,23.5823149 121.942623,65.5266106 111.46875,92.796875 C108.921901,99.4279691 108.338972,106.695741 107.691406,113.769531 C106.231429,129.717828 103.158887,141.178387 111.171875,154.128906 C135.703782,193.777155 180.27742,192.603655 218.9375,209.4375 C244.623116,220.621845 262.143064,239.248978 255.488281,269.734375 C253.661617,278.102278 249.89247,285.98835 245.960938,293.597656 C240.983075,303.232087 235.41262,312.633047 228.859375,321.273438 C220.267458,332.601798 194.499911,358.161463 182.890625,366.558594 C163.406011,380.65204 143.01948,380.204726 119.863281,382.46875" id="Path-4" stroke="#438ACE" stroke-width="5"></path>
+        <path id="Line" d="M206,-2.5 L205.999,366 L218,366 L203.5,395 L189,366 L200.999,366 L201,-2.5 L206,-2.5 Z" fill="#000000" fill-rule="nonzero"></path>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#438ACE" transform="translate(204.000000, 203.000000) rotate(-180.000000) translate(-204.000000, -203.000000) " cx="204" cy="203" r="14"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#438ACE" transform="translate(204.000000, 333.000000) rotate(-180.000000) translate(-204.000000, -333.000000) " cx="204" cy="333" r="14"></circle>
+    </g>
+</svg>

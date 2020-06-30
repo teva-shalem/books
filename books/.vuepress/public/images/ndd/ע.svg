@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ע</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ע" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#438ACE" stroke-width="5" fill-opacity="0" fill="#FFFFFF" cx="200" cy="200" r="200"></circle>
+        <line x1="193" y1="0" x2="36.5" y2="314.5" id="נ" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="193" y1="0" x2="364" y2="314" id="צ" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="191" y1="206" x2="193" y2="399" id="ד" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="191" y1="6" x2="193" y2="199" id="ג" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="193" y1="0" x2="37" y2="84" id="ט" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="193" y1="0" x2="364" y2="84" id="ו" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="36" y1="315" x2="193" y2="200" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="193" y1="199" x2="36" y2="84" id="ר" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="364" y1="314" x2="194" y2="200" id="ת" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="191" y1="392" x2="36" y2="84" id="י" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="194" y1="392" x2="364" y2="84" id="ז" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="37" y1="84" x2="364" y2="84" id="ה" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="364" y1="314" x2="36.5" y2="314.5" id="ל" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="364" y1="314" x2="191" y2="399" id="ק" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="191" y1="399" x2="36.5" y2="314.5" id="ס" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="36" y1="84" x2="36.5" y2="314.5" id="ח" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="364" y1="84" x2="198" y2="200" id="כ" stroke="#000000" stroke-width="2" stroke-linecap="square"></line>
+        <line x1="364" y1="88" x2="364" y2="311" id="פ" stroke="#438ACE" stroke-width="14" stroke-linecap="square"></line>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="193" cy="0" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="194" cy="200" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="364" cy="84" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="364" cy="314" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="36" cy="314" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="36" cy="314" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="36" cy="84" r="7"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="2" fill="#000000" cx="193" cy="399" r="7"></circle>
+    </g>
+</svg>

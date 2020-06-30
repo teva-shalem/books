@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Pulse</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Pulse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#000000" fill="#438ACE" cx="200" cy="200" r="200"></circle>
+        <line x1="57.5" y1="61.5" x2="200.5" y2="400.5" id="Line" stroke="#000000" stroke-width="5" stroke-linecap="square"></line>
+        <line x1="339.5" y1="61.5" x2="200.5" y2="400.5" id="Line" stroke="#000000" stroke-width="5" stroke-linecap="square"></line>
+    </g>
+</svg>
