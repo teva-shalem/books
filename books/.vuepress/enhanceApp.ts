@@ -1,8 +1,5 @@
 import VTooltip from 'v-tooltip'
 import Buefy from 'buefy'
-import './styles/index.scss'
-// import 'buefy/src/components/_table.scss'
-
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app

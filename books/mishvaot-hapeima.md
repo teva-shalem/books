@@ -2,6 +2,7 @@
 title: משוואות הפעימה
 description: ספר זה הוא תמצית של אמת ומציאות. האמת והמציאות בעיניי המתבונן
 permalink: /mishvaot-hapeima
+layout: ReadingLayout
 ---
 
 <style>

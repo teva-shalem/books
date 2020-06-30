@@ -1,0 +1,16 @@
+.regular-layout {
+  margin: 0 1em;
+}
+
+.reading-layout {
+  margin: 0 1em;
+
+  @media (min-width: 659px) {
+    margin: 0 auto;
+    max-width: 60vw;
+  }
+
+  @media (min-width: 959px) {
+    max-width: 40vw;
+  }
+}
