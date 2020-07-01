@@ -11,7 +11,7 @@
         </p>
 
         <p style="direction:ltr;">
-            Using <a href="/sefer-yetzira/">Sefer Yetzira</a> is an ability to create. The intention must be pure. The person must act as a king. The legend of qualities acts as an index to the understanding of life and nature. It integrates the Art of Composition to the formation - from personal completion to collective completion.
+            Using <a href="/sefer-yetzira/">Sefer Yetzira</a> is an ability to create. The intention must be pure. The person must act as a king. The legend of qualities acts as an index to the understanding of life and nature. It integrates the Art of Composition of the formation - from personal completion to collective completion.
         </p>
 
         <br/>

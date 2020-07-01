@@ -24,7 +24,7 @@
                                 :label="column.title"
                                 :visible="column.visible"
                                 :numeric="column.numeric"
-                                :centered="column.centered"
+                                 :centered="column.centered"
                                 :sticky="column.sticky"
                                 :cell-class="column['cell-class']">
                     <div v-if="column.meta && column.meta.type === 'latexImage'" class="field-type-latex-image">

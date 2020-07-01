@@ -1,7 +1,7 @@
 {
   "columns": [
     {"title": "איכות", "field": "quality", "visible": true, "sticky": true, "cell-class": "bold"},
-    {"title": "ספירה", "field": "sphere", "visible": false, "centered": true},
+    {"title": "ספירה", "field": "sphere", "visible": true, "centered": true},
     {"title": "אות", "field": "hebrew-letter", "visible": true, "centered": true},
     {"title": "ערך מספרי", "field": "numerical-value", "visible": true, "centered": true, "meta": {"type": "latex"}},
     {"title": "משוואה מתמטית", "field": "mathematical-equation", "visible": true, "centered": true, "meta": {"type": "latex"}},
@@ -10,7 +10,7 @@
     {"title": "עולם", "field": "space", "visible": true, "centered": true},
     {"title": "שנה", "field": "time", "visible": true, "centered": true},
     {"title": "נפש", "field": "heart", "visible": true, "centered": true},
-    {"title": "תיאור", "field": "description", "visible": true, "cell-class": "right-aligned", "width": "200px"},
+    {"title": "תיאור", "field": "description", "visible": true, "cell-class": "right-aligned"},
     {"title": "Letter", "field": "english-letter", "visible": true, "centered": true},
     {"title": "Roman", "field": "roman-number", "visible": true, "centered": true}
   ]
