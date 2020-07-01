@@ -170,7 +170,7 @@
       "sphere"               : 0,
       "hebrew-letter"        : "𓏲",
       "numerical-value"      : "0",
-      "mathematical-equation": "ϕ = (6+1)^n",
+      "mathematical-equation": "N = ((6+i)\\phi)^{n}",
       "geometrical-value"    : ["שלדה", "ndd/Insight.svg"],
       "quality-constructs"   : "הרהור \\times ריח \\times שיחה \\times חיים",
       "space"                : "פנימה",
@@ -185,7 +185,7 @@
       "sphere"               : 11,
       "hebrew-letter"        : "𐤀",
       "numerical-value"      : "4 \\impliedby 13",
-      "mathematical-equation": "Φ = 12^n",
+      "mathematical-equation": "M = (12\\Phi)^{n}",
       "geometrical-value"    : ["עיגול + נקודה", "ndd/Love.svg"],
       "quality-constructs"   : "אוויר \\times מים \\times ממשלה",
       "space"                : "החוצה",
@@ -237,7 +237,7 @@
       "time"                 : "שלישי",
       "heart"                : "אף ימין",
       "description"          : "אש כפולה היא גחלת האמת הבוערת לעד. היא האושר.",
-      "english-letter"       : "M",
+      "english-letter"       : "Q",
       "roman-number"         : null
     },
     {
