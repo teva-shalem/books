@@ -11,6 +11,7 @@
         </b-field>
 
         <b-table
+                :id="id || ''"
                 :data="data"
                 :bordered="true"
                 :striped="true"
@@ -21,10 +22,10 @@
             <template slot-scope="props">
                 <b-table-column v-for="(column, index) in columns"
                                 :key="index"
-                                :label="column.title"
+                                :label="column.title + ':'"
                                 :visible="column.visible"
                                 :numeric="column.numeric"
-                                 :centered="column.centered"
+                                :centered="column.centered"
                                 :sticky="column.sticky"
                                 :cell-class="column['cell-class']">
                     <div v-if="column.meta && column.meta.type === 'latexImage'" class="field-type-latex-image">
@@ -46,6 +47,7 @@
 <script lang="ts">
 export default {
     props: {
+        id: String,
         data   : {type: Array, required: true},
         columns: {type: Array, required: true},
     },
@@ -64,6 +66,10 @@ export default {
 .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
     &::before {
         margin: auto 0;
+
+        @media (max-width: 768px) {
+            text-align: right;
+        }
     }
 
     &.right-aligned div {
@@ -76,19 +82,30 @@ export default {
 .table td.has-text-centered {
     vertical-align: middle;
     text-align: center;
+    @media (max-width: 768px) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.table td.right-aligned {
+    text-align: right;
+    vertical-align: middle;
 }
 
 .bold {
     font-weight: bold;
 }
 
-.right-aligned {
-    text-align: right;
-}
-
 .column-toggles {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3em;
+
+    & > .control {
+        margin-right: 0.5em;
+    }
 }
 
 .field-type-latex-image {

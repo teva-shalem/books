@@ -5,7 +5,7 @@ permalink: /
 
 <div class="books-list">
 
-<h1>טבעדינמיקה</h1>
+<h1 style="font-size: 6vw;">טבעדינמיקה</h1>
 
 [דרך הפעימה](/derech-hapeima)
 <br/>

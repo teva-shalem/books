@@ -17,7 +17,7 @@ module.exports = {
         '@vuepress/back-to-top',
         'vuepress-plugin-smooth-scroll',
         ['@vuepress/medium-zoom', {
-            selector: 'img.img',
+            selector: 'img.img:not(.disable-zoom)',
             // See: https://github.com/francoischalifour/medium-zoom#options
             options: {
                 margin: 16,

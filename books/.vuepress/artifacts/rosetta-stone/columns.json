@@ -1,7 +1,7 @@
 {
   "columns": [
     {"title": "איכות", "field": "quality", "visible": true, "sticky": true, "cell-class": "bold"},
-    {"title": "ספירה", "field": "sphere", "visible": true, "centered": true},
+    {"title": "ספירה", "field": "sphere", "visible": true, "centered": true, "meta": {"type": "latex"}},
     {"title": "אות", "field": "hebrew-letter", "visible": true, "centered": true},
     {"title": "ערך מספרי", "field": "numerical-value", "visible": true, "centered": true, "meta": {"type": "latex"}},
     {"title": "משוואה מתמטית", "field": "mathematical-equation", "visible": true, "centered": true, "meta": {"type": "latex"}},

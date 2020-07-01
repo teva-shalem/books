@@ -25,6 +25,19 @@
         <p style="direction:ltr;">
             Columns are vertical and they form a horizontal axis - or reality. Rows are horizontal and they form a vertical axis - or truth. Multiplying truth with reality produces a field. Reality is time, truth is heart, field is a space is the world. A subject is the Composition and an object is the System of Life. Composition moving in the center of the System produces the dynamics between the values of the fields - or qualities of life.
         </p>
-        <br/>
+
+        <a class="go-down-arrow" href="#table-of-qualities"><Img :path="'icon-down-arrow.png'" no-zoom /></a>
+
     </section>
 </template>
+<style lang="scss">
+.go-down-arrow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+
+    & > img {
+        max-width: 20%;
+    }
+}
+</style>

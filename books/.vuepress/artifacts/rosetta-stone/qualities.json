@@ -2,7 +2,7 @@
   "qualities": [
     {
       "quality"              : "פעימה",
-      "sphere"               : 12,
+      "sphere"               : "12",
       "hebrew-letter"        : "x",
       "numerical-value"      : "-1",
       "mathematical-equation": "\\infty = \\frac{-1}{1}",
@@ -17,7 +17,7 @@
     },
     {
       "quality"              : "חיים",
-      "sphere"               : 1,
+      "sphere"               : "1",
       "hebrew-letter"        : "ב",
       "numerical-value"      : "3",
       "mathematical-equation": "3 = z_1 + (x_2 \\times y_2)",
@@ -32,7 +32,7 @@
     },
     {
       "quality"              : "אוויר",
-      "sphere"               : 2,
+      "sphere"               : "2",
       "hebrew-letter"        : "א",
       "numerical-value"      : "2",
       "mathematical-equation": "2 = z_1 + (x - y) + z_2",
@@ -47,7 +47,7 @@
     },
     {
       "quality"              : "מים",
-      "sphere"               : 3,
+      "sphere"               : "3",
       "hebrew-letter"        : "מ",
       "numerical-value"      : "0",
       "mathematical-equation": "0 = (x_1 - x_2) + \\\\(y_1 - y_2) + (z_1 - z_2)",
@@ -62,7 +62,7 @@
     },
     {
       "quality"              : "אש",
-      "sphere"               : 4,
+      "sphere"               : "4",
       "hebrew-letter"        : "ש",
       "numerical-value"      : "1",
       "mathematical-equation": "1 = M^N",
@@ -77,7 +77,7 @@
     },
     {
       "quality"              : "כתר",
-      "sphere"               : 5,
+      "sphere"               : "5",
       "hebrew-letter"        : null,
       "numerical-value"      : "1",
       "mathematical-equation": "י = ה - ו",
@@ -92,7 +92,7 @@
     },
     {
       "quality"              : "מלכות",
-      "sphere"               : 6,
+      "sphere"               : "6",
       "hebrew-letter"        : null,
       "numerical-value"      : "1 \\impliedby 10",
       "mathematical-equation": "י + ו = ה",
@@ -107,7 +107,7 @@
     },
     {
       "quality"              : "חכמה",
-      "sphere"               : 7,
+      "sphere"               : "7",
       "hebrew-letter"        : null,
       "numerical-value"      : "2",
       "mathematical-equation": "ה = ו + י",
@@ -122,7 +122,7 @@
     },
     {
       "quality"              : "הוד",
-      "sphere"               : 8,
+      "sphere"               : "8",
       "hebrew-letter"        : null,
       "numerical-value"      : "8",
       "mathematical-equation": "ה = י + ו",
@@ -137,7 +137,7 @@
     },
     {
       "quality"              : "נצח",
-      "sphere"               : 9,
+      "sphere"               : "9",
       "hebrew-letter"        : null,
       "numerical-value"      : "7",
       "mathematical-equation": "ו + י = ה",
@@ -152,7 +152,7 @@
     },
     {
       "quality"              : "בינה",
-      "sphere"               : 10,
+      "sphere"               : "10",
       "hebrew-letter"        : null,
       "numerical-value"      : "3",
       "mathematical-equation": "ו = ה - י",
@@ -167,7 +167,7 @@
     },
     {
       "quality"              : "דעת",
-      "sphere"               : 0,
+      "sphere"               : "0",
       "hebrew-letter"        : "𓏲",
       "numerical-value"      : "0",
       "mathematical-equation": "N = ((6+i)\\phi)^{n}",
@@ -182,7 +182,7 @@
     },
     {
       "quality"              : "אהבה",
-      "sphere"               : 11,
+      "sphere"               : "11",
       "hebrew-letter"        : "𐤀",
       "numerical-value"      : "4 \\impliedby 13",
       "mathematical-equation": "M = (12\\Phi)^{n}",
@@ -467,7 +467,7 @@
     },
     {
       "quality"              : "נצחיות",
-      "sphere"               : -1,
+      "sphere"               : "-1",
       "hebrew-letter"        : "+",
       "numerical-value"      : "12",
       "mathematical-equation": "\\bigoplus = \\infty - 0",

@@ -1,5 +1,5 @@
 <template>
-<img class="img" :src="path ? $withBase('/images/' + path) : url ? url : ''">
+<img :class="noZoom ? '' : 'img'" :src="path ? $withBase('/images/' + path) : url ? url : ''">
 </template>
 
 <script lang="ts">
@@ -7,6 +7,7 @@ export default {
   props: {
     path: {type: String},
     url: {type: String},
+      noZoom: {type: Boolean}
   },
 }
 </script>
