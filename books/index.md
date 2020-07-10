@@ -17,6 +17,9 @@ permalink: /
 <br/>
 
 [ספר איכויות](/rosetta-stone)
+<br/>
+
+[מצגת](/slideshow)
 
 </div>
 
