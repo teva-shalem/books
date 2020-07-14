@@ -7,7 +7,7 @@ export default {
   props: {
     path: {type: String},
     url: {type: String},
-      noZoom: {type: Boolean}
+    noZoom: {type: Boolean}
   },
 }
 </script>

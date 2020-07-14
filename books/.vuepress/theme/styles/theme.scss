@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
 
-$table-sticky-header-height: 100vh;
+$blue:    #1C61C6;
+$indigo:  #8338EA;
+$pink:    #FF006C;
+$orange:  #FB5507;
+$yellow:  #FFBF0B;
+$cyan:    #38ADB6;
 
+$table-sticky-header-height: 100vh;
+$navbar-background-color: $cyan;
 @import './3rd-party';
 @import './base';
 @import './elements';

@@ -53,6 +53,7 @@ export default {
     },
 }
 </script>
+
 <style lang="scss">
 .b-table .table td.is-sticky,
 .b-table .table th.is-sticky {

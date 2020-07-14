@@ -1,5 +1,7 @@
 <template>
   <div class="main-container">
+    <Navbar></Navbar>
+
     <Content />
 
     <ScrollToTop />

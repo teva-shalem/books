@@ -2,8 +2,7 @@
 <v-popover
   placement="top-end"
   trigger='click'
-  :content="this.$slots.default"
->
+  :content="this.$slots.default">
   <sup class="tooltip tooltip-target">*</sup>
 
   <template slot="popover"><slot></slot></template>
@@ -81,7 +80,7 @@ export default {
       margin-bottom: 0;
     }
   }
-  
+
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
@@ -94,4 +93,3 @@ export default {
     transition: opacity .15s;
   }
 </style>
-Î
