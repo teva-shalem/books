@@ -1,7 +1,5 @@
 <template>
-    <div class="reading-layout">
-        <Layout><Content/></Layout>
-    </div>
+    <Layout class-name="reading-layout"><Content/></Layout>
 </template>
 <style lang="scss">
 

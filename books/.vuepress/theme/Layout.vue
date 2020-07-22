@@ -1,12 +1,21 @@
 <template>
-  <div class="main-container">
+  <section>
     <Navbar></Navbar>
 
-    <Content />
-
-    <ScrollToTop />
-  </div>
+    <div class="main-container" :class="className">
+      <Content/>
+      <ScrollToTop/>
+    </div>
+  </section>
 </template>
+
+<script lang="ts">
+export default {
+  props: {
+    className: String,
+  },
+}
+</script>
 
 <style lang="scss">
 @import 'styles/theme';
