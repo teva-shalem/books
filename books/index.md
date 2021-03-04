@@ -13,9 +13,6 @@ permalink: /
 [ספר יצירה](/sefer-yetzira)
 <br/>
 
-[ספר יצירה באנגלית](/composition-book)
-<br/>
-
 [משוואות הפעימה](/mishvaot-hapeima)
 <br/>
 

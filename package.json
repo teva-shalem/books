@@ -15,7 +15,9 @@
     "katex": "^0.11.1",
     "mathjax": "^3.0.5",
     "v-tooltip": "^2.0.3",
+    "vue": "^2.6.11",
     "vue-katex": "^0.4.0",
+    "vue-server-renderer": "^2.6.11",
     "vuepress-theme-derech-hapeima": "file:books/.vuepress/theme"
   },
   "devDependencies": {
