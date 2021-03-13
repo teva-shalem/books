@@ -10,6 +10,12 @@ permalink: /
 [דרך הפעימה](/derech-hapeima)
 <br/>
 
+[סיפור היחיד](/sipur-hayahhid)
+<br/>
+
+[סוד העיבור](/sod-haiibur)
+<br/>
+
 [ספר יצירה](/sefer-yetzira)
 <br/>
 

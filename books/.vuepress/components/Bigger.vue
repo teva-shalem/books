@@ -2,7 +2,7 @@
 <em><slot></slot></em>
 </template>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 em
   font-size 1.2em
   font-style normal

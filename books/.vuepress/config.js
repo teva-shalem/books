@@ -9,6 +9,7 @@ module.exports = {
     ],
     theme: 'derech-hapeima',
     dest: './dist',
+    port: 8082,
     evergreen: true,
     markdown: {
         extractHeaders: ['h1', 'h2', 'h3', 'h4'],

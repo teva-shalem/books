@@ -12,7 +12,7 @@ layout: ReadingLayout
   <h3>דוד ישראל כהן - יוצר ומורה פעימה</h3>
 </div>
 
-<Img :path="'cover.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
+<Img :path="'cover-derech-hapeima.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
 
 <Quote>
 <p>'והרוח הייתה לאחד עם הטבע, וההכרה לאחד עם אלוהים'</p>
