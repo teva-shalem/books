@@ -1,3 +1,11 @@
+.main-container {
+  direction:rtl;
+  
+  &[data-font="Shofar"] {
+    font-family: 'Shofar';
+  }
+}
+
 .regular-layout {
   margin: 0 1em;
 }

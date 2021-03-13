@@ -5,7 +5,7 @@ permalink: /
 
 <div class="books-list">
 
-<h1 style="font-size: 6vw;">טבעדינמיקה</h1>
+<h1 class="book-title">טבעדינמיקה</h1>
 
 [דרך הפעימה](/derech-hapeima)
 <br/>
@@ -30,6 +30,12 @@ permalink: /
 </div>
 
 <style lang="scss">
+.book-title {
+  font-family:'Shofar';
+  font-size: 6vw;
+  font-weight: normal;
+}
+
 .books-list {
   font-size: xxx-large;
   text-align: center;

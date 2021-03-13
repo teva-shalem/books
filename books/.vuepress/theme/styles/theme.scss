@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
 
+@font-face {
+    font-family: 'Shofar';
+    src: url('./fonts/ShofarRegular.ttf');
+} 
+
+@font-face {
+    font-family: 'Shofar';
+    src: url('./fonts/ShofarRegularOblique.ttf');
+    font-style: italic;
+}
+
 $blue:    #1C61C6;
 $indigo:  #8338EA;
 $pink:    #FF006C;
@@ -9,6 +20,7 @@ $cyan:    #38ADB6;
 
 $table-sticky-header-height: 100vh;
 $navbar-background-color: $cyan;
+
 @import './3rd-party';
 @import './base';
 @import './elements';
