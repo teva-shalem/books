@@ -31,11 +31,6 @@ permalink: /
 
 <style lang="scss">
 .books-list {
-  height: calc(100vh - 2em);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: xxx-large;
   text-align: center;
 
