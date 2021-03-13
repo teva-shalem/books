@@ -2,6 +2,7 @@
 title: סוד העיבור
 permalink: /sod-haiibur
 layout: ReadingLayout
+customFont: Courier New
 ---
 
 <div style="text-align: center">
@@ -446,7 +447,6 @@ layout: ReadingLayout
  
 
 ```
----
 # שער היצירה 
 
 ```

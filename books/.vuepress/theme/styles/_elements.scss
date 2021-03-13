@@ -1,8 +1,15 @@
 .main-container {
   direction:rtl;
-  
+
   &[data-font="Shofar"] {
     font-family: 'Shofar';
+  }
+
+  &[data-font="Courier New"] {
+    font-family: 'Courier New';
+    code, pre {
+      font-family: 'Courier New';
+    }
   }
 }
 
