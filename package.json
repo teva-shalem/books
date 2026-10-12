@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vuepress dev books --no-clear-screen",
     "build": "vuepress build books",
+    "serve": "npx serve dist",
     "deploy:stage": "git push -f stage master",
     "deploy:world": "git push -f world master"
   },
