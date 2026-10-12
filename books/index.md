@@ -45,6 +45,10 @@ layout: ReadingLayout
 <br/>
 
 [מצגת](/slideshow)
+<br/>
+<br/>
+
+[מודל רפואת הנפש](/soul-healing-model.pdf)
 
   </div>
 </div>
