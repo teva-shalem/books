@@ -10,8 +10,8 @@
             </div>
         </b-field>
 
-        <b-table
-                :id="id || ''"
+        <div :id="id || ''">
+            <b-table
                 :data="data"
                 :bordered="true"
                 :striped="true"
@@ -19,35 +19,36 @@
                 :hoverable="true"
                 :focusable="true"
                 :sticky-header="true">
-            <b-table-column v-for="(column, index) in columns"
-                            :key="index"
-                            :label="column.title + ':'"
-                            :visible="column.visible"
-                            :numeric="column.numeric"
-                            :centered="column.centered"
-                            :sticky="column.sticky"
-                            :cell-class="column['cell-class']">
-                <template v-slot="props">
-                    <div v-if="column.meta && column.meta.type === 'latexImage'" class="field-type-latex-image">
-                        <Latex :src="props.row[column.field][0]"/>
-                        <Img :path="props.row[column.field][1]"/>
-                    </div>
-                    <div v-else-if="column.meta && column.meta.type === 'latex'">
-                        <Latex :src="props.row[column.field]"/>
-                    </div>
-                    <div v-else>
-                        {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
-                    </div>
-                </template>
-            </b-table-column>
-        </b-table>
+                <b-table-column v-for="(column, index) in columns"
+                                :key="index"
+                                :label="column.title + ':'"
+                                :visible="column.visible"
+                                :numeric="column.numeric"
+                                :centered="column.centered"
+                                :sticky="column.sticky"
+                                :cell-class="column['cell-class']">
+                    <template v-slot="props">
+                        <div v-if="column.meta && column.meta.type === 'latexImage'" class="field-type-latex-image">
+                            <Latex :src="props.row[column.field][0]"/>
+                            <Img :path="props.row[column.field][1]"/>
+                        </div>
+                        <div v-else-if="column.meta && column.meta.type === 'latex'">
+                            <Latex :src="props.row[column.field]"/>
+                        </div>
+                        <div v-else>
+                            {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
+                        </div>
+                    </template>
+                </b-table-column>
+            </b-table>
+        </div>
     </section>
 </template>
 
 <script lang="ts">
 export default {
     props: {
-        id: String,
+        id     : String,
         data   : {type: Array, required: true},
         columns: {type: Array, required: true},
     },

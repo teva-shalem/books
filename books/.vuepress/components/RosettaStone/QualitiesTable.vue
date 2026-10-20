@@ -1,7 +1,5 @@
 <template>
-    <div id="table-of-qualities">
-        <DataTable :data="qualities" :columns="columns" class="regular-layout" />
-    </div>
+    <DataTable :data="qualities" :columns="columns" :id="'table-of-qualities'" class="regular-layout" />
 </template>
 
 <script lang="ts">
