@@ -3,21 +3,8 @@ title: משוואות הפעימה
 description: ספר זה הוא תמצית של אמת ומציאות. האמת והמציאות בעיניי המתבונן
 permalink: /mishvaot-hapeima
 layout: ReadingLayout
+pageClass: mishvaot-hapeima
 ---
-
-<style>
-.page-break {
-    page-break-after: right;
-}
-
-.main-heading h1 {
-    width: 75%;
-}
-
-.main-heading h2 {
-    width: 75%;
-}
-</style>
 
 <div class="main-heading">
 

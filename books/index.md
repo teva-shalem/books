@@ -2,6 +2,7 @@
 title: ספרים
 permalink: /
 layout: ReadingLayout
+pageClass: index
 ---
 
 <div class="the-book">
@@ -48,36 +49,3 @@ layout: ReadingLayout
 
   </div>
 </div>
-
-
-<style lang="scss">
-.the-book {
-}
-
-.book-about {
-  font-family:'Shofar';
-  font-weight: normal;
-}
-
-.book-title,
-.book-subtitle,
-.books-list {
-  text-align: center;
-}
-
-.book-title {
-  font-size: 6vw;
-}
-
-.book-subtitle {
-  font-size: 5vw;
-}
-
-.books-list {
-  font-size: xxx-large;
-
-  & > p {
-    margin: 0;
-  }
-}
-</style>

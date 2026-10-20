@@ -3,6 +3,7 @@ title: סוד העיבור
 permalink: /sod-haiibur
 layout: ReadingLayout
 customFont: Courier New
+pageClass: sod-haiibur
 ---
 
 <div style="text-align: center">

@@ -2,7 +2,7 @@
   <section>
     <Navbar></Navbar>
 
-    <div class="main-container" :class="className" :data-font="font">
+    <div class="main-container" :class="[className, $page.frontmatter.pageClass]" :data-font="font">
       <Content/>
       <ScrollToTop/>
     </div>

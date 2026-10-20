@@ -1,0 +1,50 @@
+.index {
+  .the-book {
+  }
+  
+  .book-about {
+    font-family:'Shofar';
+    font-weight: normal;
+  }
+  
+  .book-title,
+  .book-subtitle,
+  .books-list {
+    text-align: center;
+  }
+  
+  .book-title {
+    font-size: 6vw;
+  }
+  
+  .book-subtitle {
+    font-size: 5vw;
+  }
+  
+  .books-list {
+    font-size: xxx-large;
+  
+    & > p {
+      margin: 0;
+    }
+  }
+}
+
+.mishvaot-hapeima {
+  .page-break {
+      page-break-after: right;
+  }
+  
+  .main-heading h1 {
+      width: 75%;
+  }
+  
+  .main-heading h2 {
+      width: 75%;
+  }
+}
+
+
+.sod-haiibur {
+
+}
