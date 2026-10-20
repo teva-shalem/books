@@ -46,5 +46,12 @@
 
 
 .sod-haiibur {
+  --longest-line: 48;
+  --font-scaling-factor: 1.45;
 
+  @media (max-width: 500px) {
+    pre {
+      font-size: calc((100vw / var(--longest-line)) * var(--font-scaling-factor))
+    }
+  }
 }
