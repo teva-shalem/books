@@ -1,3 +1,5 @@
+@use "sass:string";
+
 .index {
   .the-book {
   }
@@ -53,7 +55,7 @@
 
   @media (max-width: 492px) {
     pre {
-      font-size: unquote("calc((100vw / var(--longest-line)) * var(--font-scaling-factor))");
+      font-size: string.unquote("calc((100vw / var(--longest-line)) * var(--font-scaling-factor))");
     }
   }
 }

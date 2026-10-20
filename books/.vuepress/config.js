@@ -26,7 +26,9 @@ module.exports = {
         }],
 
         ['vuepress-plugin-typescript', {
-            tsLoaderOptions: {},
+            tsLoaderOptions: {
+                transpileOnly: true
+            },
         }],
 
         ['@vuepress/google-analytics', {
@@ -41,4 +43,26 @@ module.exports = {
             },
         }],
     ],
+    chainWebpack: (config) => {
+        ['scss', 'sass'].forEach(rule => {
+            if (config.module.rules.has(rule)) {
+                config.module
+                    .rule(rule)
+                    .oneOfs.values()
+                    .forEach(oneOf => {
+                        oneOf
+                            .use('sass-loader')
+                            .tap(options => {
+                                options = options || {};
+                                options.sassOptions = {
+                                    ...options.sassOptions,
+                                    quietDeps: true,
+                                    silenceDeprecations: ['import', 'legacy-js-api']
+                                };
+                                return options;
+                            });
+                });
+            }
+        });
+    }
 }

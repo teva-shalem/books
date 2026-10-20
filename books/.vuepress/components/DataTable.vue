@@ -19,15 +19,15 @@
                 :hoverable="true"
                 :focusable="true"
                 :sticky-header="true">
-            <template slot-scope="props">
-                <b-table-column v-for="(column, index) in columns"
-                                :key="index"
-                                :label="column.title + ':'"
-                                :visible="column.visible"
-                                :numeric="column.numeric"
-                                :centered="column.centered"
-                                :sticky="column.sticky"
-                                :cell-class="column['cell-class']">
+            <b-table-column v-for="(column, index) in columns"
+                            :key="index"
+                            :label="column.title + ':'"
+                            :visible="column.visible"
+                            :numeric="column.numeric"
+                            :centered="column.centered"
+                            :sticky="column.sticky"
+                            :cell-class="column['cell-class']">
+                <template v-slot="props">
                     <div v-if="column.meta && column.meta.type === 'latexImage'" class="field-type-latex-image">
                         <Latex :src="props.row[column.field][0]"/>
                         <Img :path="props.row[column.field][1]"/>
@@ -38,8 +38,8 @@
                     <div v-else>
                         {{ props.row[column.field] === null ? '-' : props.row[column.field] }}
                     </div>
-                </b-table-column>
-            </template>
+                </template>
+            </b-table-column>
         </b-table>
     </section>
 </template>
@@ -64,6 +64,12 @@ export default {
     justify-content: center;
 }
 
+.b-table > .table-wrapper:not(:last-child) {
+    @media (min-width: 768px) {
+        margin-bottom: 0;
+    }
+}
+
 .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
     &::before {
         margin: auto 0;
@@ -83,6 +89,7 @@ export default {
 .table td.has-text-centered {
     vertical-align: middle;
     text-align: center;
+
     @media (max-width: 768px) {
         display: flex;
         align-items: center;
@@ -99,12 +106,15 @@ export default {
 }
 
 .column-toggles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     margin-bottom: 3em;
 
-    & > .control {
+    & .is-grouped-multiline {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    & .control {
         margin-right: 0.5em;
     }
 }
