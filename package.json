@@ -32,7 +32,6 @@
     "ts-loader": "^8.2.0",
     "typescript": "^4.9.5",
     "vuepress": "^1.9.10",
-    "vuepress-plugin-smooth-scroll": "^0.0.10",
     "vuepress-plugin-table-of-contents": "^1.1.7",
     "vuepress-plugin-typescript": "^0.3.1",
     "vuepress-types": "^0.9.4"
