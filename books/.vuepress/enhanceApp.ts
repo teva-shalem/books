@@ -2,7 +2,8 @@ import VTooltip from 'v-tooltip'
 import Buefy from 'buefy'
 import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css'
-import { setupScrollBehavior } from './theme/util/scrollHandler';
+
+import { setupScrollBehavior } from './theme/utils/scrollHandler';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
