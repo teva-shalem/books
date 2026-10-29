@@ -20,7 +20,7 @@ pageClass: mishvaot-hapeima
 
 <TableOfContents :includeLevel="[2, 3]" />
 
-<Img :path="'spacer.png'"></Img>
+<Img :path="'spacer.png'" noZoom></Img>
 
 <div class="page-break"></div>
 
@@ -248,7 +248,7 @@ y = עץ החיים, מים, ספירה ארבע
 
 ואלו ארבעת היסודות. מים אש אוויר ואדמה.
 
-<Img :path="'spacer.png'"></Img>
+<Img :path="'spacer.png'" noZoom></Img>
 
 <div class="page-break"></div>
 
@@ -274,7 +274,7 @@ z2 הוא כל פעם ענף אחר מתוך השנים עשר
 
 y ו x מתיישרים בהתאמה 
 
-<Img :path="'spacer.png'"></Img>
+<Img :path="'spacer.png'" noZoom></Img>
 
 <div class="page-break"></div>
 
