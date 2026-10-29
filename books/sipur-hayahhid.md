@@ -42,13 +42,9 @@ customFont: Shofar
 
 תל אביב. דצמבר 2020.
 
-<ChapterOpening>
-
 # חלק א׳ - חכמה
 
 <Quote>׳לך בעקבות הטבע, והכל כבר יקרה לבד׳</Quote>
-
-</ChapterOpening>
 
 ## פרק 2 - הילדות 
 
@@ -326,13 +322,9 @@ customFont: Shofar
 
 תם חלק א׳
 
-<ChapterOpening>
-
 # חלק ב׳ - מציאות
 
 <Quote>׳הזורעים בדמעה ברינה יקצורו׳</Quote>
-
-</ChapterOpening>
 
 ## פרק 10 - מחאה
 
@@ -544,13 +536,9 @@ customFont: Shofar
 
 תם חלק ב׳.
 
-<ChapterOpening>
-
 # חלק ג׳ - הגשמה
 
 <Quote>׳עבדו את החיים, הקימו משפחה, זרעו את האדמה ותירשו את הארץ׳</Quote>
-
-</ChapterOpening>
 
 ## פרק 18 - ממלכת שלם
 

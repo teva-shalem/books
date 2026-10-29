@@ -180,16 +180,12 @@ layout: ReadingLayout
 
 <p><Bigger>שקט.</Bigger></p>
 
-<ChapterOpening>
-
 # פרק א׳ - עמק. אהבת החוכמה
 
 <Quote>
 <p>'לך בעקבות הטבע, והכל כבר יקרה'</p>
 <template #quoter>ספר הדאו</template>
 </Quote>
-
-</ChapterOpening>
 
 ## 
 
@@ -642,16 +638,12 @@ layout: ReadingLayout
 
 <Img :path="'drainage-divide.jpg'"></Img>
 
-<ChapterOpening>
-
 # פרק ב׳ - הר. חזרה למציאות
 
 <Quote>
 <p>'המשוגע טובע במים
 שהקדוש שותה מהם'</p>
 </Quote>
-
-</ChapterOpening>
 
 ## 
 
@@ -824,8 +816,6 @@ layout: ReadingLayout
 
 <Img :path="'forcefulness.jpg'"></Img>
 
-<ChapterOpening>
-
 # פרק ג׳ - דרך. סינתזה
 
 <p><Strong>בניין הדמות.
@@ -835,8 +825,6 @@ layout: ReadingLayout
 להכיל מבלי להישרף.
 לעוף מבלי למות.
 לחיות.</Strong></p>
-
-</ChapterOpening>
 
 ## יסודות
 
@@ -1312,16 +1300,12 @@ layout: ReadingLayout
 
 <Img :path="'nostalgia.jpg'"></Img>
 
-<ChapterOpening>
-
 # פרק ד׳ - פעימה. סינרגיה
 
 <p><Strong>מערכת יחסים מופלאה,
 יחידה וקדושה,
 של הקליפות עם הלב.
 של האור ההולך וחוזר.</Strong></p>
-
-</ChapterOpening>
 
 <Poem>
 
