@@ -6,11 +6,11 @@ description: ספר יצירה הקדום. מיוחס לאברהם אבינו. �
 layout: EnglishReadingLayout
 ---
 
-<!--<Book :bookId="'s'"></Book>-->
-
-<h1>תרגום המשכיל לספר יצירה</h1>
-<h2>מיוחס למלכיצדק</h2>
-<h4>הוריד מהרשת אור לנדאו</h4>
+<div style="direction:rtl;">
+  <h1>תרגום המשכיל לספר יצירה</h1>
+  <h2>מיוחס למלכיצדק</h2>
+  <h4>הוריד מהרשת אור לנדאו</h4>
+</div>
 
 <TableOfContents :includeLevel="[2, 3]" />
 
