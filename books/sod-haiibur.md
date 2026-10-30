@@ -15,7 +15,7 @@ pageClass: sod-haiibur
 
 <TableOfContents :includeLevel="[1, 2]" />
 
-<Quote>... יהיה כעץ שתול על פלגי מים אשר פריו ייתן בעתו ועלהו לא ייבול</Quote>
+<Quote><p>... יהיה כעץ שתול על פלגי מים אשר פריו ייתן בעתו ועלהו לא ייבול</p></Quote>
 
 # א׳
 

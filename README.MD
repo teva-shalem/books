@@ -8,7 +8,7 @@
 * git remote add world https://github.com/teva-shalem/books-world.git
 
 # Content
-* <Quote>ציטוט כפסקה</Quote>
+* <Quote><p>ציטוט כפסקה</p></Quote>
 * <em>ציטוט בשורה</em>
 * # heading
 * ## subheading
