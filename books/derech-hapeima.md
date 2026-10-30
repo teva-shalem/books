@@ -12,7 +12,7 @@ layout: ReadingLayout
   <h3>דוד ישראל כהן - יוצר ומורה פעימה</h3>
 </div>
 
-<Img :path="'cover-derech-hapeima.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
+<Img :path="'derech-hapeima/cover.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
 
 <Quote>
 <p>'והרוח הייתה לאחד עם הטבע, וההכרה לאחד עם אלוהים'</p>
@@ -67,7 +67,7 @@ layout: ReadingLayout
 דוד ישראל כהן.
 תל אביב, ינואר 2018.
 
-<Img :path="'david-symbol.jpg'"></Img>
+<Img :path="'derech-hapeima/david-symbol.jpg'"></Img>
 
 <aside><i>האיורים בספר מאת המחבר</i></aside>
 
@@ -129,8 +129,8 @@ layout: ReadingLayout
 של הדיפה,
 של טיפוס לפסגה.
 
-<Img :path="'merkavah-arrows.jpg'"></Img>
-<Img :path="'merkavah-body.jpg'"></Img>
+<Img :path="'derech-hapeima/merkavah-arrows.jpg'"></Img>
+<Img :path="'derech-hapeima/merkavah-body.jpg'"></Img>
 
 שחרור עולם במקום תפיסת עולם,
 והמקום בו שניהם אחד –
@@ -145,7 +145,7 @@ layout: ReadingLayout
 לכן הספר הזה מוקדש ליצירה הטובה מכולן – <Bigger>לחיים.
 באהבה.</Bigger>
 
-<Img :path="'kissing.jpg'"></Img>
+<Img :path="'derech-hapeima/kissing.jpg'"></Img>
 
 ### על מילה וספר
 
@@ -210,7 +210,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'darwish.jpg'"></Img>
+<Img :path="'derech-hapeima/darwish.jpg'"></Img>
 
 <Poem>
 
@@ -252,7 +252,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'movement.jpg'"></Img>
+<Img :path="'derech-hapeima/movement.jpg'"></Img>
 
 <Poem>
 
@@ -445,7 +445,7 @@ layout: ReadingLayout
 <template #quoter>צ'נג מאן-צ'ינג</template>
 </Quote>
 
-<Img :path="'paradoxality.jpg'"></Img>
+<Img :path="'derech-hapeima/paradoxality.jpg'"></Img>
 
 <Poem>
 
@@ -636,7 +636,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'drainage-divide.jpg'"></Img>
+<Img :path="'derech-hapeima/drainage-divide.jpg'"></Img>
 
 # פרק ב׳ - הר. חזרה למציאות
 
@@ -647,7 +647,7 @@ layout: ReadingLayout
 
 ## 
 
-<Img :path="'mountain.jpg'"></Img>
+<Img :path="'derech-hapeima/mountain.jpg'"></Img>
 
 <Quote>
 <p>'רעם חוזר ומופיע –
@@ -674,7 +674,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'classification.jpg'"></Img>
+<Img :path="'derech-hapeima/classification.jpg'"></Img>
 
 <Poem>
 
@@ -708,7 +708,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'sanity.jpg'"></Img>
+<Img :path="'derech-hapeima/sanity.jpg'"></Img>
 
 <Poem>
 
@@ -814,7 +814,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'forcefulness.jpg'"></Img>
+<Img :path="'derech-hapeima/forcefulness.jpg'"></Img>
 
 # פרק ג׳ - דרך. סינתזה
 
@@ -947,7 +947,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'west.jpg'"></Img>
+<Img :path="'derech-hapeima/west.jpg'"></Img>
 
 <Poem>
 
@@ -1075,7 +1075,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'disentanglement.jpg'"></Img>
+<Img :path="'derech-hapeima/disentanglement.jpg'"></Img>
 
 ## זוויות
 
@@ -1164,7 +1164,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'caressing.jpg'"></Img>
+<Img :path="'derech-hapeima/caressing.jpg'"></Img>
 
 <Poem>
 
@@ -1196,7 +1196,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'filipe.jpg'"></Img>
+<Img :path="'derech-hapeima/filipe.jpg'"></Img>
 
 ## נווה מדבר
 
@@ -1298,7 +1298,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'nostalgia.jpg'"></Img>
+<Img :path="'derech-hapeima/nostalgia.jpg'"></Img>
 
 # פרק ד׳ - פעימה. סינרגיה
 
@@ -1456,7 +1456,7 @@ layout: ReadingLayout
 
 ### מיפוי מרכבה אישי, מטאפיזיקה
 
-<Img :path="'merkavah-personal.jpg'"></Img>
+<Img :path="'derech-hapeima/merkavah-personal.jpg'"></Img>
 
 <Poem>
 
@@ -1674,7 +1674,7 @@ layout: ReadingLayout
 
 <p></p>
 
-<Img :path="'david.jpg'"></Img>
+<Img :path="'derech-hapeima/david.jpg'"></Img>
 
 ### פעימה
 

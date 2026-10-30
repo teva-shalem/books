@@ -7,7 +7,7 @@ pageClass: mishvaot-hapeima
 ---
 
 <div class="main-heading">
-  <Img style="width:150px;float:left;" :path="'merkavah-logo.jpg'"></Img>
+  <Img :path="'mishvaot-hapeima/merkavah-logo.jpg'" style="width:150px;float:left;" ></Img>
 
   <h1>מעשה המרכבה</h1>
   <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>
@@ -44,13 +44,13 @@ pageClass: mishvaot-hapeima
 
 ## האחד - פרי הדעת - אש - תזה - בורא השראה - II
 
-<Img :path="'equation-one.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-one.jpg'"></Img>
 
 בגאומטריה המקודשת: פרח החיים
 
 ### הקבוע N
 
-<Img :path="'constant-n.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/constant-n.jpg'"></Img>
 
 ***N*** זה כל המרכבות יחד
 ***n*** זה מרכבה אחת
@@ -74,13 +74,13 @@ pageClass: mishvaot-hapeima
 
 ## שרטוט 1: מיפוי המרכבה עפ״י ספר היצירה
 
-<Img :path="'merkavah-mapping.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-mapping.jpg'"></Img>
 
 <div class="page-break"></div>
 
 ## טבלה 1: פירוט ערכי כל האותיות עפ״י ספר היצירה
 
-<Img :path="'merkavah-letter-values.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-letter-values.jpg'"></Img>
 
 כל אוסף הנתונים המרכיבים מרכבה ברגע נתון הוא הצורה של המרכבה. הצורה נקבעת מתוך הפוטנציאליות עפ״י הערכים של כל אחד מהמימדים. 
 
@@ -88,7 +88,7 @@ pageClass: mishvaot-hapeima
 
 ### הקבוע M
 
-<Img :path="'constant-m.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/constant-m.jpg'"></Img>
 
 ***M*** זה כל המערכות יחד
 ***m*** זה מערכת אחת
@@ -106,14 +106,14 @@ z: הציר האלכסוני ביניהם - עץ המלך - שני צירים מ
 
 z נובע ממכפלה של כל ערכי x וy:
 
-<Img :path="'axis-z.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/axis-z.jpg'"></Img>
 
 ([ראו טבלה 2](#טבלה-2-ערכי-צירי-המערכת))
 
 <div class="page-break"></div>
 
 ## טבלה 2: ערכי צירי המערכת
-<Img :path="'system-axes-values.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/system-axes-values.jpg'"></Img>
 
 כל נקודה - מרכבה - אחת היא כל הסיפור כולו.
 
@@ -145,7 +145,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 <Quote>״בית ואם בישראל״</Quote>
 
-<Img :path="'variable-m.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/variable-m.jpg'"></Img>
 
 המערכת נובעת ממכפלה של מרכבה במרכבה בזווית של 90 מעלות בין 2 צירי הz2 שלהן. בכל מרכז משותף של 2 מרכבות מתהווה מערכת ([ראו שרטוט 3](#שרטוט-3-מיפוי-המערכת-או-עץ-המלך)).
 
@@ -159,7 +159,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 ## האפס - פרי החיים - מים - אנטיתזה - בורא נעורים - I
 
-<Img :path="'equation-zero.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-zero.jpg'"></Img>
 
 בגאומטריה המקודשת: נקודה
 
@@ -188,7 +188,7 @@ x2: אש לכיוון ההיקף - מתרחב ומתעדן אל האינסוף
 
 ## השתיים - ההתפתחות - אוויר - סינתזה - בורא מרחב - III
 
-<Img :path="'equation-two.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-two.jpg'"></Img>
 
 בגאומטריה המקודשת: עץ המלך
 
@@ -212,7 +212,7 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## האיזון - ההווה - אדמה - סינרגיה - בורא קרקע - IV
 
-<Img :path="'equation-balance.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-balance.jpg'"></Img>
 
 בגאומטריה המקודשת: השדה המאוחד של המערכות
 
@@ -254,13 +254,13 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## שרטוט 2: צירי המרכבה
 
-<Img :path="'merkavah-axes.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-axes.jpg'"></Img>
 
 <div class="page-break"></div>
 
 ## שרטוט 3: מיפוי המערכת (או עץ המלך)
 
-<Img :path="'system-mapping.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/system-mapping.jpg'"></Img>
 
 <div class="page-break"></div>
 
@@ -280,7 +280,7 @@ y ו x מתיישרים בהתאמה
 
 ## הנביעה - ההכרה - תודעה - בריאה - בורא האתר - V
 
-<Img :path="'equation-i.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-i.jpg'"></Img>
 
 מבנה האות: קו ונקודה
 בבינארית: קו ונקודה
@@ -301,7 +301,7 @@ i קיים במרכז כל מרכבה
 
 כל ישות היא מרכבה
 
-<Img :path="'equation-soul.jpg'"></Img>
-<Img :path="'equation-human.jpg'"></Img>
-<Img :path="'equation-way.jpg'"></Img>
-<Img :path="'equation-maaseh-merkavah.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-soul.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-human.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-way.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-maaseh-merkavah.jpg'"></Img>
