@@ -11,6 +11,9 @@
   
 .blockquote + .blockquote
   margin-top -2em
+
+.blockquote:has(+ .blockquote)
+  padding-bottom 1em
   
 .quote
   font-style italic 
