@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 img
   max-width 100%
 </style>
