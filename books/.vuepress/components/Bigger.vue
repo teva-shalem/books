@@ -7,5 +7,5 @@ em
   font-size 1.2em
   font-style normal
   line-height 1em
-  white-space pre
+  white-space pre-line
 </style>
