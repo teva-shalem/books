@@ -3,7 +3,6 @@ import Buefy from 'buefy'
 import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css'
 
-const {zoom} = require('./configAttrs.js')
 import { setupScrollBehavior } from './theme/utils/scrollHandler'
 import { initZoomHistory } from './theme/utils/zoomHandler'
 
@@ -25,7 +24,8 @@ export default ({
   if (isServer) return
   
   setupScrollBehavior(router);
+  
   router.afterEach(() => {
-    initZoomHistory(zoom.selector)
+    initZoomHistory()
   })
 }

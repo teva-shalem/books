@@ -1,3 +1,5 @@
+const {zoom} = require('../../configAttrs.js')
+
 /**
  * Integrates `@vuepress/plugin-medium-zoom` with the browser History API.
  * Pushes a history state when an image is zoomed in, ensuring that pressing the browser's 
@@ -28,7 +30,7 @@ function handlePopState() {
 }
 
 /**
- * Handles manual close events (ESC key or clicking the open image directly).
+ * Handles manual close events (ESC key, clicking, or scrolling).
  * Programmatically pops the history entry so the history stack remains clean.
  */
 function handleManualClose() {
@@ -42,7 +44,7 @@ function handleManualClose() {
 }
 
 /**
- * Attaches event listeners to document level events (ESC key and global window popstate).
+ * Attaches global event listeners and the DOM observer.
  * Designed to only bind once across route transitions.
  */
 function attachGlobalListeners() {
@@ -55,6 +57,14 @@ function attachGlobalListeners() {
         handleManualClose()
       }
     })
+
+    // Single observer to cleanly detect any overlay removal (click, ESC, scroll, etc.)
+    const observer = new MutationObserver(() => {
+      if (isZoomed && !document.querySelector('.medium-zoom-overlay')) {
+        handleManualClose()
+      }
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
 
     popStateListenerAttached = true
   }
@@ -82,15 +92,6 @@ function bindImageListeners(selector) {
           isZoomed = true
           ignoreNextPopState = false
           history.pushState({ mediumZoom: true }, '')
-
-          // Listen for overlay click to detect manual unzooming
-          overlay.addEventListener(
-            'click',
-            () => {
-              setTimeout(handleManualClose, 50)
-            },
-            { once: true }
-          )
         }
       }, 50)
     })
@@ -101,9 +102,8 @@ function bindImageListeners(selector) {
  * Initializes or updates the zoom-to-history binding for the given route context.
  * 
  * @param {string} selector - CSS selector matching target images.
- * @default 'img.img:not(.disable-zoom)'
  */
-export function initZoomHistory(selector = 'img.img:not(.disable-zoom)') {
+export function initZoomHistory(selector = zoom.selector) {
   currentSelector = selector
   attachGlobalListeners()
 
