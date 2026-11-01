@@ -3,7 +3,9 @@ import Buefy from 'buefy'
 import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css'
 
-import { setupScrollBehavior } from './theme/utils/scrollHandler';
+const {zoom} = require('./configAttrs.js')
+import { setupScrollBehavior } from './theme/utils/scrollHandler'
+import { initZoomHistory } from './theme/utils/zoomHandler'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -20,4 +22,7 @@ export default ({
   });
 
   setupScrollBehavior(router);
+  router.afterEach(() => {
+    initZoomHistory(zoom.selector)
+  })
 }
