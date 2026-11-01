@@ -12,6 +12,7 @@ const CONFIG = {
 
 let lastRunHash = null;
 let lastRunTime = 0;
+let isBackNavigation = false;
 
 /**
  * Safely extracts and decodes an element ID from a URL hash.
@@ -86,19 +87,34 @@ export const scrollToHash = (hash) => {
 export const setupScrollBehavior = (router) => {
   if (typeof window === 'undefined') return;
 
-  // 1. Custom scrollBehavior for standard routes, browser back/forward, and hash-less pages
+  // Track browser back/forward navigation explicitly
+  window.addEventListener('popstate', () => {
+    isBackNavigation = true;
+  });
+
   router.options.scrollBehavior = (to, from, savedPosition) => {
+    // If it's a back/forward action and we have saved coordinates, 
+    // bypass the hash entirely and restore the exact previous viewport position.
+    if (isBackNavigation && savedPosition) {
+      isBackNavigation = false; // Reset flag
+      return savedPosition;
+    }
+
     if (savedPosition) {
       return savedPosition;
     }
+
     if (to.hash) {
-      return false; // Defer hash navigation to custom afterEach handler
+      return false; // Defer to hash handler only on fresh clicks
     }
-    return { x: 0, y: 0 }; // Scroll straight to top for routes without a hash
+
+    return { x: 0, y: 0 };
   };
 
-  // 2. Trigger hash navigation after DOM/route updates complete
   router.afterEach((to) => {
+    // Ensure flag resets if user clicked a normal router-link
+    isBackNavigation = false;
+
     if (to.hash) {
       scrollToHash(to.hash);
     } else {
