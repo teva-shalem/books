@@ -1,3 +1,5 @@
+const {zoom} = require('./configAttrs.js')
+
 module.exports = {
     title: 'טבע שלם - ספרים',
     description: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
@@ -16,13 +18,7 @@ module.exports = {
     },
     plugins: [
         '@vuepress/back-to-top',
-        ['@vuepress/medium-zoom', {
-            selector: 'img.img:not(.disable-zoom)',
-            // See: https://github.com/francoischalifour/medium-zoom#options
-            options: {
-                margin: 16,
-            },
-        }],
+        ['@vuepress/medium-zoom', zoom],
 
         ['vuepress-plugin-typescript', {
             tsLoaderOptions: {
