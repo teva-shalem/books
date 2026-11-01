@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{271:function(t,e,n){"use strict";n.r(e);var s=n(9),o=Object(s.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("RosettaStone-Intro"),this._v(" "),t("RosettaStone-QualitiesTable")],1)}),[],!1,null,null,null);e.default=o.exports}}]);
