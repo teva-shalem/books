@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{265:function(n,t,a){"use strict";a.r(t);var e=a(9),s=Object(e.a)({},(function(){var n=this._self._c;return n("Layout",{attrs:{"class-name":"reading-layout"}},[n("Content")],1)}),[],!1,null,null,null);t.default=s.exports}}]);
