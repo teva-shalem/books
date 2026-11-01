@@ -5,5 +5,5 @@
 <style lang="stylus" scoped>
 strong
   font-weight bold
-  white-space pre
+  white-space pre-line
 </style>
