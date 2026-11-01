@@ -12,7 +12,7 @@ const CONFIG = {
 
 let lastRunHash = null;
 let lastRunTime = 0;
-let isBackNavigation = false;
+let isHistoryNavigation = false;
 
 /**
  * Safely extracts and decodes an element ID from a URL hash.
@@ -87,22 +87,25 @@ export const scrollToHash = (hash) => {
 export const setupScrollBehavior = (router) => {
   if (typeof window === 'undefined') return;
 
-  // Track browser back/forward navigation explicitly
+  // Track browser history navigation explicitly
   window.addEventListener('popstate', () => {
-    isBackNavigation = true;
+    isHistoryNavigation = true;
   });
 
   router.options.scrollBehavior = (to, from, savedPosition) => {
-    // If it's a back/forward action and we have saved coordinates, 
-    // bypass the hash entirely and restore the exact previous viewport position.
-    if (isBackNavigation && savedPosition) {
-      isBackNavigation = false; // Reset flag
+    if (savedPosition) {
+      isHistoryNavigation = false;
+
+      // Temporarily ensure instant scroll restoration
+      document.documentElement.style.scrollBehavior = 'auto';
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = '';
+      }, 100);
+
       return savedPosition;
     }
 
-    if (savedPosition) {
-      return savedPosition;
-    }
+    isHistoryNavigation = false;
 
     if (to.hash) {
       return false; // Defer to hash handler only on fresh clicks
@@ -112,8 +115,11 @@ export const setupScrollBehavior = (router) => {
   };
 
   router.afterEach((to) => {
-    // Ensure flag resets if user clicked a normal router-link
-    isBackNavigation = false;
+    // Skip automatic hash scrolling during history navigation
+    if (isHistoryNavigation) {
+      isHistoryNavigation = false;
+      return;
+    }
 
     if (to.hash) {
       scrollToHash(to.hash);
