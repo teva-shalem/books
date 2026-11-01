@@ -12,6 +12,7 @@ export default ({
   options, // the options for the root Vue instance
   router, // the router instance for the app
   siteData, // site metadata
+  isServer,
 }) => {
   Vue.use(VTooltip)
   Vue.use(Buefy)
@@ -21,6 +22,8 @@ export default ({
     }
   });
 
+  if (isServer) return
+  
   setupScrollBehavior(router);
   router.afterEach(() => {
     initZoomHistory(zoom.selector)
