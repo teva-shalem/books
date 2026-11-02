@@ -1,20 +1,27 @@
 <template>
-  <blockquote class="blockquote">
-    <div class="quote"><slot></slot></div>
-    <footer class="quoter"><slot name="quoter"></slot></footer>
-  </blockquote>
+  <figure class="blockquote-container">
+    <blockquote class="blockquote">
+      <div class="quote"><slot></slot></div>
+      <figcaption class="quoter" v-if="$scopedSlots.quoter">
+        <cite><slot name="quoter"></slot></cite>
+      </figcaption>
+    </blockquote>
+  </figure>
 </template>
 
 <style lang="stylus" scoped>
-.blockquote
-  margin: 2em 1em 2em 0
+.blockquote-container
+  margin 2em 1em 2em 0
   
-.blockquote + .blockquote
+.blockquote-container + .blockquote-container
   margin-top -2em
 
-.blockquote:has(+ .blockquote)
-  padding-bottom 1em
-  
+.blockquote-container:has(+ .blockquote-container)
+  padding-bottom 2em
+
+.blockquote
+  margin: 0
+
 .quote
   font-style italic 
 
