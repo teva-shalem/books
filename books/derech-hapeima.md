@@ -14,17 +14,17 @@ layout: ReadingLayout
 
 <Img :path="'derech-hapeima/cover.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
 
-<Quote>
+<QuoteBlock>
 <p>'והרוח הייתה לאחד עם הטבע, וההכרה לאחד עם אלוהים'</p>
-</Quote>
+</QuoteBlock>
 
-<Quote>
+<QuoteBlock>
 <p>'את השקט לא ניתן לתאר במילים'</p>
-</Quote>
+</QuoteBlock>
 
-<Quote>
+<QuoteBlock>
 <p>'הדרך לא שייכת להולך בה'</p>
-</Quote>
+</QuoteBlock>
 
 <TableOfContents :includeLevel="[1, 2, 3]" />
 
@@ -182,10 +182,10 @@ layout: ReadingLayout
 
 # פרק א׳ - עמק. אהבת החוכמה
 
-<Quote>
+<QuoteBlock>
 <p>'לך בעקבות הטבע, והכל כבר יקרה'</p>
 <template #quoter>ספר הדאו</template>
-</Quote>
+</QuoteBlock>
 
 ## 
 
@@ -439,11 +439,11 @@ layout: ReadingLayout
 
 </Poem>
 
-<Quote>
+<QuoteBlock>
 <p>"אם הגיון ומשמעות מתנגשים זה עם זה
 היה מוכן להשהות את השיפוט"</p>
 <template #quoter>צ'נג מאן-צ'ינג</template>
-</Quote>
+</QuoteBlock>
 
 <Img :path="'derech-hapeima/paradoxality.jpg'"></Img>
 
@@ -470,12 +470,12 @@ layout: ReadingLayout
 
 </Poem>
 
-<Quote>
+<QuoteBlock>
 <p>"רוח מעל ארץ –
 ההיטהרות הסתיימה,
 אך טרם הוגשה המנחה"</p>
 <template #quoter>אי צ'ינג</template>
-</Quote>
+</QuoteBlock>
 
 ## מעון הקודש
 
@@ -526,13 +526,13 @@ layout: ReadingLayout
 
 ### אחריות
 
-<Quote>
+<QuoteBlock>
 <p>'זה אשר אוהב את <Bigger>העולם</Bigger>
 כמו את גופו,
 ניתן להפקיד בידיו בבטחה את
 העולם כולו'</p>
 <template #quoter>ספר הדאו</template>
-</Quote>
+</QuoteBlock>
 
 </Poem>
 
@@ -548,15 +548,15 @@ layout: ReadingLayout
 
 </Poem>
 
-<Quote>
+<QuoteBlock>
 <p>'<Strong>עדן</Strong> – רובד רוחני עילאי הנקרא כך בשל רב תפארתו ועוצם התענוג שחשים כל
 המתחברים אליו' (יהדות)</p>
-</Quote>
+</QuoteBlock>
 
-<Quote>
+<QuoteBlock>
 <p>'<Strong>נירוונה</Strong> – שלוות נפש הודות להרמוניה פנימית והרמוניה עם הסביבה הנובעות
 מתובנה אינטואיטיבית של חוקי הקיום' (בודהיזם)</p>
-</Quote>
+</QuoteBlock>
 
 <Poem>
 
@@ -640,22 +640,22 @@ layout: ReadingLayout
 
 # פרק ב׳ - הר. חזרה למציאות
 
-<Quote>
+<QuoteBlock>
 <p>'המשוגע טובע במים
 שהקדוש שותה מהם'</p>
-</Quote>
+</QuoteBlock>
 
 ## 
 
 <Img :path="'derech-hapeima/mountain.jpg'"></Img>
 
-<Quote>
+<QuoteBlock>
 <p>'רעם חוזר ומופיע –
 דיוקנו של זעזוע.
 כך האדם הנעלה, בחיל ורעדה
 מתקן הליכותיו ובוחן עצמו.'</p>
 <template #quoter>אי צ'ינג</template>
-</Quote>
+</QuoteBlock>
 
 <Poem>
 
