@@ -14,7 +14,7 @@
     },
     "Quote": {
       "label": "A quote",
-      "snippet": "<Quote>\n<p>$TM_SELECTED_TEXT</p>\n<template #quoter>$1</template>\n</Quote>$0"
+      "snippet": "<QuoteBlock>\n<p>$TM_SELECTED_TEXT</p>\n<template #quoter>$1</template>\n</QuoteBlock>$0"
     },
     "Img": {
       "label": "An image",

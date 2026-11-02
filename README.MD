@@ -8,8 +8,8 @@
 * git remote add world https://github.com/teva-shalem/books-world.git
 
 # Content
-* <Quote><p>ציטוט כפסקה</p></Quote>
-* <em>ציטוט בשורה</em>
+* <QuoteBlock><p>ציטוט כפסקה</p><template #quoter>מי אמר</template></Quote>
+* <Quote quoter="מי אמר">ציטוט בשורה</Quote>
 * # heading
 * ## subheading
 * <Img :path="'path_to_file_in_.vuepress_public_images.ext'"></Img>
