@@ -1,6 +1,5 @@
 /**
- * Anchor scroll handler supporting
- * Hebrew/URI-encoded IDs, cold-cache hydration polling, and asset-settling buffers.
+ * Clean and robust scroll management system for Vue Router SPAs.
  */
 
 const CONFIG = {
@@ -9,107 +8,121 @@ const CONFIG = {
   SETTLED_DELAY_MS: 350,
 };
 
+const getKey = (state) => (state && state.key) || window.location.href;
+
 /**
- * Safely extracts and decodes an element ID from a URL hash.
- * 
- * @param {string} hash The target hash string (e.g., "#שרטוט")
- * @returns {string} The decoded element ID
+ * Safely decodes a hash into an element ID.
  */
 const decodeHashId = (hash) => {
-  const rawId = hash.slice(1);
   try {
-    return decodeURIComponent(rawId);
-  } catch (e) {
-    return rawId;
+    return decodeURIComponent(hash.slice(1));
+  } catch {
+    return hash.slice(1);
   }
 };
 
 /**
- * Smoothly scrolls the viewport to the target element using reliable offset calculation.
- * 
- * @param {string} id The DOM element ID
+ * Scrolls to a target DOM element with offset calculation.
  */
-const scrollToElement = (id) => {
+const scrollToElement = (id, behavior = 'smooth') => {
   const el = document.getElementById(id);
-  if (el) {
-    let top = 0;
-    let current = el;
-    while (current) {
-      top += current.offsetTop;
-      current = current.offsetParent;
-    }
-    window.scrollTo({
-      top: top,
-      behavior: 'smooth'
-    });
+  if (!el) return;
+
+  let top = 0;
+  let current = el;
+  while (current) {
+    top += current.offsetTop;
+    current = current.offsetParent;
   }
+  window.scrollTo({ top, behavior });
 };
 
 /**
- * Handles element polling for SPA hydration and applies cold-cache asset buffers.
- * 
- * @param {string} hash The target URL hash
+ * Handles element polling for SPA hydration and instant cross-page anchor loading.
  */
-export const scrollToHash = (hash) => {
+export const scrollToHash = (hash, behavior = 'smooth') => {
   if (!hash) return;
   const id = decodeHashId(hash);
 
   let attempts = 0;
-  const pollForElement = () => {
-    const el = document.getElementById(id);
-    if (el) {
-      setTimeout(() => scrollToElement(id), CONFIG.SETTLED_DELAY_MS);
+  const poll = () => {
+    if (document.getElementById(id)) {
+      if (behavior === 'auto') {
+        scrollToElement(id, 'auto');
+      } else {
+        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLED_DELAY_MS);
+      }
     } else if (attempts < CONFIG.MAX_ATTEMPTS) {
       attempts++;
-      setTimeout(pollForElement, CONFIG.POLL_INTERVAL_MS);
+      setTimeout(poll, CONFIG.POLL_INTERVAL_MS);
     }
   };
 
-  pollForElement();
-
-  window.addEventListener('load', () => {
-    setTimeout(() => scrollToElement(id), 50);
-  }, { once: true });
+  poll();
 };
 
 /**
- * Configures Vue Router scroll behavior and hooks into route transitions.
- * 
- * @param {import('vue-router').default} router The Vue Router instance
+ * Configures Vue Router scroll behavior and history restoration.
  */
 export const setupScrollBehavior = (router) => {
   if (typeof window === 'undefined') return;
 
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   const scrollMap = new Map();
   let isHistoryPop = false;
+  let isRestoring = false;
+  let lastPathname = window.location.pathname;
 
-  // Helper to extract key from a state object or fallback to href
-  const getKey = (state) => (state && state.key) || window.location.href;
+  const safeScrollTo = (options) => {
+    isRestoring = true;
+    window.scrollTo(options);
+    setTimeout(() => { isRestoring = false; }, 150);
+  };
 
-  // Continuously record scroll position tied to the active history record key
+  // Continuously record user scroll position
   window.addEventListener('scroll', () => {
-    const currentKey = getKey(history.state);
-    scrollMap.set(currentKey, window.scrollY);
+    if (!isHistoryPop && !isRestoring) {
+      scrollMap.set(getKey(history.state), window.scrollY);
+    }
   }, { passive: true });
 
-  // Handle browser back/forward history restoration accurately using event state
+  // Handle browser back/forward history navigation
   window.addEventListener('popstate', (e) => {
     isHistoryPop = true;
+    isRestoring = true;
     const targetKey = getKey(e.state);
+    const isSamePage = window.location.pathname === lastPathname;
+    lastPathname = window.location.pathname;
 
     setTimeout(() => {
       if (scrollMap.has(targetKey)) {
-        window.scrollTo({ top: scrollMap.get(targetKey), behavior: 'auto' });
-      } else if (window.location.hash) {
-        scrollToHash(window.location.hash);
+        const targetTop = scrollMap.get(targetKey);
+        let attempts = 0;
+        const attemptScroll = () => {
+          window.scrollTo({ top: targetTop, behavior: isSamePage ? 'smooth' : 'auto' });
+          if (window.scrollY < targetTop && attempts < 20 && document.documentElement.scrollHeight <= targetTop) {
+            attempts++;
+            setTimeout(attemptScroll, 50);
+          }
+        };
+        attemptScroll();
+      } else if (isSamePage && window.location.hash) {
+        scrollToHash(window.location.hash, 'smooth');
       } else {
         window.scrollTo({ top: 0, behavior: 'auto' });
       }
-      isHistoryPop = false;
-    }, 0);
+
+      setTimeout(() => {
+        isHistoryPop = false;
+        isRestoring = false;
+      }, isSamePage ? 600 : 200);
+    }, 50);
   });
 
-  // Intercept in-page anchor clicks to use router.push for proper history state generation
+  // Intercept in-page anchor clicks
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
@@ -122,25 +135,30 @@ export const setupScrollBehavior = (router) => {
       e.preventDefault();
       const hash = href.substring(href.indexOf('#'));
       if (hash) {
-        // Save current scroll position to the current history key before navigating
         scrollMap.set(getKey(history.state), window.scrollY);
-
-        router.push({ hash }).then(() => {
-          scrollToHash(hash);
-        }).catch(() => {});
+        router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
       }
     }
   });
 
-  router.options.scrollBehavior = (to, from, savedPosition) => {
-    if (savedPosition) return savedPosition;
-    if (to.hash) return false;
-    return { x: 0, y: 0 };
-  };
+  // Jump to top on new forward cross-page navigation ONLY if there is no hash
+  router.beforeEach((to, from, next) => {
+    if (to.path !== from.path && !isHistoryPop) {
+      if (!to.hash) {
+        safeScrollTo({ top: 0, behavior: 'auto' });
+      }
+    }
+    lastPathname = to.path;
+    next();
+  });
+
+  router.options.scrollBehavior = () => false;
 
   router.afterEach((to) => {
+    const isCrossPage = to.path !== lastPathname;
+    lastPathname = to.path;
     if (to.hash && !isHistoryPop) {
-      scrollToHash(to.hash);
+      scrollToHash(to.hash, isCrossPage ? 'auto' : 'smooth');
     }
   });
 };
