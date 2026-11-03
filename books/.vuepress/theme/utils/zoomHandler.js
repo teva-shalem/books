@@ -1,4 +1,4 @@
-const {zoom} = require('../../configAttrs.js')
+const {zoom} = require('../../config/attrs.js')
 
 /**
  * Integrates `@vuepress/plugin-medium-zoom` with the browser History API.
