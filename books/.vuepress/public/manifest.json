@@ -3,7 +3,7 @@
   "short_name": "טבע שלם",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
-  "display_override": ["minimal-ui", "standalone"],
+  "display_override": ["standalone", "minimal-ui"],
   "display": "browser",
   "scope": "/",
   "start_url": "/",
