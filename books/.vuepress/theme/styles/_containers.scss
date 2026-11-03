@@ -1,0 +1,5 @@
+.container {
+  &.hebrew-list>ol {
+    list-style-type: hebrew;
+  }
+}

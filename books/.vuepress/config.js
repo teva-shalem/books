@@ -1,4 +1,5 @@
-const {zoom} = require('./configAttrs.js')
+const {zoom} = require('./config/attrs.js')
+const {addContainer} = require('./config/utils.js')
 
 module.exports = {
     title: 'טבע שלם - ספרים',
@@ -15,6 +16,9 @@ module.exports = {
     evergreen: true,
     markdown: {
         extractHeaders: ['h1', 'h2', 'h3', 'h4'],
+        extendMarkdown: md => {
+            addContainer(md, 'hebrew-list')
+        }
     },
     plugins: [
         '@vuepress/back-to-top',
