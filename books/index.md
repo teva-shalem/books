@@ -25,6 +25,8 @@ pageClass: index
     זו הטבעדינמיקה</p>
   </div>
   
+  <div class="page-break"></div>
+  
   <div class="books-list">
 
 [דרך הפעימה](/derech-hapeima/)
