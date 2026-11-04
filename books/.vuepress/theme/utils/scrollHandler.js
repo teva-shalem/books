@@ -135,11 +135,55 @@ export const setupScrollBehavior = (router) => {
       e.preventDefault();
       const hash = href.substring(href.indexOf('#'));
       if (hash) {
-        scrollMap.set(getKey(history.state), window.scrollY);
+        const currentKey = getKey(history.state);
+        scrollMap.set(currentKey, window.scrollY);
 
         // Check if we are already on this exact hash
         if (window.location.hash === hash) {
-          // Vue router ignores identical pushes, so trigger smooth scroll manually
+          // 1. Manually push a new history state so the Back button works
+          history.pushState(
+            { ...history.state, key: Math.random().toString(36).substring(2) }, 
+            '', 
+            hash
+          );
+          // 2. Save the scroll position for this new history entry too
+          scrollMap.set(getKey(history.state), window.scrollY);
+          // 3. Trigger smooth scroll manually
+          scrollToHash(hash, 'smooth');
+        } else {
+          router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
+        }
+      }
+    }
+  });
+  
+  // Intercept in-page anchor clicks
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+
+    const isSamePageHash = href.startsWith('#') || href.includes(window.location.pathname + '#');
+    if (isSamePageHash) {
+      e.preventDefault();
+      const hash = href.substring(href.indexOf('#'));
+      if (hash) {
+        const currentKey = getKey(history.state);
+        scrollMap.set(currentKey, window.scrollY);
+
+        // Check if we are already on this exact hash
+        if (window.location.hash === hash) {
+          // 1. Manually push a new history state so the Back button works
+          history.pushState(
+            { ...history.state, key: Math.random().toString(36).substring(2) }, 
+            '', 
+            hash
+          );
+          // 2. Save the scroll position for this new history entry too
+          scrollMap.set(getKey(history.state), window.scrollY);
+          // 3. Trigger smooth scroll manually
           scrollToHash(hash, 'smooth');
         } else {
           router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
