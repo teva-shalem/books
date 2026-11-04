@@ -136,7 +136,14 @@ export const setupScrollBehavior = (router) => {
       const hash = href.substring(href.indexOf('#'));
       if (hash) {
         scrollMap.set(getKey(history.state), window.scrollY);
-        router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
+
+        // Check if we are already on this exact hash
+        if (window.location.hash === hash) {
+          // Vue router ignores identical pushes, so trigger smooth scroll manually
+          scrollToHash(hash, 'smooth');
+        } else {
+          router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
+        }
       }
     }
   });
