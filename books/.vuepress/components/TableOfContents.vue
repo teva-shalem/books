@@ -85,7 +85,7 @@ const TableOfContents: ComponentOptions<Vue> = {
         )
       )
     }
-    return h('div', [renderHeaders(this.headers)])
+    return h('div', {class: 'table-of-contents'}, [renderHeaders(this.headers)])
   },
 }
 

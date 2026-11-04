@@ -5,6 +5,9 @@
         <Img :path="'david-symbol-transparent.png'" no-zoom />טבע שלם
       </a>
     </div>
+    <div class="navbar-left">
+      <ButtonPrint></ButtonPrint>
+    </div>
   </nav>
 </template>
 
@@ -17,13 +20,18 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 a.navbar-item, .navbar-link {
   font-size: 1.25rem;
   text-decoration: none;
   color: white;
 }
-.navbar-brand .navbar-item {
-  margin-right: 1rem;
+
+.navbar-left {
+  margin-left: 1rem;
 }
 </style>

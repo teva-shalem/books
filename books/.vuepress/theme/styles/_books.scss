@@ -52,17 +52,32 @@
   }
 }
 
+.derech-hapeima {
+  .main-heading {
+    text-align: center
+  }
+
+  .cover-image {
+    max-height: 90vh;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
 .mishvaot-hapeima {
-  .page-break {
-      page-break-after: right;
-  }
-  
-  .main-heading h1 {
-      width: 75%;
-  }
-  
-  .main-heading h2 {
-      width: 75%;
+  .main-heading {
+    img {
+      width:150px;
+      float:left;
+    }
+
+    h1 {
+        width: 75%;
+    }
+
+    h2 {
+        width: 75%;
+    }
   }
 }
 

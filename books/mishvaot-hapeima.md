@@ -68,23 +68,17 @@ pageClass: mishvaot-hapeima
 
 מיפוי המרכבה שבספר היצירה מתואר לפי גאומטריה אוקלידית רב מימדית ונובע מעצמו מתוך הפשטות והצמצום המירבי המאפשר אינסוף אפשרויות.
 
-<div class="page-break"></div>
-
 מיפוי המרכבה הוא עפ״י ספר היצירה המיוחס לאברהם אבינו ואף לאדם הראשון. המבנה מתאר 22 מימדים שהם איכויות מחיי האדם והטבע. כל אות - איכות - מתקשרת גם למרחב, לזמן, ולנפש (או איבר בגוף האדם) המתקיימים בתוך מרחב אוקלידי תלת מימדי המסומן ע"י הספירות. 
 
 ## שרטוט 1: מיפוי המרכבה עפ״י ספר היצירה
 
-<Img :path="'mishvaot-hapeima/merkavah-mapping.jpg'"></Img>
-
-<div class="page-break"></div>
+<Img :path="'mishvaot-hapeima/merkavah-mapping.jpg'" class="print-fill"></Img>
 
 ## טבלה 1: פירוט ערכי כל האותיות עפ״י ספר היצירה
 
-<Img :path="'mishvaot-hapeima/merkavah-letter-values.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-letter-values.jpg'" class="print-fill"></Img>
 
 כל אוסף הנתונים המרכיבים מרכבה ברגע נתון הוא הצורה של המרכבה. הצורה נקבעת מתוך הפוטנציאליות עפ״י הערכים של כל אחד מהמימדים. 
-
-<div class="page-break"></div>
 
 ### הקבוע M
 
@@ -92,7 +86,6 @@ pageClass: mishvaot-hapeima
 
 ***M*** זה כל המערכות יחד
 ***m*** זה מערכת אחת
-
 
 מבנה האות: שני הרים וביניהם עמק
 בבינארית: קו
@@ -110,10 +103,9 @@ z נובע ממכפלה של כל ערכי x וy:
 
 ([ראו טבלה 2](#טבלה-2-ערכי-צירי-המערכת))
 
-<div class="page-break"></div>
-
 ## טבלה 2: ערכי צירי המערכת
-<Img :path="'mishvaot-hapeima/system-axes-values.jpg'"></Img>
+
+<Img :path="'mishvaot-hapeima/system-axes-values.jpg'" class="print-fill"></Img>
 
 כל נקודה - מרכבה - אחת היא כל הסיפור כולו.
 
@@ -122,8 +114,6 @@ z נובע ממכפלה של כל ערכי x וy:
 מערכת נוצרת בכל נקודת מפגש בין שתי מרכבות. מרכבה נוצרת בכל נקודת מפגש בין שתי מערכות.
 
 זה בינארי. קו ונקודה. כמו כתב מורס. כמו גאומטריה אוקלידית. בינאריות ברב מימדיות.  מערכת פרקטלית. למעלה, למטה ומסביב. המשוואה מתארת את הקונספט הבסיסי ביותר. כלומר כל יחידת קיום קיימת גם במישור הקונספטואלי (או מטאפיזי).
-
-<div class="page-break"></div>
 
 המשוואות מתארות מודל המתקיים בעולם הפיזי והמטאפיזי בעת ובעונה אחת. האותיות והספרות מקשרות בין העולמות השונים. 
 
@@ -250,8 +240,6 @@ y = עץ החיים, מים, ספירה ארבע
 
 <Img :path="'spacer.png'" noZoom></Img>
 
-<div class="page-break"></div>
-
 ## שרטוט 2: צירי המרכבה
 
 <Img :path="'mishvaot-hapeima/merkavah-axes.jpg'"></Img>
@@ -260,7 +248,7 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## שרטוט 3: מיפוי המערכת (או עץ המלך)
 
-<Img :path="'mishvaot-hapeima/system-mapping.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/system-mapping.jpg'" class="print-fill"></Img>
 
 <div class="page-break"></div>
 
@@ -301,7 +289,9 @@ i קיים במרכז כל מרכבה
 
 כל ישות היא מרכבה
 
-<Img :path="'mishvaot-hapeima/equation-soul.jpg'"></Img>
-<Img :path="'mishvaot-hapeima/equation-human.jpg'"></Img>
-<Img :path="'mishvaot-hapeima/equation-way.jpg'"></Img>
-<Img :path="'mishvaot-hapeima/equation-maaseh-merkavah.jpg'"></Img>
+<div class="finale-equations">
+  <Img :path="'mishvaot-hapeima/equation-soul.jpg'"></Img>
+  <Img :path="'mishvaot-hapeima/equation-human.jpg'"></Img>
+  <Img :path="'mishvaot-hapeima/equation-way.jpg'"></Img>
+  <Img :path="'mishvaot-hapeima/equation-maaseh-merkavah.jpg'"></Img>
+</div>

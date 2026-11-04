@@ -17,7 +17,7 @@
   margin-top -2em
 
 .blockquote-container:has(+ .blockquote-container)
-  padding-bottom 2em
+  padding-bottom 1em
 
 .blockquote
   margin: 0

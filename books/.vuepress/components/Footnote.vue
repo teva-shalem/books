@@ -1,12 +1,16 @@
 <template>
-<v-popover
-  placement="top-end"
-  trigger='click'
-  :content="this.$slots.default">
-  <sup class="tooltip tooltip-target">*</sup>
+<span>
+  <v-popover
+    placement="top-end"
+    trigger='click'
+    :content="this.$slots.default">
+    <sup class="tooltip tooltip-target">*</sup>
 
-  <template slot="popover"><slot></slot></template>
-</v-popover>
+    <template slot="popover"><slot></slot></template>
+  </v-popover>
+
+  <span class="print-footnote-content">[{{ resolvedContent }}]</span>
+</span>
 </template>
 
 <script lang="ts">
@@ -17,6 +21,18 @@ export default {
       type: String,
       required: false,
     }
+  },
+  computed: {
+    resolvedContent() {
+      if (this.$slots.default) {
+        debugger
+        return this.$slots.default
+          .map(vNode => vNode.text || '')
+          .join('')
+          .replaceAll('\n', ' ');
+      }
+      return '';
+    }
   }
 }
 </script>
@@ -24,6 +40,9 @@ export default {
 <style lang="stylus">
 .v-popover
     display inline
+
+.print-footnote-content
+  display none
 
 .tooltip
   cursor pointer
@@ -86,4 +105,13 @@ export default {
     visibility visible
     opacity 1
     transition opacity .15s
+
+@media print
+  .v-popover
+    display none !important
+  
+  .print-footnote-content
+    display inline
+    font-style italic
+    font-size 0.8em
 </style>
