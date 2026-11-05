@@ -14,7 +14,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body:not(:has(.main-container.mishvaot-hapeima, .main-container.derech-hapeima)) .print-button {
+body:not(:has(
+  .main-container.derech-hapeima,
+  .main-container.mishvaot-hapeima,
+  .main-container.sefer-yetzira,
+  .main-container.composition-book
+)) .print-button {
   display: none !important;
 }
 
