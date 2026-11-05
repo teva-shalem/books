@@ -23,32 +23,29 @@
   }
 
   .table-of-contents > ul {
-    margin-block-start: -1rem;
+    margin-block-start: -.25rem;
   }
 
   .blockquote-container {
-    page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  p {
+  p { 
     text-align: justify;
     orphans: 3;
     widows: 3;
   }
 
   h1 {
-    page-break-before: always;
+    margin-block-start: 0;
     break-before: page;
   }
 
   h2, h3 {
-    page-break-inside: avoid;
     break-inside: avoid;
   }
 
   h1, h2, h3 {
-    page-break-after: avoid;
     break-after: avoid;
   }
 

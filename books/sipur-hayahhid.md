@@ -14,6 +14,8 @@ customFont: Shofar
 
 <Img :path="'sipur-hayahhid/cover.jpg'" class="cover-image"></Img>
 
+<div class="page-break"></div>
+
 <TableOfContents :includeLevel="[1, 2, 3]" />
 
 # טבע שלם
@@ -212,7 +214,7 @@ customFont: Shofar
 
 הוספתי לזה שימוש בחומרים משני תודעה כטיפות ל.ס.ד. ופטריות פעם אחת, וכמובן שעישנתי הרבה צ׳ארס.
 
-כתבתי שם בעמק, הרבה. התבודדתי וכתבתי. שירה מקודשת, מטאפיזיקה, שירה פסיכוטית, טבע, נבואה ותורת סוד. כתבתי שם את הספר ׳שירת העמק׳ והחיבור ׳סוד העיבור׳.
+כתבתי שם בעמק, הרבה. התבודדתי וכתבתי. שירה מקודשת, מטאפיזיקה, שירה פסיכוטית, טבע, נבואה ותורת סוד. כתבתי שם את הספר ׳שירת העמק׳ והחיבור ׳[סוד העיבור](/sod-haiibur)׳.
 
 <Img :path="'sipur-hayahhid/shelter-parvati.jpg'"></Img>
 
@@ -278,7 +280,7 @@ customFont: Shofar
 
 מתוקה וזכה כטל.
 
-<Img :path="'sipur-hayahhid/hafamily.jpg'"></Img>
+<Img :path="'sipur-hayahhid/hafamily.jpg'" class="print-fill"></Img>
 
 ## פרק 9 - פרי החיים
 
@@ -406,13 +408,13 @@ customFont: Shofar
 
 ישנם 22 עקרונות - הא׳-ב׳ של ההדרכה המהותית ע״פ הטבלה שלפניכם:
 
-<Img :path="'sipur-hayahhid/principles-pulsetherapy.jpg'"></Img>
+<Img :path="'sipur-hayahhid/principles-pulsetherapy.jpg'" class="print-fill"></Img>
 
 ישנה אסטרטגיית ריפוי כללית - ׳אסטרטגיית דוד׳ - ע״פ השירטוט שלפניכם.
 
 התנועה הפועמת היא מחזורית, משתנה, ומרככת, כמנגנון נשימה בין קטבי החיים. העיקרון הראשי הוא להחדיר תנועה זו לכל איזור פגוע. כל איזור של סטגנציה, עימות או פער. בכל רובד חיים. הפנימי, הסביבתי, היחסים, הכלכלה. להכניס תנועת טאי-צ׳י של אומנות המפגש. של תקשורת מרפאת. ולהגיע עם הזמן לנוכחות מרפאת. ללב נובע. לתנועה טבעית.
 
-<Img :path="'sipur-hayahhid/hacreation.jpg'"></Img>
+<Img :path="'sipur-hayahhid/hacreation.jpg'" class="print-fill"></Img>
 
 לרדת מהראש ועבודתו המתישה, לכיוון הלב. ע״י שיחרור החשיבה. כמו־כן להעלות את המשקעים המודחקים מתחתית הבטן גם כן ללב. ולשחרר אותם בחוויה, ברגש, במודעות, בהכלה.
 
@@ -550,7 +552,7 @@ customFont: Shofar
 
 יש מעשה מרכבה של 22 אותיות ו-10 ספירות - ל״ב - המרכיבות את מבנה הממלכה - המ.ב.
 
-<Img :path="'sipur-hayahhid/kingdom-spheres.jpg'"></Img>
+<Img :path="'sipur-hayahhid/kingdom-spheres.jpg'" class="print-fill"></Img>
 
 יש בני אדם פשוטים על הארץ, עם חיים טובים. עם נפש בריאה בגוף בריא.
 
@@ -687,7 +689,7 @@ customFont: Shofar
 
 וזו תמיד הייתה השליחות
 
-<Img :path="'sipur-hayahhid/hame.jpg'"></Img>
-<Img :path="'sipur-hayahhid/hahome.jpg'"></Img>
+<Img :path="'sipur-hayahhid/hame.jpg'" class="print-fill"></Img>
+<Img :path="'sipur-hayahhid/hahome.jpg'" class="print-fill"></Img>
 
 תם הספר.
