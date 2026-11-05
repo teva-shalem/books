@@ -139,7 +139,7 @@ export const setupScrollBehavior = (router) => {
         scrollMap.set(currentKey, window.scrollY);
 
         // Check if we are already on this exact hash
-        if (window.location.hash === hash) {
+        if (decodeHashId(window.location.hash) === decodeHashId(hash)) {
           // 1. Manually push a new history state so the Back button works
           history.pushState(
             { ...history.state, key: Math.random().toString(36).substring(2) }, 
