@@ -2,8 +2,7 @@
 title: מבוא 
 permalink: /intro 
 description: המבוא לטבעדינמיקה 
-layout: ReadingLayout 
-pageClass: intro
+layout: ReadingLayout
 ---
 
 <div style="text-align: center">

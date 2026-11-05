@@ -12,8 +12,6 @@ layout: ReadingLayout
 
 <TableOfContents :includeLevel="[2, 3]" />
 
-#  
-
 ## ספירות
 
 שלשים ושתים נתיבות פלאות חכמה חקק יה יהוה צבאות בשלש ספרים בספר וספר וספ(ו)ר.

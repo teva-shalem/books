@@ -3,7 +3,6 @@ title: דרך הפעימה
 permalink: /derech-hapeima
 description: ספר זה הוא תמצית אחת, מתוך 'ספר החיים' אשר יצא במהדורה מוגבלת ב-2012. הספר מכיל כתבים שנכתבו בין השנים 2009-2004 , ביומנים אישיים, במקומות שונים בעולם ומהווים חלק מהיצירה הרב-תחומית - 'מעשה מרכבה', מאת המחבר
 layout: ReadingLayout
-pageClass: derech-hapeima
 ---
 
 <div class="main-heading">
@@ -28,8 +27,6 @@ pageClass: derech-hapeima
 </QuoteBlock>
 
 <TableOfContents :includeLevel="[1, 2, 3]" />
-
-# 
 
 ## הקדמה
 
@@ -183,8 +180,6 @@ pageClass: derech-hapeima
 <p>'לך בעקבות הטבע, והכל כבר יקרה'</p>
 <template #quoter>ספר הדאו</template>
 </QuoteBlock>
-
-## 
 
 <Poem>
 
@@ -641,8 +636,6 @@ pageClass: derech-hapeima
 <p>'המשוגע טובע במים
 שהקדוש שותה מהם'</p>
 </QuoteBlock>
-
-## 
 
 <Img :path="'derech-hapeima/mountain.jpg'"></Img>
 

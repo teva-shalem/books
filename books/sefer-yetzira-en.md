@@ -1,7 +1,7 @@
 ---
 title: ספר יצירה
 id: yetzira
-permalink: /composition-book/
+permalink: /composition-book
 description: ספר יצירה הקדום. מיוחס לאברהם אבינו. ערך פיטר היימן.
 layout: EnglishReadingLayout
 ---
@@ -13,8 +13,6 @@ layout: EnglishReadingLayout
 </div>
 
 <TableOfContents :includeLevel="[2, 3]" />
-
-#  
 
 ## Digits ספירות
 
