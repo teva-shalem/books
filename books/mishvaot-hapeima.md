@@ -6,7 +6,7 @@ layout: ReadingLayout
 ---
 
 <div class="main-heading">
-  <Img :path="'mishvaot-hapeima/merkavah-logo.jpg'" style="width:150px;float:left;" ></Img>
+  <Img :path="'mishvaot-hapeima/merkavah-logo.jpg'"></Img>
 
   <h1>מעשה המרכבה</h1>
   <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>

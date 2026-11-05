@@ -6,7 +6,7 @@ description: ספר יצירה הקדום. מיוחס לאברהם אבינו. �
 layout: EnglishReadingLayout
 ---
 
-<div style="direction:rtl;">
+<div class="main-heading">
   <h1>תרגום המשכיל לספר יצירה</h1>
   <h2>מיוחס למלכיצדק</h2>
   <h4>הוריד מהרשת אור לנדאו</h4>

@@ -5,7 +5,7 @@ description: המבוא לטבעדינמיקה
 layout: ReadingLayout
 ---
 
-<div style="text-align: center">
+<div class="main-heading">
   <h1>טבע שלם</h1>
   <h2>מבוא לטבעדינמיקה</h2>
   <h4>או</h4>
