@@ -18,7 +18,8 @@ body:not(:has(
   .main-container.derech-hapeima,
   .main-container.mishvaot-hapeima,
   .main-container.sefer-yetzira,
-  .main-container.composition-book
+  .main-container.composition-book,
+  .main-container.sipur-hayahhid
 )) .print-button {
   display: none !important;
 }
