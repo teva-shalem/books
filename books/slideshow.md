@@ -21,7 +21,7 @@ layout: ReadingLayout
 
 ראשית שבע ארצות - כלומר תשתית האינטרנט. 
 
-<Img :path="'slideshow/osi-model.svg'"></Img>
+<Img :path="'slideshow/osi-model.svg'" class="print-fill"></Img>
 
 שבע שכבות של עיבוד והעברת מידע. הפיזי ביותר נמצא בשכבה התחתונה, המסוף לאדם נמצא בשכבה העליונה. הרשת נפתחה לציבור בידי השלטון האמריקאי ונשלטת ברובה ע״י מונופולים. האם ניתן להעביר את הכוח לאזרח הפשוט?
 
@@ -47,4 +47,4 @@ layout: ReadingLayout
 
 המודל הקוסמולוגי של טבע שלם מציג [תפישת עולם שלמה](/rosetta-stone/) של האדם בטבע. מודל בר יישום ובר קיימא המשלב ומחבר את כל בני האדם במסע משותף אל עבר גן עדן עלי אדמות.
 
-<Img :path="'slideshow/cosmology-model.jpg'"></Img>
+<Img :path="'slideshow/cosmology-model.jpg'" class="print-fill"></Img>

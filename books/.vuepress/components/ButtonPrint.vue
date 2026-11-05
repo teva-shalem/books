@@ -19,7 +19,9 @@ body:not(:has(
   .main-container.mishvaot-hapeima,
   .main-container.sefer-yetzira,
   .main-container.composition-book,
-  .main-container.sipur-hayahhid
+  .main-container.sipur-hayahhid,
+  .main-container.sod-haiibur,
+  .main-container.slideshow
 )) .print-button {
   display: none !important;
 }
