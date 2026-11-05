@@ -9,9 +9,7 @@ layout: ReadingLayout
 <h3>מצגת מאת דוד ישראל כהן ואור לנדאו</h3>
 <h4>12/07/2020 תל אביב</h4>
 
-<TableOfContents :includeLevel="[1, 2, 3]" />
-
-#
+<TableOfContents :includeLevel="[2, 3]" />
 
 ## הקדמה
 
