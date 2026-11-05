@@ -5,14 +5,14 @@ layout: ReadingLayout
 customFont: Shofar
 ---
 
-<div style="text-align: center">
+<div class="main-heading">
   <h1>אוטוביוגרפיה פועמת</h1>
   <h2>לימוד הנפש - ספר 2 מתוך 4</h2>
   <h2>דוד ישראל כהן או ׳סיפור היחיד׳</h2>
   <h3>מאת: שער עולם כותב</h3>
 </div>
 
-<Img :path="'sipur-hayahhid/cover.jpg'" style="max-height: 90vh;margin: 0 auto;display: block;"></Img>
+<Img :path="'sipur-hayahhid/cover.jpg'" class="cover-image"></Img>
 
 <TableOfContents :includeLevel="[1, 2, 3]" />
 

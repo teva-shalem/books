@@ -5,7 +5,7 @@ layout: ReadingLayout
 customFont: Courier New
 ---
 
-<div style="text-align: center">
+<div class="main-heading">
   <h1>סוד העיבור</h1>
   <h2>לימוד הנפש - ספר 3 מתוך 4</h2>
   <h2>ראשית הנביעה</h2>
