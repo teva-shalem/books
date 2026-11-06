@@ -21,6 +21,7 @@ body:not(:has(
   .main-container.composition-book,
   .main-container.sipur-hayahhid,
   .main-container.sod-haiibur,
+  .main-container.rosetta-stone,
   .main-container.slideshow
 )) .print-button {
   display: none !important;
