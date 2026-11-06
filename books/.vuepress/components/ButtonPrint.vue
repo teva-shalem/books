@@ -7,26 +7,17 @@ export default {
   name: 'ButtonPrint',
   methods: {
     triggerPrint() {
-      window.print();
+      if (this.$page.path === '/') {
+        this.$router.push('/print-all/');
+      } else {
+        window.print();
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-body:not(:has(
-  .main-container.derech-hapeima,
-  .main-container.mishvaot-hapeima,
-  .main-container.sefer-yetzira,
-  .main-container.composition-book,
-  .main-container.sipur-hayahhid,
-  .main-container.sod-haiibur,
-  .main-container.rosetta-stone,
-  .main-container.slideshow
-)) .print-button {
-  display: none !important;
-}
-
 .print-button {
   padding: 0.6rem;
   background-color: rgba(255, 255, 255, 0.2);
