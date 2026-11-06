@@ -7,5 +7,20 @@ module.exports = {
         ? `<${el} class="container ${name}">\n` 
         : `</${el}>\n`
     })
-  }
+  },
+
+  addPageClass: ($page) => {
+    if ($page.frontmatter.pageClass)
+        return
+
+    const permalink = $page.frontmatter.permalink || $page.path
+
+    if (permalink) {
+        const cleanClass = permalink.replace(/\//g, '')
+
+        if (cleanClass) {
+            $page.frontmatter.pageClass = cleanClass
+        }
+    }
+  },
 }
