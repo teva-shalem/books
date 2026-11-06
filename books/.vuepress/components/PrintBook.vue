@@ -71,23 +71,67 @@ export default {
       }
 
       return classes;
-    }
+    },
+    waitForContentLoaded() {
+      return new Promise((resolve) => {
+        const container = this.$refs.bookContainer;
+        if (!container) return resolve();
+
+        const expectedCount = this.orderedPages.length;
+
+        // Check if all chapters are present AND contain text/content
+        const isFullyLoaded = () => {
+          if (container.children.length < expectedCount) return false;
+          
+          // Ensure each chapter wrapper has actual text content or paragraphs loaded
+          const chapters = Array.from(container.children);
+          return chapters.every(chapter => chapter.innerText && chapter.innerText.trim().length > 0);
+        };
+
+        if (isFullyLoaded()) {
+          return resolve();
+        }
+
+        const observer = new MutationObserver(() => {
+          if (isFullyLoaded()) {
+            observer.disconnect();
+            resolve();
+          }
+        });
+
+        // Watch for subtree changes (text injections, inner elements mounting)
+        observer.observe(container, { childList: true, subtree: true, characterData: true });
+
+        // Safety fallback timer (3 seconds max)
+        setTimeout(() => {
+          observer.disconnect();
+          resolve();
+        }, 3000);
+      });
+    },
   },
   mounted() {
     this.$nextTick(() => {
-      const handleAfterPrint = () => {
-        window.removeEventListener('afterprint', handleAfterPrint);
+      const triggerPrintWhenReady = async () => {
+        await this.waitForContentLoaded();
+        
+        setTimeout(() => {
+          const handleAfterPrint = () => {
+            window.removeEventListener('afterprint', handleAfterPrint);
 
-        if (window.history.length > 1) {
-          this.$router.back();
-        } else {
-          this.$router.push('/');
-        }
+            if (window.history.length > 1) {
+              this.$router.back();
+            } else {
+              this.$router.push('/');
+            }
+          };
+
+          window.addEventListener('afterprint', handleAfterPrint);
+          window.print();
+        }, 1000); // 300ms buffer guarantees complete DOM insertion and reflow
       };
 
-      window.addEventListener('afterprint', handleAfterPrint);
-
-      window.print();
+      triggerPrintWhenReady();
     });
   }
 }
