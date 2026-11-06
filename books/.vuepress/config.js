@@ -1,5 +1,5 @@
 const {zoom} = require('./config/attrs.js')
-const {addContainer} = require('./config/utils.js')
+const {addContainer, addPageClass} = require('./config/utils.js')
 
 module.exports = {
     title: 'טבע שלם - ספרים',
@@ -65,17 +65,6 @@ module.exports = {
         });
     },
     extendPageData ($page) {
-        if ($page.frontmatter.pageClass)
-            return
-
-        const permalink = $page.frontmatter.permalink || $page.path
-
-        if (permalink) {
-            const cleanClass = permalink.replace(/\//g, '')
-
-            if (cleanClass) {
-                $page.frontmatter.pageClass = cleanClass
-            }
-        }
+        addPageClass($page)
     },
 }
