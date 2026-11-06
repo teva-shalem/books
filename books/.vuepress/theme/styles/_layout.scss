@@ -28,8 +28,10 @@
   @media (min-width: 959px) {
     max-width: 40vw;
   }
+}
 
-  &.english-reading-layout {
-    direction: ltr;
-  }
+.english-reading-layout {
+  @extend .reading-layout;
+  
+  direction: ltr;
 }

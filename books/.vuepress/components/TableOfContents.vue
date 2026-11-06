@@ -5,6 +5,7 @@ import { PageHeader } from 'vuepress-types'
 interface TableOfContentsComponent extends Vue {
   includeLevel: number[]
   headers: TOFHeader[] | null
+  pageContext?: { headers?: PageHeader[] }
 }
 
 interface TOFHeader extends PageHeader {
@@ -22,9 +23,15 @@ const TableOfContents: ComponentOptions<Vue> = {
     },
   },
 
+  inject: {
+    pageContext: { default: null },
+  },
+
   computed: {
     headers(this: TableOfContentsComponent): TOFHeader[] | null {
-      if (this.$page && this.$page.headers) {
+      const targetPage = this.pageContext || this.$page
+
+      if (targetPage && targetPage.headers) {
         const minLevel: number = this.includeLevel[0]
         const maxLevel: number = this.includeLevel[this.includeLevel.length - 1]
 
@@ -56,7 +63,7 @@ const TableOfContents: ComponentOptions<Vue> = {
           }
           return result
         }
-        return processHeaders(this.$page.headers)
+        return processHeaders(targetPage.headers)
       }
 
       return null

@@ -161,48 +161,48 @@ export default {
 
     .table {
         background-color: transparent;
-    }
 
-    thead {
+        thead {
+            tr {
+                box-shadow: none;
+                border-width: 0;
+                th {
+                    display: none;
+                }
+            }
+        }
+
         tr {
-            box-shadow: none;
-            border-width: 0;
-            th {
-                display: none;
+            box-shadow: 0 2px 3px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.1);
+            max-width: 100%;
+            position: relative;
+            display: block;
+            td {
+                border: 0;
+                
+                display: flex;
+                width: auto;
+                justify-content: space-between;
+                text-align: right;
+                border-bottom: 1px solid hsl(0, 0%, 96%);
+                &:before {
+                    content: attr(data-label);
+                    font-weight: 600;
+                    padding-right: 0.5em;
+                    text-align: left;
+                }
+                &:last-child {
+                    border-bottom: 0;
+                }
             }
-        }
-    }
-
-    tr {
-        box-shadow: 0 2px 3px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.1);
-        max-width: 100%;
-        position: relative;
-        display: block;
-        td {
-            border: 0;
-            
-            display: flex;
-            width: auto;
-            justify-content: space-between;
-            text-align: right;
-            border-bottom: 1px solid hsl(0, 0%, 96%);
-            &:before {
-                content: attr(data-label);
-                font-weight: 600;
-                padding-right: 0.5em;
-                text-align: left;
+            &:not(:last-child) {
+                margin-bottom: 1rem;
             }
-            &:last-child {
-                border-bottom: 0;
-            }
-        }
-        &:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-        &:not([class*="is-"]) {
-            background: white;
-            &:hover {
-                background-color: white;
+            &:not([class*="is-"]) {
+                background: white;
+                &:hover {
+                    background-color: white;
+                }
             }
         }
     }

@@ -9,7 +9,8 @@
   }
   
   .navbar,
-  .go-to-top {
+  .go-to-top,
+  .header-anchor {
     display: none !important;
   }
 
@@ -70,6 +71,10 @@
   }
 
   .mishvaot-hapeima {
+    h2 {
+      font-size: 1.485rem;
+    }
+    
     .finale-equations {
       display: flex;
       flex-direction: column;
