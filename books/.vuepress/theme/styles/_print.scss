@@ -76,4 +76,19 @@
       gap: 1rem;
     }
   }
+
+  .rosetta-stone {
+    .regular-layout {
+      margin: 0;
+    }
+
+    .column-toggles,
+    .go-down-arrow {
+        display: none !important;
+    }
+
+    .table > tbody > tr {
+      break-before: page;
+    }
+  }
 }
