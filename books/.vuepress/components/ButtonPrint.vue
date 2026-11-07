@@ -6,6 +6,9 @@
 export default {
   name: 'ButtonPrint',
   methods: {
+    isHome() {
+      return this.$page.path === '/'
+    },
     onClick() {
       if (process.env.NODE_ENV === 'development') {
         this.triggerPrint()
@@ -14,14 +17,14 @@ export default {
       }
     },
     triggerPrint() {
-      if (this.$page.path === '/') {
+      if (this.isHome()) {
         this.$router.push('/tevadynamica/');
       } else {
         window.print();
       }
     },
     triggerPdf() {
-      if (this.$page.path === '/') {
+      if (this.isHome()) {
         this.$router.push('/tevadynamica.pdf');
       } else {
         this.$router.push(`${this.$page.path}.pdf`);
