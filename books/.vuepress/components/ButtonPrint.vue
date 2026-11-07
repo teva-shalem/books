@@ -6,13 +6,27 @@
 export default {
   name: 'ButtonPrint',
   methods: {
+    onClick() {
+      if (process.env.NODE_ENV === 'development') {
+        this.triggerPrint()
+      } else {
+        this.triggerPdf()
+      }
+    },
     triggerPrint() {
       if (this.$page.path === '/') {
         this.$router.push('/tevadynamica/');
       } else {
         window.print();
       }
-    }
+    },
+    triggerPdf() {
+      if (this.$page.path === '/') {
+        this.$router.push('/tevadynamica.pdf');
+      } else {
+        this.$router.push(`${this.$page.path}.pdf`);
+      }
+    },
   }
 }
 </script>
