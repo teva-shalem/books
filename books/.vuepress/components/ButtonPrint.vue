@@ -1,5 +1,5 @@
 <template>
-  <button @click="triggerPrint" class="print-button">🖨️</button>
+  <button @click="onClick" class="print-button">🖨️</button>
 </template>
 
 <script lang="ts">
