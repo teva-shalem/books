@@ -6,6 +6,7 @@
 
 * git remote add stage https://github.com/teva-shalem/books-staging.git
 * git remote add world https://github.com/teva-shalem/books-world.git
+* git remote add forever https://github.com/teva-shalem/books-forever.git
 
 # Content
 * <QuoteBlock><p>ציטוט כפסקה</p><template #quoter>מי אמר</template></Quote>

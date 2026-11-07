@@ -1,6 +1,15 @@
 const {zoom} = require('./config/attrs.js')
 const {addContainer, addPageClass} = require('./config/utils.js')
 
+function getBaseUrl() {
+    const isProd = process.env.NODE_ENV === 'production';
+    const githubRepo = process.env.GITHUB_REPOSITORY; // "owner/repo-name"
+
+    return (isProd && githubRepo && githubRepo.split('/')[1] === 'books-forever')
+    ? '/books-forever/'
+    : '/';
+}
+
 module.exports = {
     title: 'טבע שלם - ספרים',
     description: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
@@ -11,6 +20,7 @@ module.exports = {
         ['meta', {name: 'apple-mobile-web-app-capable', content: 'yes'}],
     ],
     theme: 'derech-hapeima',
+    base: getBaseUrl(),
     dest: './dist',
     port: 8082,
     evergreen: true,
