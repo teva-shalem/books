@@ -29,25 +29,25 @@ pageClass: index
   
   <div class="books-list">
 
-[דרך הפעימה](./derech-hapeima/)
+[דרך הפעימה](/derech-hapeima/)
 <br/>
 
-[סיפור היחיד](./sipur-hayahhid/)
+[סיפור היחיד](/sipur-hayahhid/)
 <br/>
 
-[סוד העיבור](./sod-haiibur/)
+[סוד העיבור](/sod-haiibur/)
 <br/>
 
-[ספר יצירה](./sefer-yetzira/)
+[ספר יצירה](/sefer-yetzira/)
 <br/>
 
-[משוואות הפעימה](./mishvaot-hapeima/)
+[משוואות הפעימה](/mishvaot-hapeima/)
 <br/>
 
-[ספר איכויות](./rosetta-stone/)
+[ספר איכויות](/rosetta-stone/)
 <br/>
 
-[מצגת](./slideshow/)
+[מצגת](/slideshow/)
 
   </div>
 </div>
