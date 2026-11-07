@@ -1,12 +1,5 @@
-/**
- * Clean and robust scroll management system for Vue Router SPAs.
- */
-
-const CONFIG = {
-  POLL_INTERVAL_MS: 25,
-  MAX_ATTEMPTS: 100,
-  SETTLED_DELAY_MS: 350,
-};
+const CONFIG = { POLL_MS: 25, MAX_ATTEMPTS: 100, SETTLE_MS: 350 };
+const scrollMap = new Map();
 
 const getKey = (state) => (state && state.key) || window.location.href;
 
@@ -43,21 +36,20 @@ const scrollToElement = (id, behavior = 'smooth') => {
 export const scrollToHash = (hash, behavior = 'smooth') => {
   if (!hash) return;
   const id = decodeHashId(hash);
-
   let attempts = 0;
+
   const poll = () => {
     if (document.getElementById(id)) {
       if (behavior === 'auto') {
         scrollToElement(id, 'auto');
       } else {
-        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLED_DELAY_MS);
+        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS);
       }
     } else if (attempts < CONFIG.MAX_ATTEMPTS) {
       attempts++;
-      setTimeout(poll, CONFIG.POLL_INTERVAL_MS);
+      setTimeout(poll, CONFIG.POLL_MS);
     }
   };
-
   poll();
 };
 
@@ -66,12 +58,8 @@ export const scrollToHash = (hash, behavior = 'smooth') => {
  */
 export const setupScrollBehavior = (router) => {
   if (typeof window === 'undefined') return;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  const scrollMap = new Map();
   let isHistoryPop = false;
   let isRestoring = false;
   let lastPathname = window.location.pathname;
@@ -101,6 +89,7 @@ export const setupScrollBehavior = (router) => {
       if (scrollMap.has(targetKey)) {
         const targetTop = scrollMap.get(targetKey);
         let attempts = 0;
+        
         const attemptScroll = () => {
           window.scrollTo({ top: targetTop, behavior: isSamePage ? 'smooth' : 'auto' });
           if (window.scrollY < targetTop && attempts < 20 && document.documentElement.scrollHeight <= targetTop) {
@@ -112,13 +101,10 @@ export const setupScrollBehavior = (router) => {
       } else if (isSamePage && window.location.hash) {
         scrollToHash(window.location.hash, 'smooth');
       } else {
-        window.scrollTo({ top: 0, behavior: 'auto' });
+        window.scrollTo({ top: 0, behavior: isSamePage ? 'smooth' : 'auto' });
       }
 
-      setTimeout(() => {
-        isHistoryPop = false;
-        isRestoring = false;
-      }, isSamePage ? 600 : 200);
+      setTimeout(() => { isHistoryPop = isRestoring = false; }, isSamePage ? 600 : 200);
     }, 50);
   });
 
@@ -131,85 +117,55 @@ export const setupScrollBehavior = (router) => {
     if (!href) return;
 
     const isSamePageHash = href.startsWith('#') || href.includes(window.location.pathname + '#');
-    if (isSamePageHash) {
-      e.preventDefault();
-      const hash = href.substring(href.indexOf('#'));
-      if (hash) {
-        const currentKey = getKey(history.state);
-        scrollMap.set(currentKey, window.scrollY);
+    if (!isSamePageHash) return;
 
-        // Check if we are already on this exact hash
-        if (decodeHashId(window.location.hash) === decodeHashId(hash)) {
-          // 1. Manually push a new history state so the Back button works
-          history.pushState(
-            { ...history.state, key: Math.random().toString(36).substring(2) }, 
-            '', 
-            hash
-          );
-          // 2. Save the scroll position for this new history entry too
-          scrollMap.set(getKey(history.state), window.scrollY);
-          // 3. Trigger smooth scroll manually
-          scrollToHash(hash, 'smooth');
-        } else {
-          router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
-        }
-      }
+    e.preventDefault();
+    e.stopImmediatePropagation(); // Isolates behavior from VuePress built-in click listeners
+
+    const hash = href.substring(href.indexOf('#'));
+    if (!hash) return;
+
+    scrollMap.set(getKey(history.state), window.scrollY);
+    const targetLocation = { path: window.location.pathname, hash };
+
+    if (decodeHashId(window.location.hash) === decodeHashId(hash)) {
+      const manualKey = `man-${Math.random().toString(36).substring(2, 10)}`;
+      history.pushState({ key: manualKey }, '', window.location.pathname + hash);
+      scrollMap.set(manualKey, window.scrollY);
+      scrollToHash(hash, 'smooth');
+    } else {
+      router.push(targetLocation)
+        .then(() => scrollToHash(hash, 'smooth'))
+        .catch((err) => {
+          if (err && err.name === 'NavigationDuplicated') scrollToHash(hash, 'smooth');
+        });
     }
-  });
-  
-  // Intercept in-page anchor clicks
-  document.addEventListener('click', (e) => {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-
-    const href = anchor.getAttribute('href');
-    if (!href) return;
-
-    const isSamePageHash = href.startsWith('#') || href.includes(window.location.pathname + '#');
-    if (isSamePageHash) {
-      e.preventDefault();
-      const hash = href.substring(href.indexOf('#'));
-      if (hash) {
-        const currentKey = getKey(history.state);
-        scrollMap.set(currentKey, window.scrollY);
-
-        // Check if we are already on this exact hash
-        if (window.location.hash === hash) {
-          // 1. Manually push a new history state so the Back button works
-          history.pushState(
-            { ...history.state, key: Math.random().toString(36).substring(2) }, 
-            '', 
-            hash
-          );
-          // 2. Save the scroll position for this new history entry too
-          scrollMap.set(getKey(history.state), window.scrollY);
-          // 3. Trigger smooth scroll manually
-          scrollToHash(hash, 'smooth');
-        } else {
-          router.push({ hash }).then(() => scrollToHash(hash, 'smooth')).catch(() => {});
-        }
-      }
-    }
-  });
-
-  // Jump to top on new forward cross-page navigation ONLY if there is no hash
-  router.beforeEach((to, from, next) => {
-    if (to.path !== from.path && !isHistoryPop) {
-      if (!to.hash) {
-        safeScrollTo({ top: 0, behavior: 'auto' });
-      }
-    }
-    lastPathname = to.path;
-    next();
-  });
+  }, { capture: true });
 
   router.options.scrollBehavior = () => false;
 
-  router.afterEach((to) => {
-    const isCrossPage = to.path !== lastPathname;
-    lastPathname = to.path;
-    if (to.hash && !isHistoryPop) {
-      scrollToHash(to.hash, isCrossPage ? 'auto' : 'smooth');
+  router.afterEach((to, from) => {
+    const isCrossPage = to.path !== from.path;
+    
+    if (isCrossPage && !isHistoryPop) {
+      requestAnimationFrame(() => {
+        if (!to.hash) {
+          safeScrollTo({ top: 0, behavior: 'auto' });
+        } else {
+          scrollToHash(to.hash, 'auto');
+        }
+      });
+    } else if (to.hash && !isHistoryPop) {
+      scrollToHash(to.hash, 'smooth');
     }
+    lastPathname = to.path;
   });
+
+  if (window.location.hash) {
+    if (document.readyState === 'complete') {
+      scrollToHash(window.location.hash, 'auto');
+    } else {
+      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true });
+    }
+  }
 };
