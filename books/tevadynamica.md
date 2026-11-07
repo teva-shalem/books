@@ -1,6 +1,6 @@
 ---
 title: טבעדינמיקה
-permalink: /print-all
+permalink: /tevadynamica
 ---
 
 <PrintBook />

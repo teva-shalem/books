@@ -8,7 +8,7 @@ export default {
   methods: {
     triggerPrint() {
       if (this.$page.path === '/') {
-        this.$router.push('/print-all/');
+        this.$router.push('/tevadynamica/');
       } else {
         window.print();
       }
