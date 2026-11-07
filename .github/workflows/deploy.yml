@@ -4,6 +4,12 @@ on:
   push:
     branches: [ master ]
 
+# Set required permissions for native GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,20 +28,14 @@ jobs:
     - name: Build Site & Generate PDFs
       run: npm run build
 
-    - name: Deploy Stage
-      if: github.repository == 'teva-shalem/books-staging'
-      uses: crazy-max/ghaction-github-pages@v2.1.0
-      with:
-        build_dir: dist
-        fqdn: books-staging.tevashalem.com
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
 
-    - name: Deploy World
-      if: github.repository == 'teva-shalem/books-world'
-      uses: crazy-max/ghaction-github-pages@v2.1.0
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        build_dir: dist
-        fqdn: books.tevashalem.com
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        path: 'dist'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
