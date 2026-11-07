@@ -25,9 +25,10 @@ export default {
     },
     triggerPdf() {
       if (this.isHome()) {
-        this.$router.push('/tevadynamica.pdf');
+        window.location.href = this.$withBase('/tevadynamica.pdf');
+        
       } else {
-        this.$router.push(`${this.$page.path}.pdf`);
+        window.location.href = this.$withBase(`${this.$page.path.replace(/\/$/, "")}.pdf`);
       }
     },
   }
