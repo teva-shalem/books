@@ -10,7 +10,7 @@
     "build": "vuepress build books && npm run generate-pdfs",
     "serve": "npx serve dist",
     "deploy:stage": "git push -f stage master",
-    "deploy:world": "git push -f world master",
+    "deploy:world": "git push -f world master && git push -f forever master",
     "upgrade": "npx npm-check-updates@16 --interactive"
   },
   "dependencies": {
