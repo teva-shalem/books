@@ -7,11 +7,11 @@
         </div>
 
         <p>
-            שימוש ב<a href="/sefer-yetzira/">ספר יצירה</a> הוא יכולת לברוא. על הכוונה להיות טהורה. על האדם לנהוג כמלך. מקרא האיכויות מתנהג כמפתח להבנת החיים והטבע, להשתלבות במעשה המרכבה של ההיבנות מתיקון אישי לתיקון כללי.
+            שימוש ב<Link :href="'/sefer-yetzira/'">ספר יצירה</Link> הוא יכולת לברוא. על הכוונה להיות טהורה. על האדם לנהוג כמלך. מקרא האיכויות מתנהג כמפתח להבנת החיים והטבע, להשתלבות במעשה המרכבה של ההיבנות מתיקון אישי לתיקון כללי.
         </p>
 
         <p class="english">
-            Using <a href="/composition-book/">Sefer Yetzira</a> is an ability to create. The intention must be pure. The person must act as a king. The legend of qualities acts as an index to the understanding of life and nature. It integrates the Art of Composition of the formation - from personal completion to collective completion.
+            Using <Link :href="'/composition-book/'">Sefer Yetzira</Link> is an ability to create. The intention must be pure. The person must act as a king. The legend of qualities acts as an index to the understanding of life and nature. It integrates the Art of Composition of the formation - from personal completion to collective completion.
         </p>
 
         <br/>
