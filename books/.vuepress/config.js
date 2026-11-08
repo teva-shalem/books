@@ -85,12 +85,6 @@ module.exports = {
     },
     configureWebpack: (config, isServer) => {
         if (!isServer) {
-            if (process.env.NODE_ENV === 'production') {
-                config.devtool = 'source-map'; 
-            } else {
-                config.devtool = 'eval-cheap-module-source-map'; 
-            }
-
             const htmlPlugin = config.plugins.find(
                 plugin => plugin.constructor.name === 'HtmlWebpackPlugin'
             );
