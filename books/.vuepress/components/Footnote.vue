@@ -24,14 +24,12 @@ export default {
   },
   computed: {
     resolvedContent() {
-      if (this.$slots.default) {
-        debugger
-        return this.$slots.default
-          .map(vNode => vNode.text || '')
-          .join('')
-          .replaceAll('\n', ' ');
-      }
-      return '';
+      return (this.$slots.default)
+        ? this.$slots.default
+            .map(vNode => vNode.text || '')
+            .join('')
+            .replaceAll('\n', ' ')
+        : '';
     }
   }
 }
