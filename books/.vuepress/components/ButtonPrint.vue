@@ -25,12 +25,22 @@ export default {
     },
     triggerPdf() {
       if (this.isHome()) {
-        window.location.href = this.$withBase('/tevadynamica.pdf');
-        
+        this.openPdfExternally('/tevadynamica.pdf')
       } else {
-        window.location.href = this.$withBase(`${this.$page.path.replace(/\/$/, "")}.pdf`);
+        this.openPdfExternally(`${this.$page.path.replace(/\/$/, "")}.pdf`)
       }
     },
+    openPdfExternally(url) {
+      const absoluteUrl = new URL(this.$withBase(url), window.location.href).href;
+
+      const link = document.createElement('a');
+      link.href = absoluteUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   }
 }
 </script>
