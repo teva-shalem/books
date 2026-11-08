@@ -51,10 +51,10 @@ jobs:
       uses: actions/deploy-pages@v4
 
     # --- CloudFlare Pages Deployment ---
-    - name: Deploy to Cloudflare Pages
-      if: github.repository == 'teva-shalem/books-world'
-      uses: cloudflare/wrangler-action@v3
-      with:
-        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        command: pages deploy dist --project-name=tevadynamica
+    # - name: Deploy to Cloudflare Pages
+    #   if: github.repository == 'teva-shalem/books-world'
+    #   uses: cloudflare/wrangler-action@v3
+    #   with:
+    #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    #     command: pages deploy dist --project-name=tevadynamica
