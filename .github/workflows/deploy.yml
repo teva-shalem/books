@@ -53,9 +53,8 @@ jobs:
     # --- CloudFlare Pages Deployment ---
     - name: Deploy to Cloudflare Pages
       if: github.repository == 'teva-shalem/books-world'
-      uses: cloudflare/pages-action@v1
+      uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        projectName: 'tevadynamica'
-        directory: 'dist'
+        command: pages deploy dist --project-name=tevadynamica
