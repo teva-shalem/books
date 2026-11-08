@@ -16,6 +16,12 @@ module.exports = {
     head: [
         ['link', {rel: 'icon', href: '/images/icons/icon-512x512.png'}],
         ['link', {rel: 'manifest', href: '/manifest.json'}],
+        ['link', { 
+            rel: 'stylesheet', 
+            href: 'https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap',
+            media: 'print',
+            onload: "this.media='all'"
+        }],
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
         ['meta', {name: 'apple-mobile-web-app-capable', content: 'yes'}],
     ],
@@ -76,5 +82,29 @@ module.exports = {
     },
     extendPageData ($page) {
         addPageClass($page)
+    },
+    configureWebpack: (config, isServer) => {
+        if (!isServer) {
+            if (process.env.NODE_ENV === 'production') {
+                config.devtool = 'source-map'; 
+            } else {
+                config.devtool = 'eval-cheap-module-source-map'; 
+            }
+
+            const htmlPlugin = config.plugins.find(
+                plugin => plugin.constructor.name === 'HtmlWebpackPlugin'
+            );
+            if (htmlPlugin) {
+                htmlPlugin.options.scriptLoading = 'defer';
+                
+                if (process.env.NODE_ENV === 'production') {
+                    htmlPlugin.options.minify = {
+                        ...htmlPlugin.options.minify,
+                        removeComments: true,
+                        collapseWhitespace: true,
+                    };
+                }
+            }
+        }
     },
 }
