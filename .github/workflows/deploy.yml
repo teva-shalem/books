@@ -37,6 +37,7 @@ jobs:
     - name: Build Site & Generate PDFs
       run: npm run build
 
+    # --- GitHub Pages Deployment ---
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
@@ -48,3 +49,13 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+
+    # --- CloudFlare Pages Deployment ---
+    - name: Deploy to Cloudflare Pages
+      if: github.repository == 'teva-shalem/books-world'
+      uses: cloudflare/pages-action@v1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        projectName: 'tevadynamica'
+        directory: 'dist'
