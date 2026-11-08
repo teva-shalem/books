@@ -89,6 +89,8 @@ module.exports = {
                 plugin => plugin.constructor.name === 'HtmlWebpackPlugin'
             );
             if (htmlPlugin) {
+                htmlPlugin.options.scriptLoading = 'defer';
+                
                 if (process.env.NODE_ENV === 'production') {
                     htmlPlugin.options.minify = {
                         ...htmlPlugin.options.minify,
