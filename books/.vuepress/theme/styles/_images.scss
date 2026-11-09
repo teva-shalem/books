@@ -4,8 +4,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 101; /* Forces the box to render above the default 100 layer threshold */
-  
-  /* Styling Details */
+
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   padding: 0.6rem 1.5rem;
@@ -24,4 +23,9 @@
 
 .medium-zoom-caption-overlay.is-visible {
   opacity: 1;
+}
+
+/* disable scrolling that closes the zoom backdrop */
+body:has(.medium-zoom-overlay) {
+  overflow-y: hidden;
 }
