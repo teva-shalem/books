@@ -1,10 +1,11 @@
-const {zoom} = require('../../config/attrs.js')
+import attrs from '../../config/attrs'
 
-/**
- * Integrates `@vuepress/plugin-medium-zoom` with the browser History API.
- * Pushes a history state when an image is zoomed in, ensuring that pressing the browser's 
- * "Back" button closes the zoom overlay instead of navigating away from the document.
- */
+interface ZoomConfig {
+  selector: string
+  [key: string]: unknown
+}
+
+const zoom = (attrs as { zoom: ZoomConfig }).zoom
 
 // Global state tracking for zoom and history navigation
 let isZoomed = false
@@ -16,16 +17,14 @@ let popStateListenerAttached = false
  * Handles the browser's `popstate` event (e.g., clicking the browser Back button).
  * If an image is zoomed, closes the zoom without navigating the page.
  */
-function handlePopState() {
+function handlePopState(): void {
   if (isZoomed) {
     isZoomed = false
     ignoreNextPopState = true
 
     // Click the active overlay to trigger medium-zoom's native unzoom routine
-    const zoomOverlay = document.querySelector('.medium-zoom-overlay')
-    if (zoomOverlay) {
-      zoomOverlay.click()
-    }
+    const zoomOverlay = document.querySelector('.medium-zoom-overlay') as HTMLElement | null
+    zoomOverlay?.click()
   }
 }
 
@@ -33,7 +32,7 @@ function handlePopState() {
  * Handles manual close events (ESC key, clicking, or scrolling).
  * Programmatically pops the history entry so the history stack remains clean.
  */
-function handleManualClose() {
+function handleManualClose(): void {
   if (isZoomed) {
     isZoomed = false
     if (!ignoreNextPopState) {
@@ -47,12 +46,12 @@ function handleManualClose() {
  * Attaches global event listeners and the DOM observer.
  * Designed to only bind once across route transitions.
  */
-function attachGlobalListeners() {
+function attachGlobalListeners(): void {
   if (!popStateListenerAttached) {
     window.addEventListener('popstate', handlePopState)
 
     // Intercept ESC key presses while image is zoomed
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isZoomed) {
         handleManualClose()
       }
@@ -73,14 +72,14 @@ function attachGlobalListeners() {
 /**
  * Binds image click handlers for medium-zoom targets on the current page.
  * 
- * @param {string} selector - CSS selector matching zoomable images.
+ * @param selector - CSS selector matching zoomable images.
  */
-function bindImageListeners(selector) {
-  const images = document.querySelectorAll(selector)
+function bindImageListeners(selector: string): void {
+  const images = document.querySelectorAll<HTMLImageElement>(selector)
   if (!images.length) return
 
   images.forEach((img) => {
-    // Avoid attaching duplicate click listeners if revisited
+    // Avoid attaching duplicate click listeners if revisited using dataset property mapping
     if (img.dataset.zoomHistoryBound) return
     img.dataset.zoomHistoryBound = 'true'
 
@@ -101,9 +100,9 @@ function bindImageListeners(selector) {
 /**
  * Initializes or updates the zoom-to-history binding for the given route context.
  * 
- * @param {string} selector - CSS selector matching target images.
+ * @param selector - CSS selector matching target images.
  */
-export function initZoomHistory(selector = zoom.selector) {
+export function initZoomHistory(selector: string = zoom.selector): void {
   currentSelector = selector
   attachGlobalListeners()
 
