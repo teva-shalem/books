@@ -57,7 +57,6 @@ export const scrollToHash = (hash, behavior = 'smooth') => {
  * Configures Vue Router scroll behavior and history restoration.
  */
 export const setupScrollBehavior = (router) => {
-  if (typeof window === 'undefined') return;
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   let isHistoryPop = false;

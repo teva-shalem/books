@@ -1,0 +1,27 @@
+.medium-zoom-caption-overlay {
+  position: fixed;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101; /* Forces the box to render above the default 100 layer threshold */
+  
+  /* Styling Details */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+  max-width: 80vw;
+  pointer-events: none; /* Allows click-to-close gestures to fall straight back to the page backdrop */
+  
+  /* Smooth opacity animation matching medium-zoom's default 300ms transition */
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.medium-zoom-caption-overlay.is-visible {
+  opacity: 1;
+}
