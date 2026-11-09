@@ -5,7 +5,7 @@ import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css'
 
 import { handleScroll } from './theme/utils/scrollHandler'
-import { initZoomHistory } from './theme/utils/zoomHandler'
+import { handleZoom } from './theme/utils/zoomHandler'
 import { handleCaption } from './theme/utils/captionHandler'
 
 const enhanceApp: EnhanceApp = ({
@@ -25,11 +25,7 @@ const enhanceApp: EnhanceApp = ({
   if (isServer || typeof window === 'undefined') return
 
   handleScroll(router)
-
-  router.afterEach(() => {
-    initZoomHistory()
-  })
-
+  handleZoom(router)
   handleCaption()
 }
 

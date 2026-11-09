@@ -1,113 +1,123 @@
-import attrs from '../../config/attrs'
+import type { Router } from 'vuepress'
+import { zoom } from '../../config/attrs'
 
-interface ZoomConfig {
-  selector: string
-  [key: string]: unknown
-}
+// ==========================================
+// 1. CONFIGURATION, TYPES & GLOBAL STATES
+// ==========================================
+const CONFIG = {
+  CLASSES: {
+    OVERLAY: '.medium-zoom-overlay',
+  },
+  KEYS: {
+    ESCAPE: 'Escape',
+  },
+  DATA_ATTRS: {
+    HISTORY_BOUND: 'zoomHistoryBound',
+  },
+  TIMEOUTS: {
+    OVERLAY_RENDER_MS: 50,
+    DOM_HYDRATION_MS: 300,
+  },
+} as const
 
-const zoom = (attrs as { zoom: ZoomConfig }).zoom
-
-// Global state tracking for zoom and history navigation
 let isZoomed = false
 let ignoreNextPopState = false
 let currentSelector = ''
-let popStateListenerAttached = false
+let isGlobalListenersAttached = false
+
+// ==========================================
+// 2. DISMISSAL HANDLERS
+// ==========================================
 
 /**
- * Handles the browser's `popstate` event (e.g., clicking the browser Back button).
- * If an image is zoomed, closes the zoom without navigating the page.
+ * Handles browser navigation changes (Back/Forward buttons)
  */
-function handlePopState(): void {
-  if (isZoomed) {
-    isZoomed = false
+const handlePopState = (): void => {
+  if (!isZoomed) return
+  
+  isZoomed = false
+  ignoreNextPopState = true
+
+  // Native medium-zoom unzooms automatically when its overlay is clicked
+  const zoomOverlay = document.querySelector(CONFIG.CLASSES.OVERLAY) as HTMLElement | null
+  zoomOverlay?.click()
+}
+
+/**
+ * Handles explicit manual escapes (ESC keys, scrolling actions, background overlays)
+ */
+const handleManualClose = (): void => {
+  if (!isZoomed) return
+
+  isZoomed = false
+  
+  if (!ignoreNextPopState) {
     ignoreNextPopState = true
-
-    // Click the active overlay to trigger medium-zoom's native unzoom routine
-    const zoomOverlay = document.querySelector('.medium-zoom-overlay') as HTMLElement | null
-    zoomOverlay?.click()
+    history.back()
   }
 }
 
-/**
- * Handles manual close events (ESC key, clicking, or scrolling).
- * Programmatically pops the history entry so the history stack remains clean.
- */
-function handleManualClose(): void {
-  if (isZoomed) {
-    isZoomed = false
-    if (!ignoreNextPopState) {
-      ignoreNextPopState = true
-      history.back()
+// ==========================================
+// 3. SEPARATED EVENT BINDINGS
+// ==========================================
+
+const bindGlobalListeners = (): void => {
+  if (isGlobalListenersAttached) return
+
+  // 1. Monitor browser history transitions
+  window.addEventListener('popstate', handlePopState)
+
+  // 2. Catch native keyboard events
+  document.addEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.key === CONFIG.KEYS.ESCAPE && isZoomed) {
+      handleManualClose()
     }
-  }
+  })
+
+  // 3. Track DOM trees to clear history if overlay unmounts via scroll/clicks
+  const observer = new MutationObserver(() => {
+    if (isZoomed && !document.querySelector(CONFIG.CLASSES.OVERLAY)) {
+      handleManualClose()
+    }
+  })
+  observer.observe(document.body, { childList: true, subtree: true })
+
+  isGlobalListenersAttached = true
 }
 
-/**
- * Attaches global event listeners and the DOM observer.
- * Designed to only bind once across route transitions.
- */
-function attachGlobalListeners(): void {
-  if (!popStateListenerAttached) {
-    window.addEventListener('popstate', handlePopState)
-
-    // Intercept ESC key presses while image is zoomed
-    document.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isZoomed) {
-        handleManualClose()
-      }
-    })
-
-    // Single observer to cleanly detect any overlay removal (click, ESC, scroll, etc.)
-    const observer = new MutationObserver(() => {
-      if (isZoomed && !document.querySelector('.medium-zoom-overlay')) {
-        handleManualClose()
-      }
-    })
-    observer.observe(document.body, { childList: true, subtree: true })
-
-    popStateListenerAttached = true
-  }
-}
-
-/**
- * Binds image click handlers for medium-zoom targets on the current page.
- * 
- * @param selector - CSS selector matching zoomable images.
- */
-function bindImageListeners(selector: string): void {
+const bindImageListeners = (selector: string): void => {
   const images = document.querySelectorAll<HTMLImageElement>(selector)
-  if (!images.length) return
-
+  
   images.forEach((img) => {
-    // Avoid attaching duplicate click listeners if revisited using dataset property mapping
-    if (img.dataset.zoomHistoryBound) return
-    img.dataset.zoomHistoryBound = 'true'
+    if (img.dataset[CONFIG.DATA_ATTRS.HISTORY_BOUND]) return
+    img.dataset[CONFIG.DATA_ATTRS.HISTORY_BOUND] = 'true'
 
     img.addEventListener('click', () => {
-      // Small timeout allows medium-zoom to render its overlay before checking state
+      // Buffer allows medium-zoom to inject overlay before updating history
       setTimeout(() => {
-        const overlay = document.querySelector('.medium-zoom-overlay')
-        if (overlay && !isZoomed) {
+        if (document.querySelector(CONFIG.CLASSES.OVERLAY) && !isZoomed) {
           isZoomed = true
           ignoreNextPopState = false
           history.pushState({ mediumZoom: true }, '')
         }
-      }, 50)
+      }, CONFIG.TIMEOUTS.OVERLAY_RENDER_MS)
     })
   })
 }
 
-/**
- * Initializes or updates the zoom-to-history binding for the given route context.
- * 
- * @param selector - CSS selector matching target images.
- */
-export function initZoomHistory(selector: string = zoom.selector): void {
-  currentSelector = selector
-  attachGlobalListeners()
+// ==========================================
+// 4. MAIN INIT EXPORT
+// ==========================================
 
-  // Small delay to ensure VuePress DOM hydration has finished post-route navigation
-  setTimeout(() => {
-    bindImageListeners(currentSelector)
-  }, 300)
+/**
+ * Initializes or updates the zoom-to-history binding for the current page context
+ */
+export function handleZoom(router: Router, selector: string = zoom.selector): void {
+  router.afterEach(() => {
+    currentSelector = selector
+    bindGlobalListeners()
+
+    // Buffer ensures VuePress finishes painting page layouts before scanning images
+    setTimeout(() => bindImageListeners(currentSelector), CONFIG.TIMEOUTS.DOM_HYDRATION_MS)
+  })
 }
