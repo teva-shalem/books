@@ -4,7 +4,7 @@ import Buefy from 'buefy'
 import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css'
 
-import { setupScrollBehavior } from './theme/utils/scrollHandler'
+import { handleScroll } from './theme/utils/scrollHandler'
 import { initZoomHistory } from './theme/utils/zoomHandler'
 import { handleCaption } from './theme/utils/captionHandler'
 
@@ -24,7 +24,7 @@ const enhanceApp: EnhanceApp = ({
   // Safe Guard against Server-Side Rendering (SSR)
   if (isServer || typeof window === 'undefined') return
 
-  setupScrollBehavior(router)
+  handleScroll(router)
 
   router.afterEach(() => {
     initZoomHistory()
