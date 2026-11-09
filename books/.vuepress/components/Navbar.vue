@@ -4,6 +4,8 @@
       <a class="navbar-item" href="https://tevashalem.com/">
         <Img :path="'david-symbol-transparent.png'" alt="דלת אפס נקודה" no-zoom />טבע שלם
       </a>
+      <Link class="navbar-link is-arrowless" :href="'/intro/'">מבוא</Link>
+      <Link class="navbar-link is-arrowless" :href="'/'">ספרים</Link>
     </div>
     <div class="navbar-left">
       <ButtonPrint></ButtonPrint>
@@ -25,10 +27,18 @@ export default {
   align-items: center;
 }
 
+.navbar-brand {
+  align-items: center;
+}
+
 a.navbar-item, .navbar-link {
   font-size: 1.25rem;
   text-decoration: none;
   color: white;
+
+  &:hover {
+    background-color: initial;
+  }
 }
 
 .navbar-left {
