@@ -1,5 +1,5 @@
-const {zoom} = require('./config/attrs.js')
-const {addContainer, addPageClass} = require('./config/utils.js')
+import {attrs} from './config/attrs'
+import {addContainer, addPageClass} from './config/utils.js'
 
 function getBaseUrl() {
     const isProd = process.env.NODE_ENV === 'production';
@@ -10,7 +10,7 @@ function getBaseUrl() {
     : '/';
 }
 
-module.exports = {
+export default {
     title: 'טבע שלם - ספרים',
     description: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
     head: [
@@ -38,7 +38,7 @@ module.exports = {
     },
     plugins: [
         '@vuepress/back-to-top',
-        ['@vuepress/medium-zoom', zoom],
+        ['@vuepress/medium-zoom', attrs.zoom],
 
         ['vuepress-plugin-typescript', {
             tsLoaderOptions: {
