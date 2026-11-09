@@ -24,18 +24,19 @@ const handleZoomTransition = (event: TransitionEvent): void => {
   if (!target?.classList.contains('medium-zoom-overlay')) return;
 
   const openedImg = document.querySelector('img.medium-zoom-image--opened') as HTMLImageElement | null;
-  const computedStyle = window.getComputedStyle(target);
-  const opacity = parseFloat(computedStyle.opacity);
+  const opacity = parseFloat(window.getComputedStyle(target).opacity);
 
-  if (opacity < 1) {
-    if (openedImg?.alt) {
+  if (opacity === 0) {
+    if (openedImg?.alt && document.body.contains(openedImg)) {
       createCaption(openedImg.alt);
     }
-  } else if (opacity === 1) {
+  } else if (opacity > 0) {
     forceDestroyCaption();
   }
 };
 
 export function handleCaption(): void {
   window.addEventListener('transitionrun', handleZoomTransition, true);
+
+  window.addEventListener('popstate', forceDestroyCaption, { capture: true });
 }
