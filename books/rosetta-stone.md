@@ -25,4 +25,4 @@ Columns are vertical and they form a horizontal axis - or reality. Rows are hori
 
 <div class="page-break"></div>
 
-<DataTableRosettaStone :id="'table-of-qualities'" class="regular-layout" />
+<RosettaStone :id="'table-of-qualities'" class="regular-layout" />

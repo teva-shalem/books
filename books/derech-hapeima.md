@@ -14,17 +14,17 @@ layout: ReadingLayout
 
 <Img :path="'derech-hapeima/cover.jpg'" alt="כריכת הספר" class="cover-image"></Img>
 
-<QuoteBlock>
+<Blockquote>
 <p>'והרוח הייתה לאחד עם הטבע, וההכרה לאחד עם אלוהים'</p>
-</QuoteBlock>
+</Blockquote>
 
-<QuoteBlock>
+<Blockquote>
 <p>'את השקט לא ניתן לתאר במילים'</p>
-</QuoteBlock>
+</Blockquote>
 
-<QuoteBlock>
+<Blockquote>
 <p>'הדרך לא שייכת להולך בה'</p>
-</QuoteBlock>
+</Blockquote>
 
 <TableOfContents :includeLevel="[1, 2, 3]" />
 
@@ -176,10 +176,10 @@ layout: ReadingLayout
 
 # פרק א׳ - עמק. אהבת החוכמה
 
-<QuoteBlock>
+<Blockquote>
 <p>'לך בעקבות הטבע, והכל כבר יקרה'</p>
 <template #quoter>ספר הדאו</template>
-</QuoteBlock>
+</Blockquote>
 
 <Poem>
 
@@ -431,11 +431,11 @@ layout: ReadingLayout
 
 </Poem>
 
-<QuoteBlock>
+<Blockquote>
 <p>"אם הגיון ומשמעות מתנגשים זה עם זה
 היה מוכן להשהות את השיפוט"</p>
 <template #quoter>צ'נג מאן-צ'ינג</template>
-</QuoteBlock>
+</Blockquote>
 
 <Img :path="'derech-hapeima/paradoxality.jpg'" alt="נוף העמק מהכפר טוש"></Img>
 
@@ -462,12 +462,12 @@ layout: ReadingLayout
 
 </Poem>
 
-<QuoteBlock>
+<Blockquote>
 <p>"רוח מעל ארץ –
 ההיטהרות הסתיימה,
 אך טרם הוגשה המנחה"</p>
 <template #quoter>אי צ'ינג</template>
-</QuoteBlock>
+</Blockquote>
 
 ## מעון הקודש
 
@@ -518,13 +518,13 @@ layout: ReadingLayout
 
 ### אחריות
 
-<QuoteBlock>
+<Blockquote>
 <p>'זה אשר אוהב את <Bigger>העולם</Bigger>
 כמו את גופו,
 ניתן להפקיד בידיו בבטחה את
 העולם כולו'</p>
 <template #quoter>ספר הדאו</template>
-</QuoteBlock>
+</Blockquote>
 
 </Poem>
 
@@ -540,15 +540,15 @@ layout: ReadingLayout
 
 </Poem>
 
-<QuoteBlock>
+<Blockquote>
 <p>'<Strong>עדן</Strong> – רובד רוחני עילאי הנקרא כך בשל רב תפארתו ועוצם התענוג שחשים כל
 המתחברים אליו' (יהדות)</p>
-</QuoteBlock>
+</Blockquote>
 
-<QuoteBlock>
+<Blockquote>
 <p>'<Strong>נירוונה</Strong> – שלוות נפש הודות להרמוניה פנימית והרמוניה עם הסביבה הנובעות
 מתובנה אינטואיטיבית של חוקי הקיום' (בודהיזם)</p>
-</QuoteBlock>
+</Blockquote>
 
 <Poem>
 
@@ -632,20 +632,20 @@ layout: ReadingLayout
 
 # פרק ב׳ - הר. חזרה למציאות
 
-<QuoteBlock>
+<Blockquote>
 <p>'המשוגע טובע במים
 שהקדוש שותה מהם'</p>
-</QuoteBlock>
+</Blockquote>
 
 <Img :path="'derech-hapeima/mountain.jpg'" alt="שגעון הקדושה"></Img>
 
-<QuoteBlock>
+<Blockquote>
 <p>'רעם חוזר ומופיע –
 דיוקנו של זעזוע.
 כך האדם הנעלה, בחיל ורעדה
 מתקן הליכותיו ובוחן עצמו.'</p>
 <template #quoter>אי צ'ינג</template>
-</QuoteBlock>
+</Blockquote>
 
 <Poem>
 

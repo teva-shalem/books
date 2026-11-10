@@ -1,3 +1,4 @@
+import path from 'path'
 import markdownItAttrs from 'markdown-it-attrs'
 
 import type { UserConfig } from './types/config'
@@ -54,19 +55,28 @@ const config: UserConfig<{}> = {
   },
 
   plugins: [
+    ['@vuepress/register-components', {
+      componentsDir: path.resolve(__dirname, './components'),
+      getComponentName: (file: string) => {
+        const baseName = path.basename(file, '.vue');
+        
+        if (baseName === 'index') {
+          return path.basename(path.dirname(file));
+        }
+        
+        return baseName;
+      }
+    }],
     ['@vuepress/back-to-top'],
     ['@vuepress/medium-zoom', attrs.zoom],
-
     ['vuepress-plugin-typescript', {
         tsLoaderOptions: {
             transpileOnly: true,
         },
     }],
-
     ['@vuepress/google-analytics', {
         ga: 'UA-163403399-1',
     }],
-
     ['@vuepress/pwa', {
         serviceWorker: true,
         updatePopup: {

@@ -15,7 +15,7 @@ customFont: Courier New
 
 <TableOfContents :includeLevel="[1, 2]" />
 
-<QuoteBlock><p>... יהיה כעץ שתול על פלגי מים אשר פריו ייתן בעתו ועלהו לא ייבול</p></QuoteBlock>
+<Blockquote><p>... יהיה כעץ שתול על פלגי מים אשר פריו ייתן בעתו ועלהו לא ייבול</p></Blockquote>
 
 # א׳
 

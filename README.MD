@@ -9,7 +9,7 @@
 * git remote add forever https://github.com/teva-shalem/books-forever.git
 
 # Content
-* <QuoteBlock><p>ציטוט כפסקה</p><template #quoter>מי אמר</template></Quote>
+* <Blockquote><p>ציטוט כפסקה</p><template #quoter>מי אמר</template></Quote>
 * <Quote quoter="מי אמר">ציטוט בשורה</Quote>
 * # heading
 * ## subheading
