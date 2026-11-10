@@ -1,8 +1,5 @@
 import type { Router, RawLocation } from 'vuepress'
 
-// ==========================================
-// 1. CONFIGURATION & TYPES
-// ==========================================
 const CONFIG = {
   POLL_MS: 25,
   MAX_ATTEMPTS: 100,
@@ -17,11 +14,7 @@ interface HistoryState {
 const scrollMap = new Map<string, number>()
 let isHistoryPop = false
 let isRestoring = false
-let lastPathname = window.location.pathname
-
-// ==========================================
-// 2. CORE UTILITY HELPERS
-// ==========================================
+let lastPathname = ''
 
 const getKey = (state: unknown): string => {
   if (state && typeof state === 'object' && 'key' in state) {
@@ -75,10 +68,6 @@ const safeScrollTo = (options: ScrollToOptions): void => {
   window.scrollTo(options)
   setTimeout(() => { isRestoring = false }, 150)
 }
-
-// ==========================================
-// 3. SEPARATED EVENT BINDINGS
-// ==========================================
 
 const bindScrollRecorder = (): void => {
   window.addEventListener('scroll', () => {
@@ -157,10 +146,6 @@ const bindAnchorClickHandler = (router: Router): void => {
   }, { capture: true })
 }
 
-// ==========================================
-// 4. MAIN CONFIG ORCHESTRATOR
-// ==========================================
-
 export const handleScroll = (router: Router): void => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
  
@@ -168,17 +153,14 @@ export const handleScroll = (router: Router): void => {
 
   lastPathname = window.location.pathname
 
-  // 1. Initialize Modular Events
   bindScrollRecorder()
   bindPopStateHandler()
   bindAnchorClickHandler(router)
 
-  // 2. Disable VuePress native layout scroll override
   if (router.options) {
     router.options.scrollBehavior = () => null
   }
 
-  // 3. Handle Route Transitions
   router.afterEach((to, from) => {
     const isCrossPage = to.path !== from.path
     
@@ -192,7 +174,6 @@ export const handleScroll = (router: Router): void => {
     lastPathname = to.path
   })
 
-  // 4. Handle initial deep-linked load sequence
   if (window.location.hash) {
     document.readyState === 'complete'
       ? scrollToHash(window.location.hash, 'auto')

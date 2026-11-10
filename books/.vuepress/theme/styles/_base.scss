@@ -6,6 +6,10 @@ html, body {
   padding: 0;
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
 body {
   font-family: 'Assistant', sans-serif;
   font-size: $base-font-size;
