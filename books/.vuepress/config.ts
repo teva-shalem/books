@@ -1,22 +1,8 @@
-import type MarkdownIt from 'markdown-it'
-import type { Configuration as WebpackConfiguration, WebpackPluginInstance } from 'webpack';
-import type { PageData } from 'vuepress'
 import type { UserConfig } from './types/config'
+import type { WebpackConfiguration, WebpackPlugin, HtmlWebpackPluginInstance } from './types/webpack'
 
 import { attrs } from './config/attrs'
 import { addContainer, addPageClass } from './config/utils.js'
-
-interface HtmlWebpackPluginInstance {
-  constructor: { name: string }
-  options: {
-    scriptLoading?: 'blocking' | 'defer' | 'module'
-    minify?: {
-        removeComments: boolean,
-        collapseWhitespace: boolean,
-    }
-    [key: string]: unknown
-  }
-}
 
 /**
  * Computes the deployment sub-path dynamically based on context environment hooks
@@ -54,7 +40,7 @@ const config: UserConfig<{}> = {
 
   markdown: {
     extractHeaders: ['h1', 'h2', 'h3', 'h4'] as any,
-    extendMarkdown: (md: MarkdownIt): void => {
+    extendMarkdown: (md): void => {
       addContainer(md, 'hebrew-list')
     }
   },
@@ -100,14 +86,14 @@ const config: UserConfig<{}> = {
     })
   },
 
-  extendPageData($page: PageData): void {
+  extendPageData($page): void {
     addPageClass($page)
   },
 
   configureWebpack: (config: WebpackConfiguration, isServer: boolean): void => {
     if (!isServer) {
       const htmlPlugin = (config.plugins || []).find(
-        (plugin): plugin is WebpackPluginInstance & HtmlWebpackPluginInstance => 
+        (plugin): plugin is WebpackPlugin & HtmlWebpackPluginInstance => 
           plugin.constructor.name === 'HtmlWebpackPlugin'
       )
       
