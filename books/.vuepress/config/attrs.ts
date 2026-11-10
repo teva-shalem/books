@@ -6,6 +6,6 @@ export const attrs = {
       background: 'rgba(0, 0, 0, 0.8)'
     }
   }
-} as const
+}
 
 export const zoom = attrs.zoom

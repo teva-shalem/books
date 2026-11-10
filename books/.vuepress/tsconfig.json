@@ -1,5 +1,5 @@
 {
-  "include": ["*.ts"],
+  "include": ["*.ts", "types/*.ts"],
   "compilerOptions": {
     "types": ["vuepress-types"]
   }
