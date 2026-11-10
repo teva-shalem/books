@@ -1,5 +1,6 @@
 ---
 title: סיפור היחיד
+description:
 permalink: /sipur-hayahhid
 layout: ReadingLayout
 customFont: Shofar

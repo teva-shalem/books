@@ -28,6 +28,7 @@
     "@vuepress/plugin-google-analytics": "^1.9.10",
     "@vuepress/plugin-medium-zoom": "^1.9.10",
     "@vuepress/plugin-pwa": "^1.9.10",
+    "markdown-it-attrs": "^5.0.1",
     "puppeteer": "^21.5.0",
     "sass": "^1.105.2",
     "sass-loader": "^10.5.2",

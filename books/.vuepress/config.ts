@@ -1,3 +1,5 @@
+import markdownItAttrs from 'markdown-it-attrs'
+
 import type { UserConfig } from './types/config'
 import type { WebpackConfiguration, WebpackPlugin, HtmlWebpackPluginInstance } from './types/webpack'
 
@@ -41,6 +43,12 @@ const config: UserConfig<{}> = {
   markdown: {
     extractHeaders: ['h1', 'h2', 'h3', 'h4'] as any,
     extendMarkdown: (md): void => {
+      md.use(markdownItAttrs, {
+        // leftDelimiter: '{',
+        // rightDelimiter: '}',
+        allowedAttributes: ['dir'],
+      })
+
       addContainer(md, 'hebrew-list')
     }
   },

@@ -1,7 +1,7 @@
 ---
 title: מצגת
-permalink: /slideshow
 description: 
+permalink: /slideshow
 layout: ReadingLayout
 ---
 

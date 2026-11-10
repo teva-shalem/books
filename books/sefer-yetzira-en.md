@@ -1,8 +1,7 @@
 ---
-title: ספר יצירה
-id: yetzira
+title: Composition Book
+description: The ancient Sefer Yetzira. Attributed to Abraham. Translated to English.
 permalink: /composition-book
-description: ספר יצירה הקדום. מיוחס לאברהם אבינו. ערך פיטר היימן.
 layout: EnglishReadingLayout
 ---
 

@@ -1,5 +1,4 @@
 ---
-title: ספרים
 permalink: /
 layout: ReadingLayout
 pageClass: index

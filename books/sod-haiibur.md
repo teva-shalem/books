@@ -1,5 +1,6 @@
 ---
 title: סוד העיבור
+description: 
 permalink: /sod-haiibur
 layout: ReadingLayout
 customFont: Courier New

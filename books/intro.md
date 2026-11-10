@@ -1,7 +1,7 @@
 ---
 title: מבוא 
-permalink: /intro 
 description: המבוא לטבעדינמיקה 
+permalink: /intro 
 layout: ReadingLayout
 ---
 
