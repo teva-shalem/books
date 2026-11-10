@@ -36,7 +36,7 @@ a.navbar-item, .navbar-link {
   text-decoration: none;
   color: white;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: initial;
   }
 }
