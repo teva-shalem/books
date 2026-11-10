@@ -1,7 +1,11 @@
-const http = require('http');
-const handler = require('serve-handler');
-const path = require('path');
-const fs = require('fs');
+import http from 'http';
+import handler from 'serve-handler';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import puppeteer from 'puppeteer';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const IGNORED_DIRS = ['assets', 'images'];
@@ -51,8 +55,6 @@ server.listen(PORT, async () => {
   console.log(`🚀 Local static server running at http://localhost:${PORT}`);
 
   try {
-    const puppeteer = (await import('puppeteer')).default;
-    
     const browser = await puppeteer.launch({
       headless: 'new',
       args: ['--no-sandbox', '--disable-setuid-sandbox']

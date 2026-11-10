@@ -5,8 +5,8 @@
 <script lang="ts">
 import DataTable from '../block/DataTable.vue'
 
-const {columns} = require('../artifacts/rosetta-stone/columns.json')
-const {qualities} = require('../artifacts/rosetta-stone/qualities.json')
+import { columns } from '../../artifacts/rosetta-stone/columns.json'
+import { qualities } from '../../artifacts/rosetta-stone/qualities.json'
 
 export default {
     components: {DataTable},
