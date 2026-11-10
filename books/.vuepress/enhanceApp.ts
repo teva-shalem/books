@@ -21,8 +21,7 @@ const enhanceApp: EnhanceApp = ({
     globalOptions: {}
   })
 
-  // Safe Guard against Server-Side Rendering (SSR)
-  if (isServer || typeof window === 'undefined') return
+  if (isServer) return
 
   handleScroll(router)
   handleZoom(router)

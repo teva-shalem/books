@@ -162,6 +162,8 @@ const bindAnchorClickHandler = (router: Router): void => {
 // ==========================================
 
 export const handleScroll = (router: Router): void => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+ 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
   lastPathname = window.location.pathname

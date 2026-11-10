@@ -113,6 +113,8 @@ const bindImageListeners = (selector: string): void => {
  * Initializes or updates the zoom-to-history binding for the current page context
  */
 export function handleZoom(router: Router, selector: string = zoom.selector): void {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
   router.afterEach(() => {
     currentSelector = selector
     bindGlobalListeners()

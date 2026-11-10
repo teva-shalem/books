@@ -1,4 +1,5 @@
 let captionEl: HTMLDivElement | null = null;
+let observer: MutationObserver | null = null;
 
 const createCaption = (altText: string): void => {
   captionEl?.remove();
@@ -19,24 +20,34 @@ export const forceDestroyCaption = (): void => {
   captionEl = null;
 };
 
-const handleZoomTransition = (event: TransitionEvent): void => {
-  const target = event.target as HTMLElement | null;
-  if (!target?.classList.contains('medium-zoom-overlay')) return;
+const handleBodyClassChange = (): void => {
+  const isZoomed = document.body.classList.contains('medium-zoom--opened');
 
-  const openedImg = document.querySelector('img.medium-zoom-image--opened') as HTMLImageElement | null;
-  const opacity = parseFloat(window.getComputedStyle(target).opacity);
-
-  if (opacity === 0) {
-    if (openedImg?.alt && document.body.contains(openedImg)) {
+  if (isZoomed) {
+    const openedImg = document.querySelector('img.medium-zoom-image--hidden') as HTMLImageElement | null;
+    if (openedImg?.alt) {
       createCaption(openedImg.alt);
     }
-  } else if (opacity > 0) {
+  } else {
     forceDestroyCaption();
   }
 };
 
 export function handleCaption(): void {
-  window.addEventListener('transitionrun', handleZoomTransition, true);
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-  window.addEventListener('popstate', forceDestroyCaption, { capture: true });
+  observer?.disconnect();
+
+  observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        handleBodyClassChange();
+      }
+    }
+  });
+
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
 }
