@@ -62,7 +62,7 @@ layout: ReadingLayout
 דוד ישראל כהן.
 תל אביב, ינואר 2018.
 
-<Img :path="'derech-hapeima/david-symbol.jpg'" alt="" class="print-dont-center"></Img>
+<Img :path="'derech-hapeima/david-symbol.jpg'" alt="סמל החיים הסינגולרי" class="print-dont-center"></Img>
 
 <aside><i>האיורים בספר מאת המחבר</i></aside>
 
@@ -123,8 +123,8 @@ layout: ReadingLayout
 של הדיפה,
 של טיפוס לפסגה.
 
-<Img :path="'derech-hapeima/merkavah-arrows.jpg'" alt=""></Img>
-<Img :path="'derech-hapeima/merkavah-body.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/merkavah-arrows.jpg'" alt="תנועה גלית במרכבה - עמק והר"></Img>
+<Img :path="'derech-hapeima/merkavah-body.jpg'" alt="מרכבת האדם"></Img>
 
 שחרור עולם במקום תפיסת עולם,
 והמקום בו שניהם אחד –
@@ -139,7 +139,7 @@ layout: ReadingLayout
 לכן הספר הזה מוקדש ליצירה הטובה מכולן – <Bigger>לחיים.
 באהבה.</Bigger>
 
-<Img :path="'derech-hapeima/kissing.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/kissing.jpg'" alt="בשר אחד. אהבה"></Img>
 
 ### על מילה וספר
 
@@ -202,7 +202,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/darwish.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/darwish.jpg'" alt="אדם מודט"></Img>
 
 <Poem>
 
@@ -244,7 +244,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/movement.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/movement.jpg'" alt="עמק פארוואטי"></Img>
 
 <Poem>
 
@@ -437,7 +437,7 @@ layout: ReadingLayout
 <template #quoter>צ'נג מאן-צ'ינג</template>
 </QuoteBlock>
 
-<Img :path="'derech-hapeima/paradoxality.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/paradoxality.jpg'" alt="נוף העמק מהכפר טוש"></Img>
 
 <Poem>
 
@@ -628,7 +628,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/drainage-divide.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/drainage-divide.jpg'" alt="הרי הקאצ׳קר"></Img>
 
 # פרק ב׳ - הר. חזרה למציאות
 
@@ -637,7 +637,7 @@ layout: ReadingLayout
 שהקדוש שותה מהם'</p>
 </QuoteBlock>
 
-<Img :path="'derech-hapeima/mountain.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/mountain.jpg'" alt="שגעון הקדושה"></Img>
 
 <QuoteBlock>
 <p>'רעם חוזר ומופיע –
@@ -664,7 +664,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/classification.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/classification.jpg'" alt="תודעה מחוץ לקופסא"></Img>
 
 <Poem>
 
@@ -698,7 +698,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/sanity.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/sanity.jpg'" alt="גן עדן, הנחש והפרי האסור"></Img>
 
 <Poem>
 
@@ -804,7 +804,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/forcefulness.jpg'" alt="" class="print-fill"></Img>
+<Img :path="'derech-hapeima/forcefulness.jpg'" alt="להיות עצמך" class="print-fill"></Img>
 
 # פרק ג׳ - דרך. סינתזה
 
@@ -937,7 +937,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/west.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/west.jpg'" alt="לראות בעיניים עצומות"></Img>
 
 <Poem>
 
@@ -1065,7 +1065,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/disentanglement.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/disentanglement.jpg'" alt="מלאכת התרה"></Img>
 
 ## זוויות
 
@@ -1154,7 +1154,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/caressing.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/caressing.jpg'" alt="שלוות השינה"></Img>
 
 <Poem>
 
@@ -1186,7 +1186,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/filipe.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/filipe.jpg'" alt="עדיין הוא צוחק"></Img>
 
 ## נווה מדבר
 
@@ -1288,7 +1288,7 @@ layout: ReadingLayout
 
 </Poem>
 
-<Img :path="'derech-hapeima/nostalgia.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/nostalgia.jpg'" alt="טל זכה כטל"></Img>
 
 # פרק ד׳ - פעימה. סינרגיה
 
@@ -1445,7 +1445,7 @@ layout: ReadingLayout
 
 ### מיפוי מרכבה אישי, מטאפיזיקה
 
-<Img :path="'derech-hapeima/merkavah-personal.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/merkavah-personal.jpg'" alt="מיפוי מרכבה אישי"></Img>
 
 <Poem>
 
@@ -1663,7 +1663,7 @@ layout: ReadingLayout
 
 <p></p>
 
-<Img :path="'derech-hapeima/david.jpg'" alt=""></Img>
+<Img :path="'derech-hapeima/david.jpg'" alt="חוף מבטחים"></Img>
 
 ### פעימה
 
