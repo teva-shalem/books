@@ -39,13 +39,13 @@ layout: ReadingLayout
 
 ## האחד - פרי הדעת - אש - תזה - בורא השראה - II
 
-<Img :path="'mishvaot-hapeima/equation-one.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-one.jpg'" alt="אם בחזקת אין שווה אחד"></Img>
 
 בגאומטריה המקודשת: פרח החיים
 
 ### הקבוע N
 
-<Img :path="'mishvaot-hapeima/constant-n.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/constant-n.jpg'" alt="אין שווה שש ועוד אחד, בחזקת אין קטן"></Img>
 
 ***N*** זה כל המרכבות יחד
 ***n*** זה מרכבה אחת
@@ -67,17 +67,17 @@ layout: ReadingLayout
 
 ## שרטוט 1: מיפוי המרכבה עפ״י ספר היצירה
 
-<Img :path="'mishvaot-hapeima/merkavah-mapping.jpg'" class="print-fill"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-mapping.jpg'" class="print-fill" alt='ל"ב נתיבות פליאות חכמה ע"ג  האין'></Img>
 
 ## טבלה 1: פירוט ערכי כל האותיות עפ״י ספר היצירה
 
-<Img :path="'mishvaot-hapeima/merkavah-letter-values.jpg'" class="print-fill"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-letter-values.jpg'" class="print-fill"  alt="תלת מימדי איכויות האין"></Img>
 
 כל אוסף הנתונים המרכיבים מרכבה ברגע נתון הוא הצורה של המרכבה. הצורה נקבעת מתוך הפוטנציאליות עפ״י הערכים של כל אחד מהמימדים. 
 
 ### הקבוע M
 
-<Img :path="'mishvaot-hapeima/constant-m.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/constant-m.jpg'" alt="אם שווה שתים עשרה בחזקת אין קטן"></Img>
 
 ***M*** זה כל המערכות יחד
 ***m*** זה מערכת אחת
@@ -94,13 +94,13 @@ z: הציר האלכסוני ביניהם - עץ המלך - שני צירים מ
 
 z נובע ממכפלה של כל ערכי x וy:
 
-<Img :path="'mishvaot-hapeima/axis-z.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/axis-z.jpg'" alt="זי שווה איקס כפול וויי"></Img>
 
 ([ראו טבלה 2](#טבלה-2-ערכי-צירי-המערכת))
 
 ## טבלה 2: ערכי צירי המערכת
 
-<Img :path="'mishvaot-hapeima/system-axes-values.jpg'" class="print-fill"></Img>
+<Img :path="'mishvaot-hapeima/system-axes-values.jpg'" class="print-fill" alt="העולם שבין אין לאין"></Img>
 
 כל נקודה - מרכבה - אחת היא כל הסיפור כולו.
 
@@ -130,7 +130,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 <QuoteBlock><p>״בית ואם בישראל״</p></QuoteBlock>
 
-<Img :path="'mishvaot-hapeima/variable-m.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/variable-m.jpg'" alt="אם קטן שווה אין קטן בחזקת שתיים"></Img>
 
 המערכת נובעת ממכפלה של מרכבה במרכבה בזווית של 90 מעלות בין 2 צירי הz2 שלהן. בכל מרכז משותף של 2 מרכבות מתהווה מערכת ([ראו שרטוט 3](#שרטוט-3-מיפוי-המערכת-או-עץ-המלך)).
 
@@ -144,7 +144,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 ## האפס - פרי החיים - מים - אנטיתזה - בורא נעורים - I
 
-<Img :path="'mishvaot-hapeima/equation-zero.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-zero.jpg'" alt="איקס אחד פחות איקס שתיים, ועוד וויי אחד פחות וויי שתיים, ועוד זי אחד פחות זי שתיים שווה אפס"></Img>
 
 בגאומטריה המקודשת: נקודה
 
@@ -173,7 +173,7 @@ x2: אש לכיוון ההיקף - מתרחב ומתעדן אל האינסוף
 
 ## השתיים - ההתפתחות - אוויר - סינתזה - בורא מרחב - III
 
-<Img :path="'mishvaot-hapeima/equation-two.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-two.jpg'" alt="זי אחד ועוד, איקס פחות וויי, ועוד זי שתיים שווה שתיים"></Img>
 
 בגאומטריה המקודשת: עץ המלך
 
@@ -197,7 +197,7 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## האיזון - ההווה - אדמה - סינרגיה - בורא קרקע - IV
 
-<Img :path="'mishvaot-hapeima/equation-balance.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-balance.jpg'"  alt="שתיים פחות אחד פחות אפס איי אפס ועוד אחד ועוד שתיים"></Img>
 
 בגאומטריה המקודשת: השדה המאוחד של המערכות
 
@@ -237,13 +237,13 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## שרטוט 2: צירי המרכבה
 
-<Img :path="'mishvaot-hapeima/merkavah-axes.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/merkavah-axes.jpg'" alt="מנגנון האחדות הסימטרית"></Img>
 
 <div class="page-break"></div>
 
 ## שרטוט 3: מיפוי המערכת (או עץ המלך)
 
-<Img :path="'mishvaot-hapeima/system-mapping.jpg'" class="print-fill"></Img>
+<Img :path="'mishvaot-hapeima/system-mapping.jpg'" alt="שנים עשר הענפים ושתים עשרה הממלכות של מערכת לימוד הנפש" class="print-fill"></Img>
 
 <div class="page-break"></div>
 
@@ -263,7 +263,7 @@ y ו x מתיישרים בהתאמה
 
 ## הנביעה - ההכרה - תודעה - בריאה - בורא האתר - V
 
-<Img :path="'mishvaot-hapeima/equation-i.jpg'"></Img>
+<Img :path="'mishvaot-hapeima/equation-i.jpg'" alt="איי כשווה אחד"></Img>
 
 מבנה האות: קו ונקודה
 בבינארית: קו ונקודה
@@ -285,8 +285,8 @@ i קיים במרכז כל מרכבה
 כל ישות היא מרכבה
 
 <div class="finale-equations">
-  <Img :path="'mishvaot-hapeima/equation-soul.jpg'"></Img>
-  <Img :path="'mishvaot-hapeima/equation-human.jpg'"></Img>
-  <Img :path="'mishvaot-hapeima/equation-way.jpg'"></Img>
-  <Img :path="'mishvaot-hapeima/equation-maaseh-merkavah.jpg'"></Img>
+  <Img :path="'mishvaot-hapeima/equation-soul.jpg'" alt="אם קטן ועוד איי שווה נפש"></Img>
+  <Img :path="'mishvaot-hapeima/equation-human.jpg'" alt="השראה (אחד) כפול נעורים (אפס) כפול מרחב (שתיים) כפול אדמה (ארבע) שווה אדם"></Img>
+  <Img :path="'mishvaot-hapeima/equation-way.jpg'" alt="מרחב כפול אדמה שווה דרך"></Img>
+  <Img :path="'mishvaot-hapeima/equation-maaseh-merkavah.jpg'" alt="נפש כפול אדם כפול דרך שווה מעשה המרכבה"></Img>
 </div>
