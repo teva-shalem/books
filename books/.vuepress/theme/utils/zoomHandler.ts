@@ -1,9 +1,6 @@
 import type { Router } from 'vuepress'
 import { zoom } from '../../config/attrs'
 
-// ==========================================
-// 1. CONFIGURATION, TYPES & GLOBAL STATES
-// ==========================================
 const CONFIG = {
   CLASSES: {
     OVERLAY: '.medium-zoom-overlay',
@@ -24,10 +21,6 @@ let isZoomed = false
 let ignoreNextPopState = false
 let currentSelector = ''
 let isGlobalListenersAttached = false
-
-// ==========================================
-// 2. DISMISSAL HANDLERS
-// ==========================================
 
 /**
  * Handles browser navigation changes (Back/Forward buttons)
@@ -56,10 +49,6 @@ const handleManualClose = (): void => {
     history.back()
   }
 }
-
-// ==========================================
-// 3. SEPARATED EVENT BINDINGS
-// ==========================================
 
 const bindGlobalListeners = (): void => {
   if (isGlobalListenersAttached) return
@@ -104,10 +93,6 @@ const bindImageListeners = (selector: string): void => {
     })
   })
 }
-
-// ==========================================
-// 4. MAIN INIT EXPORT
-// ==========================================
 
 /**
  * Initializes or updates the zoom-to-history binding for the current page context

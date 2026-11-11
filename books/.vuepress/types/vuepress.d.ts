@@ -9,22 +9,19 @@ declare module 'vuepress' {
     Vue: typeof Vue;
     options: ComponentOptions<Vue>;
     router: VueRouter;
-    siteData: any;
+    siteData: unknown;
     isServer: boolean;
   }
   export type EnhanceApp = (context: EnhanceAppContext) => void;
   
   export interface PageData {
     path: string;
-    title?: string;
-    frontmatter: Record<string, any>;
-    headers?: any[];
-    [key: string]: any;
+    frontmatter: Record<string, string>;
   }
 }
 
 declare module 'markdown-it-container' {
   import type MarkdownIt from 'markdown-it';
-  const container: (md: MarkdownIt, name: string, options?: any) => void;
+  const container: (md: MarkdownIt, name: string, options?: unknown) => void;
   export default container;
 }

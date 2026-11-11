@@ -40,7 +40,8 @@ export default [
       ...js.configs.recommended.rules,
       ...vuePlugin.configs["vue2-essential"].rules,
       ...tsPlugin.configs["recommended"].rules,
-
+      
+      "no-undef": "off", 
       // Custom VuePress Development Rule Comforts
       // "@typescript-eslint/no-explicit-any": "off",
       // "@typescript-eslint/no-var-requires": "off",

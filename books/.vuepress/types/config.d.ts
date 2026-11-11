@@ -3,5 +3,4 @@ import type { PageData } from 'vuepress'
 
 export type UserConfig<T> = OfficialConfig<T> & {
   extendPageData($page: PageData): void
-  [key: string]: any
 }

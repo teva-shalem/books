@@ -8,12 +8,13 @@
   "scripts": {
     "dev": "vuepress dev books --no-clear-screen",
     "generate-pdfs": "node scripts/generate-pdfs.js",
-    "build": "vuepress build books && npm run generate-pdfs",
+    "lint": "eslint .",
+    "prebuild": "npm run lint",
+    "build": "npm run prebuild && vuepress build books && npm run generate-pdfs",
     "serve": "npx serve dist",
     "deploy:stage": "git push -f stage master",
     "deploy:world": "git push -f world master && git push -f forever master",
-    "upgrade": "npx npm-check-updates@16 --interactive",
-    "lint": "eslint ."
+    "upgrade": "npx npm-check-updates@16 --interactive"
   },
   "dependencies": {
     "buefy": "^0.9.23",
@@ -42,7 +43,7 @@
     "sass-loader": "^10.5.2",
     "serve-handler": "^6.1.8",
     "ts-loader": "^8.2.0",
-    "typescript": "^4.9.5",
+    "typescript": "^5.9.3",
     "vue-eslint-parser": "^10.4.2",
     "vuepress": "^1.9.10",
     "vuepress-plugin-table-of-contents": "^1.1.7",

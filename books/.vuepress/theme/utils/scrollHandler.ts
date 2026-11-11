@@ -52,9 +52,11 @@ export const scrollToHash = (hash: string, behavior: ScrollBehavior = 'smooth'):
 
   const poll = (): void => {
     if (document.getElementById(id)) {
-      behavior === 'auto' 
-        ? scrollToElement(id, 'auto') 
-        : setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS)
+      if (behavior === 'auto') {
+        scrollToElement(id, 'auto');
+      } else {
+        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS);
+      }
     } else if (attempts < CONFIG.MAX_ATTEMPTS) {
       attempts++
       setTimeout(poll, CONFIG.POLL_MS)
@@ -166,7 +168,11 @@ export const handleScroll = (router: Router): void => {
     
     if (isCrossPage && !isHistoryPop) {
       requestAnimationFrame(() => {
-        !to.hash ? safeScrollTo({ top: 0, behavior: 'auto' }) : scrollToHash(to.hash, 'auto')
+        if (!to.hash) {
+          safeScrollTo({ top: 0, behavior: 'auto' });
+        } else {
+          scrollToHash(to.hash, 'auto');
+        }
       })
     } else if (to.hash && !isHistoryPop) {
       scrollToHash(to.hash, 'smooth')
@@ -175,8 +181,10 @@ export const handleScroll = (router: Router): void => {
   })
 
   if (window.location.hash) {
-    document.readyState === 'complete'
-      ? scrollToHash(window.location.hash, 'auto')
-      : window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true })
+    if (document.readyState === 'complete') {
+      scrollToHash(window.location.hash, 'auto');
+    } else {
+      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true });
+    }
   }
 }

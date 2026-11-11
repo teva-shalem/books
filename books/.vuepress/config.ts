@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import path from 'path'
 import markdownItAttrs from 'markdown-it-attrs'
 
@@ -19,7 +20,7 @@ function getBaseUrl(): `/${string}/` | undefined {
     : undefined
 }
 
-const config: UserConfig<{}> = {
+const config: UserConfig<object> = {
   title: 'טבע שלם - ספרים',
   description: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
   theme: 'derech-hapeima',
@@ -31,11 +32,10 @@ const config: UserConfig<{}> = {
   head: [
     ['link', { rel: 'icon', href: '/images/icons/icon-512x512.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
-    ['link', {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap',
-        media: 'print',
-        onload: "this.media='all'" as any
+    ['link', { rel: 'preconnect', href: 'https://googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://gstatic.com', crossorigin: 'anonymous' }],
+    ['link', { rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap',
     }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }]
