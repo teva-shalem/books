@@ -22,21 +22,16 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['**/*.ts'],
       parser: '@typescript-eslint/parser',
     },
     {
-      files: ['*.vue'],
+      files: ['**/*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.vue'],
       },
     },
-  ],
-  ignorePatterns: [
-    'node_modules/',
-    'dist/',
-    'books/.vuepress/artifacts/',
   ],
 }
