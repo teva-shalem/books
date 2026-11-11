@@ -1,9 +1,9 @@
 declare module 'vuepress' {
-  import Vue, { ComponentOptions } from 'vue';
+  import Vue, { ComponentOptions } from 'vue'
   
-  import VueRouter, { RawLocation as RouterRawLocation } from 'vue-router';
-  export type Router = VueRouter;
-  export type RawLocation = RouterRawLocation;
+  import VueRouter, { RawLocation as RouterRawLocation } from 'vue-router'
+  export type Router = VueRouter
+  export type RawLocation = RouterRawLocation
 
   export interface EnhanceAppContext {
     Vue: typeof Vue;
@@ -12,7 +12,7 @@ declare module 'vuepress' {
     siteData: unknown;
     isServer: boolean;
   }
-  export type EnhanceApp = (context: EnhanceAppContext) => void;
+  export type EnhanceApp = (context: EnhanceAppContext) => void
   
   export interface PageData {
     path: string;
@@ -21,7 +21,7 @@ declare module 'vuepress' {
 }
 
 declare module 'markdown-it-container' {
-  import type MarkdownIt from 'markdown-it';
-  const container: (md: MarkdownIt, name: string, options?: unknown) => void;
-  export default container;
+  import type MarkdownIt from 'markdown-it'
+  const container: (md: MarkdownIt, name: string, options?: unknown) => void
+  export default container
 }

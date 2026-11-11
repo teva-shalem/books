@@ -8,7 +8,7 @@ export function addContainer(md: MarkdownIt, name: string, el = 'div'): void {
   md.use(container, name, {
     render: (tokens: Token[], idx: number) => tokens[idx].nesting === 1 
       ? `<${el} class="container ${name}">\n` 
-      : `</${el}>\n`
+      : `</${el}>\n`,
   })
 }
 

@@ -11,7 +11,7 @@ export default {
     path: {type: String},
     url: {type: String},
     alt: {type: String},
-    noZoom: {type: Boolean}
+    noZoom: {type: Boolean},
   },
 }
 </script>

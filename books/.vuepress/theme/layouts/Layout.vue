@@ -20,12 +20,12 @@ interface LayoutComponent extends Vue {
 const Layout: ComponentOptions<Vue> = {
   name: 'Layout',
   props: {
-    className: String
+    className: String,
   },
   computed: {
       font(this: LayoutComponent): string | null {
         return this.$frontmatter.customFont
-      }
+      },
   },
 }
 

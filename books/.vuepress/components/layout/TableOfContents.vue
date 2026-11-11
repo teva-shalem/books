@@ -37,7 +37,7 @@ const TableOfContents: ComponentOptions<Vue> = {
 
         const processHeaders = (
           headers: PageHeader[],
-          rootLevel = minLevel
+          rootLevel = minLevel,
         ): TOFHeader[] => {
           const result: TOFHeader[] = []
           for (let i = 0; i !== headers.length; ) {
@@ -85,11 +85,11 @@ const TableOfContents: ComponentOptions<Vue> = {
               {
                 props: { to: `#${item.slug}` },
               },
-              item.title
+              item.title,
             ),
             item.children ? renderHeaders(item.children) : null,
-          ])
-        )
+          ]),
+        ),
       )
     }
     return h('div', {class: 'table-of-contents'}, [renderHeaders(this.headers)])

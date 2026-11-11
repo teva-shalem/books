@@ -16,7 +16,7 @@ const enhanceApp: EnhanceApp = ({
   Vue.use(VTooltip)
   Vue.use(Buefy)
   Vue.use(VueKatex, {
-    globalOptions: {}
+    globalOptions: {},
   })
 
   if (isServer || typeof window === 'undefined') return

@@ -18,19 +18,19 @@ export default {
     },
     triggerPrint() {
       if (this.isHome()) {
-        this.$router.push('/tevadynamica/');
+        this.$router.push('/tevadynamica/')
       } else {
-        window.print();
+        window.print()
       }
     },
     triggerPdf() {
       if (this.isHome()) {
-        window.location.href = this.$withBase('/tevadynamica.pdf');
+        window.location.href = this.$withBase('/tevadynamica.pdf')
       } else {
-        window.location.href = this.$withBase(`${this.$page.path.replace(/\/$/, "")}.pdf`);
+        window.location.href = this.$withBase(`${this.$page.path.replace(/\/$/, "")}.pdf`)
       }
     },
-  }
+  },
 }
 </script>
 

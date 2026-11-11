@@ -7,9 +7,9 @@
 <script lang="ts">
 export default {
   props: {
-    src: String
-  }
-};
+    src: String,
+  },
+}
 </script>
 
 <style lang="scss" scoped>

@@ -38,7 +38,7 @@ const config: UserConfig<object> = {
       href: 'https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap',
     }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }]
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
   ],
 
   markdown: {
@@ -51,21 +51,21 @@ const config: UserConfig<object> = {
       })
 
       addContainer(md, 'hebrew-list')
-    }
+    },
   },
 
   plugins: [
     ['@vuepress/register-components', {
       componentsDir: path.resolve(__dirname, './components'),
       getComponentName: (file: string) => {
-        const baseName = path.basename(file, '.vue');
+        const baseName = path.basename(file, '.vue')
         
         if (baseName === 'index') {
-          return path.basename(path.dirname(file));
+          return path.basename(path.dirname(file))
         }
         
-        return baseName;
-      }
+        return baseName
+      },
     }],
     ['@vuepress/back-to-top'],
     ['@vuepress/medium-zoom', attrs.zoom],
@@ -82,8 +82,8 @@ const config: UserConfig<object> = {
         updatePopup: {
           message: 'תוכן חדש מוכן',
           buttonText: 'לחצו כאן לעדכון',
-        } as any
-    }]
+        } as any,
+    }],
   ],
 
   chainWebpack: (config): void => {
@@ -95,7 +95,7 @@ const config: UserConfig<object> = {
                 options.sassOptions = {
                     ...options?.sassOptions || {},
                     quietDeps: true,
-                    silenceDeprecations: ['import', 'legacy-js-api']
+                    silenceDeprecations: ['import', 'legacy-js-api'],
                 }
                 return options
             })
@@ -112,7 +112,7 @@ const config: UserConfig<object> = {
     if (!isServer) {
       const htmlPlugin = (config.plugins || []).find(
         (plugin): plugin is WebpackPlugin & HtmlWebpackPluginInstance => 
-          plugin.constructor.name === 'HtmlWebpackPlugin'
+          plugin.constructor.name === 'HtmlWebpackPlugin',
       )
       
       if (htmlPlugin) {
@@ -127,7 +127,7 @@ const config: UserConfig<object> = {
         }
       }
     }
-  }
+  },
 }
 
 export default config

@@ -22,7 +22,7 @@ const PageContainer = {
   },
   render(h) {
     return h('div', this.$slots.default)
-  }
+  },
 }
 
 export default {
@@ -43,23 +43,23 @@ export default {
         '/mishvaot-hapeima/',
         '/rosetta-stone/',
         '/slideshow/',
-      ];
+      ]
 
       return customOrder
         .map(path => this.$site.pages.find(p => p.path === path))
-        .filter(Boolean);
-    }
+        .filter(Boolean)
+    },
   },
   methods: {
     getPageClasses(page) {
-      const classes = ['print-book'];
-      if (!page.frontmatter) return classes;
+      const classes = ['print-book']
+      if (!page.frontmatter) return classes
 
       // pageClass can be string or space-separated classes
       if (page.frontmatter.pageClass) {
         classes.push(page.frontmatter.pageClass
           .toLowerCase()
-          .replace(/\s+/g, '-'));
+          .replace(/\s+/g, '-'))
       }
 
       // layout lowercased and hyphenated (e.g. "reading-layout")
@@ -67,73 +67,73 @@ export default {
         classes.push(page.frontmatter.layout
           .replace(/([a-z])([A-Z])/g, '$1-$2')
           .toLowerCase()
-          .replace(/\s+/g, '-'));
+          .replace(/\s+/g, '-'))
       }
 
-      return classes;
+      return classes
     },
     waitForContentLoaded() {
       return new Promise((resolve) => {
-        const container = this.$refs.bookContainer;
-        if (!container) return resolve();
+        const container = this.$refs.bookContainer
+        if (!container) return resolve()
 
-        const expectedCount = this.orderedPages.length;
+        const expectedCount = this.orderedPages.length
 
         // Check if all chapters are present AND contain text/content
         const isFullyLoaded = () => {
-          if (container.children.length < expectedCount) return false;
+          if (container.children.length < expectedCount) return false
           
           // Ensure each chapter wrapper has actual text content or paragraphs loaded
-          const chapters = Array.from(container.children);
-          return chapters.every(chapter => chapter.innerText && chapter.innerText.trim().length > 0);
-        };
+          const chapters = Array.from(container.children)
+          return chapters.every(chapter => chapter.innerText && chapter.innerText.trim().length > 0)
+        }
 
         if (isFullyLoaded()) {
-          return resolve();
+          return resolve()
         }
 
         const observer = new MutationObserver(() => {
           if (isFullyLoaded()) {
-            observer.disconnect();
-            resolve();
+            observer.disconnect()
+            resolve()
           }
-        });
+        })
 
         // Watch for subtree changes (text injections, inner elements mounting)
-        observer.observe(container, { childList: true, subtree: true, characterData: true });
+        observer.observe(container, { childList: true, subtree: true, characterData: true })
 
         // Safety fallback timer (3 seconds max)
         setTimeout(() => {
-          observer.disconnect();
-          resolve();
-        }, 3000);
-      });
+          observer.disconnect()
+          resolve()
+        }, 3000)
+      })
     },
   },
   mounted() {
     this.$nextTick(() => {
       const triggerPrintWhenReady = async () => {
-        await this.waitForContentLoaded();
+        await this.waitForContentLoaded()
         
         setTimeout(() => {
           const handleAfterPrint = () => {
-            window.removeEventListener('afterprint', handleAfterPrint);
+            window.removeEventListener('afterprint', handleAfterPrint)
 
             if (window.history.length > 1) {
-              this.$router.back();
+              this.$router.back()
             } else {
-              this.$router.push('/');
+              this.$router.push('/')
             }
-          };
+          }
 
-          window.addEventListener('afterprint', handleAfterPrint);
-          window.print();
-        }, 1000); // 300ms buffer guarantees complete DOM insertion and reflow
-      };
+          window.addEventListener('afterprint', handleAfterPrint)
+          window.print()
+        }, 1000) // 300ms buffer guarantees complete DOM insertion and reflow
+      }
 
-      triggerPrintWhenReady();
-    });
-  }
+      triggerPrintWhenReady()
+    })
+  },
 }
 </script>
 

@@ -3,8 +3,8 @@ import type { Router, RawLocation } from 'vuepress'
 const CONFIG = {
   POLL_MS: 25,
   MAX_ATTEMPTS: 100,
-  SETTLE_MS: 350
-} as const;
+  SETTLE_MS: 350,
+} as const
 
 interface HistoryState {
   key?: string;
@@ -53,9 +53,9 @@ export const scrollToHash = (hash: string, behavior: ScrollBehavior = 'smooth'):
   const poll = (): void => {
     if (document.getElementById(id)) {
       if (behavior === 'auto') {
-        scrollToElement(id, 'auto');
+        scrollToElement(id, 'auto')
       } else {
-        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS);
+        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS)
       }
     } else if (attempts < CONFIG.MAX_ATTEMPTS) {
       attempts++
@@ -167,9 +167,9 @@ export const handleScroll = (router: Router): void => {
     if (isCrossPage && !isHistoryPop) {
       requestAnimationFrame(() => {
         if (!to.hash) {
-          safeScrollTo({ top: 0, behavior: 'auto' });
+          safeScrollTo({ top: 0, behavior: 'auto' })
         } else {
-          scrollToHash(to.hash, 'auto');
+          scrollToHash(to.hash, 'auto')
         }
       })
     } else if (to.hash && !isHistoryPop) {
@@ -180,9 +180,9 @@ export const handleScroll = (router: Router): void => {
 
   if (window.location.hash) {
     if (document.readyState === 'complete') {
-      scrollToHash(window.location.hash, 'auto');
+      scrollToHash(window.location.hash, 'auto')
     } else {
-      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true });
+      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true })
     }
   }
 }

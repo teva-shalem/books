@@ -1,4 +1,4 @@
-import type { Configuration, WebpackPluginInstance } from 'webpack';
+import type { Configuration, WebpackPluginInstance } from 'webpack'
 
 export type WebpackConfiguration = Configuration
 export type WebpackPlugin = WebpackPluginInstance

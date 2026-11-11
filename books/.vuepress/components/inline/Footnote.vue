@@ -20,7 +20,7 @@ export default {
     content: {
       type: String,
       required: false,
-    }
+    },
   },
   computed: {
     resolvedContent() {
@@ -29,9 +29,9 @@ export default {
             .map(vNode => vNode.text || '')
             .join('')
             .replaceAll('\n', ' ')
-        : '';
-    }
-  }
+        : ''
+    },
+  },
 }
 </script>
 

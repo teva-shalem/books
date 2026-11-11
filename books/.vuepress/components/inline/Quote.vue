@@ -10,9 +10,9 @@ export default {
   props: {
     quoter: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 

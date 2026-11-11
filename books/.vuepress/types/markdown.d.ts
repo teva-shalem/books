@@ -1,4 +1,4 @@
-import 'markdown-it';
+import 'markdown-it'
 declare module 'markdown-it' {
   export interface Token {
     nesting: number;

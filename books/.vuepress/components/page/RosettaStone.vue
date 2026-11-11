@@ -12,7 +12,7 @@ export default {
     components: {DataTable},
     data() {
         return {qualities, columns}
-    }
+    },
 }
 </script>
 
