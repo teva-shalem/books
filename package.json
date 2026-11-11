@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vuepress dev books --no-clear-screen",
     "generate-pdfs": "node scripts/generate-pdfs.js",
-    "lint": "eslint \"books/.vuepress/**/*.{js,ts,vue}\" \"scripts/**/*.js\"",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "prebuild": "npm run lint",
     "build": "vuepress build books && npm run generate-pdfs",
     "serve": "npx serve dist",
     "deploy:stage": "git push -f stage master",
@@ -43,7 +44,7 @@
     "serve-handler": "^6.1.8",
     "ts-loader": "^8.2.0",
     "typescript": "5.4",
-    "vue-eslint-parser": "^10.4.2",
+    "vue-eslint-parser": "^9.4.3",
     "vuepress": "^1.9.10",
     "vuepress-plugin-table-of-contents": "^1.1.7",
     "vuepress-plugin-typescript": "^0.3.1",
