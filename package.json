@@ -9,7 +9,6 @@
     "dev": "vuepress dev books --no-clear-screen",
     "generate-pdfs": "node scripts/generate-pdfs.js",
     "lint": "eslint .",
-    "prebuild": "npm run lint",
     "build": "vuepress build books && npm run generate-pdfs",
     "serve": "npx serve dist",
     "deploy:stage": "git push -f stage master",
