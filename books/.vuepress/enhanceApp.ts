@@ -19,7 +19,7 @@ const enhanceApp: EnhanceApp = ({
     globalOptions: {}
   })
 
-  if (isServer) return
+  if (isServer || typeof window === 'undefined') return
 
   handleScroll(router)
   handleZoom(router)

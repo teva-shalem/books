@@ -34,8 +34,6 @@ const handleBodyClassChange = (): void => {
 };
 
 export function handleCaption(): void {
-  if (typeof window === 'undefined' || typeof document === 'undefined') return;
-
   observer?.disconnect();
 
   observer = new MutationObserver((mutations) => {
