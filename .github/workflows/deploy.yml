@@ -99,53 +99,10 @@ jobs:
     #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     #     command: pages deploy dist --project-name=tevadynamica
 
-  # OFFLINE VERSION
-  upload-offline-drive:
+  offline:
     # if: github.repository == 'teva-shalem/books-world'
     needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Packaging Script & Action
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: |
-          .github/actions/setup-node-env
-          package.json
-          package-lock.json
-          scripts/zip-offline.js
-
-    - name: Setup Node.js
-      uses: ./.github/actions/setup-node-env
-
-    - name: Cache static-web-server
-      uses: actions/cache@v4
-      with:
-        path: .cache/sws
-        key: sws-win-${{ hashFiles('scripts/zip-offline.js') }}
-
-    - name: Install Zip Dependency Only
-      run: |
-        npm install --prefix /tmp --no-save adm-zip
-        ln -s /tmp/node_modules node_modules
-
-    - name: Download Built Site
-      uses: actions/download-artifact@v4
-      with:
-        name: built-dist
-        path: dist
-
-    - name: Package Offline Zip
-      run: npm run zip-offline
-
-    - name: Setup rclone
-      uses: AnimMouse/setup-rclone@v1
-      with:
-        rclone_config: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
-        disable_base64: true
-
-    - name: Upload offline-tevadynamica.zip to Google Drive
-      run: |
-        rclone copyto dist/offline-tevadynamica.zip gdrive:offline-tevadynamica.zip \
-          --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
-          --progress
+    uses: ./.github/workflows/offline.yml
+    secrets:
+      RCLONE_CONFIG_GDRIVE: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
+      GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
