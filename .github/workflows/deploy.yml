@@ -47,11 +47,16 @@ jobs:
       # if: github.repository == 'teva-shalem/books-world'
       run: npm run zip-offline
 
+    - name: Setup rclone
+      # if: github.repository == 'teva-shalem/books-world'
+      uses: AnimMouse/setup-rclone@v1
+      with:
+        rclone_config: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
+        disable_base64: true
+
     - name: Upload offline-tevadynamica.zip to Google Drive
       # if: github.repository == 'teva-shalem/books-world'
       run: |
-        mkdir -p ~/.config/rclone
-        printf '%s\n' "${{ secrets.RCLONE_CONFIG_GDRIVE }}" > ~/.config/rclone/rclone.conf
         rclone copyto dist/offline-tevadynamica.zip gdrive:offline-tevadynamica.zip \
           --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
           --progress
