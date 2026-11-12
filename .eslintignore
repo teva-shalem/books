@@ -1,4 +1,6 @@
+# for vscode autofix
 !.*
+
 node_modules/
 dist/
 books/.vuepress/artifacts/
