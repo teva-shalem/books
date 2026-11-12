@@ -10,19 +10,43 @@ permissions:
   id-token: write
 
 jobs:
-  # UPLOAD ONLINE VERSION
-  deploy:
+  # BUILD SITE ONCE
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Use Node.js 16
-      uses: actions/setup-node@v4
+    - name: Setup Node.js
+      uses: ./.github/actions/setup-node-env
+
+    - name: Install Dependencies
+      run: npm ci
+      env:
+        PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+    - name: Build Site
+      run: npm run build
+
+    - name: Save Built Site
+      uses: actions/upload-artifact@v4
       with:
-        node-version: '16'
-        cache: 'npm'
+        name: built-dist
+        path: dist
+        retention-days: 1
+
+  # UPLOAD ONLINE VERSION
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: ./.github/actions/setup-node-env
 
     - name: Cache Puppeteer Browser
       uses: actions/cache@v4
@@ -35,10 +59,14 @@ jobs:
     - name: Install Dependencies
       run: npm ci
 
-    - name: Build Site & Generate PDFs
-      run: |
-        npm run build
-        npm run generate-pdfs
+    - name: Download Built Site
+      uses: actions/download-artifact@v4
+      with:
+        name: built-dist
+        path: dist
+
+    - name: Generate PDFs
+      run: npm run generate-pdfs
 
     # --- GitHub Pages Deployment ---
     - name: Setup Pages
@@ -65,31 +93,39 @@ jobs:
   # OFFLINE VERSION
   upload-offline-drive:
     # if: github.repository == 'teva-shalem/books-world'
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout Packaging Script & Action
       uses: actions/checkout@v4
-
-    - name: Use Node.js 16
-      uses: actions/setup-node@v4
       with:
-        node-version: '16'
-        cache: 'npm'
+        sparse-checkout: |
+          .github/actions/setup-node-env
+          package.json
+          package-lock.json
+          scripts/zip-offline.js
+
+    - name: Setup Node.js
+      uses: ./.github/actions/setup-node-env
 
     - name: Cache static-web-server
       uses: actions/cache@v4
       with:
         path: .cache/sws
-        key: sws-win-${{ hashFiles('package-offline.mjs') }}
+        key: sws-win-${{ hashFiles('scripts/zip-offline.js') }}
 
-    - name: Install Dependencies
-      run: npm ci
+    - name: Install Zip Dependency
+      run: npm install --no-save adm-zip
 
-    - name: Build Site & Package Offline Zip
-      run: |
-        npm run build
-        npm run zip-offline
+    - name: Download Built Site
+      uses: actions/download-artifact@v4
+      with:
+        name: built-dist
+        path: dist
+
+    - name: Package Offline Zip
+      run: npm run zip-offline
 
     - name: Setup rclone
       uses: AnimMouse/setup-rclone@v1
