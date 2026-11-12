@@ -1,4 +1,4 @@
-name: Upload Offline Zip
+name: Upload Offline Version
 
 on:
   workflow_call:
@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  upload-offline-drive:
+  upload-offline-zip-to-drive:
     runs-on: ubuntu-latest
 
     steps:

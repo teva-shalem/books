@@ -1,0 +1,30 @@
+name: Build Site
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: ./.github/actions/setup-node-env
+
+    - name: Install Dependencies
+      run: npm ci
+      env:
+        PUPPETEER_SKIP_DOWNLOAD: 'true'
+
+    - name: Build Site
+      run: npm run build
+
+    - name: Save Built Site
+      uses: actions/upload-artifact@v4
+      with:
+        name: built-dist
+        path: dist
+        retention-days: 1

@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  online:
+    needs: build
+    uses: ./.github/workflows/online.yml
+
+  offline:
+    # if: github.repository == 'teva-shalem/books-world'
+    needs: build
+    uses: ./.github/workflows/offline.yml
+    secrets:
+      RCLONE_CONFIG_GDRIVE: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
+      GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
