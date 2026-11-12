@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout Packaging Script & Action
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         sparse-checkout: |
           .github/actions/setup-node-env
@@ -26,7 +26,7 @@ jobs:
       uses: ./.github/actions/setup-node-env
 
     - name: Cache static-web-server
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: .cache/sws
         key: sws-win-${{ hashFiles('scripts/zip-offline.js') }}
@@ -38,7 +38,7 @@ jobs:
         ln -s /tmp/node_modules node_modules
 
     - name: Download Built Site
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: built-dist
         path: dist
