@@ -64,7 +64,7 @@ jobs:
 
     - name: Install PDF Dependencies Only
       run: |
-        npm install --prefix /tmp --no-save puppeteer serve-handler
+        npm install --prefix /tmp --no-save puppeteer@21 serve-handler
         ln -s /tmp/node_modules node_modules
 
     - name: Download Built Site
