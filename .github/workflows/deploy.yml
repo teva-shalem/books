@@ -64,7 +64,7 @@ jobs:
 
     - name: Install PDF Dependencies Only
       run: |
-        DEPS=$(node -e "const d = require('./package.json').dependencies; console.log(['puppeteer', 'serve-handler'].map(p => p + '@' + d[p]).join(' '))")
+        DEPS=$(node -e "const d = require('./package.json').devDependencies; console.log(['puppeteer', 'serve-handler'].map(p => p + '@' + d[p]).join(' '))")
         npm install --prefix /tmp --no-save --no-package-lock $DEPS
         ln -s /tmp/node_modules node_modules
 
