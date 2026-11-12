@@ -10,6 +10,7 @@ permissions:
   id-token: write
 
 jobs:
+  # UPLOAD ONLINE VERSION
   deploy:
     runs-on: ubuntu-latest
 
@@ -31,38 +32,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-puppeteer-
 
-    - name: Cache static-web-server
-      uses: actions/cache@v4
-      with:
-        path: .cache/sws
-        key: sws-win-${{ hashFiles('package-offline.mjs') }}
-
     - name: Install Dependencies
       run: npm ci
 
-    - name: Build Site
-      run: npm run build
-
-    - name: Package Offline Zip
-      # if: github.repository == 'teva-shalem/books-world'
-      run: npm run zip-offline
-
-    - name: Setup rclone
-      # if: github.repository == 'teva-shalem/books-world'
-      uses: AnimMouse/setup-rclone@v1
-      with:
-        rclone_config: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
-        disable_base64: true
-
-    - name: Upload offline-tevadynamica.zip to Google Drive
-      # if: github.repository == 'teva-shalem/books-world'
+    - name: Build Site & Generate PDFs
       run: |
-        rclone copyto dist/offline-tevadynamica.zip gdrive:offline-tevadynamica.zip \
-          --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
-          --progress
-          
-    - name: Generate PDFs
-      run: npm run generate-pdfs
+        npm run build
+        npm run generate-pdfs
 
     # --- GitHub Pages Deployment ---
     - name: Setup Pages
@@ -85,3 +61,44 @@ jobs:
     #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     #     command: pages deploy dist --project-name=tevadynamica
+
+  # OFFLINE VERSION
+  upload-offline-drive:
+    # if: github.repository == 'teva-shalem/books-world'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16'
+        cache: 'npm'
+
+    - name: Cache static-web-server
+      uses: actions/cache@v4
+      with:
+        path: .cache/sws
+        key: sws-win-${{ hashFiles('package-offline.mjs') }}
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Site & Package Offline Zip
+      run: |
+        npm run build
+        npm run zip-offline
+
+    - name: Setup rclone
+      uses: AnimMouse/setup-rclone@v1
+      with:
+        rclone_config: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
+        disable_base64: true
+
+    - name: Upload offline-tevadynamica.zip to Google Drive
+      run: |
+        rclone copyto dist/offline-tevadynamica.zip gdrive:offline-tevadynamica.zip \
+          --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
+          --progress
