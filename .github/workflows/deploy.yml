@@ -31,11 +31,34 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-puppeteer-
 
+    - name: Cache static-web-server
+      uses: actions/cache@v4
+      with:
+        path: .cache/sws
+        key: sws-win-${{ hashFiles('package-offline.mjs') }}
+
     - name: Install Dependencies
       run: npm ci
 
-    - name: Build Site & Generate PDFs
+    - name: Build Site
       run: npm run build
+
+    - name: Package Offline Zip
+      run: npm run zip-offline
+
+    - name: Setup rclone
+      uses: AnimMouse/setup-rclone@v1
+      with:
+        rclone_config: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
+
+    - name: Upload offline-tevadynamica.zip to Google Drive
+      run: |
+        rclone copyto dist/offline-tevadynamica.zip gdrive:offline-tevadynamica.zip \
+          --drive-root-folder-id "${{ secrets.GDRIVE_FOLDER_ID }}" \
+          --progress
+          
+    - name: Generate PDFs
+      run: npm run generate-pdfs
 
     # --- GitHub Pages Deployment ---
     - name: Setup Pages
