@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  upload-offline-zip-to-drive:
+  zip-to-drive:
     runs-on: ubuntu-latest
 
     steps:
