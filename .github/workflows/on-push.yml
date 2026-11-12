@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/online.yml
 
   offline:
-    # if: github.repository == 'teva-shalem/books-world'
+    if: github.repository == 'teva-shalem/books-world'
     needs: build
     uses: ./.github/workflows/offline.yml
     secrets:
