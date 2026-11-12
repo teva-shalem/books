@@ -58,13 +58,14 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/.cache/puppeteer
-        key: ${{ runner.os }}-puppeteer-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-puppeteer-${{ hashFiles('package.json') }}
         restore-keys: |
           ${{ runner.os }}-puppeteer-
 
     - name: Install PDF Dependencies Only
       run: |
-        npm install --prefix /tmp --no-save puppeteer@21 serve-handler
+        DEPS=$(node -e "const d = require('./package.json').dependencies; console.log(['puppeteer', 'serve-handler'].map(p => p + '@' + d[p]).join(' '))")
+        npm install --prefix /tmp --no-save --no-package-lock $DEPS
         ln -s /tmp/node_modules node_modules
 
     - name: Download Built Site
