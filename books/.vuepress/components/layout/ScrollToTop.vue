@@ -4,6 +4,12 @@
 </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'ScrollToTop',
+}
+</script>
+
 <style lang="stylus">
 #app .go-to-top
   left 2.5rem

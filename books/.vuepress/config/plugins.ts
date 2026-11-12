@@ -14,7 +14,7 @@ function getComponentName(file: string) {
 
 export const plugins: UserPlugins = [
   ['@vuepress/register-components', {
-    componentsDir: path.resolve(__dirname, './components'),
+    componentsDir: path.resolve(__dirname, '../components'),
     getComponentName,
   }],
   ['@vuepress/back-to-top'],
