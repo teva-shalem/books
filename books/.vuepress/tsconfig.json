@@ -1,8 +1,10 @@
 {
-  "include": ["*.ts", "types/*.d.ts"],
+  "include": [
+    "**/*.ts",
+    "types/*.d.ts"
+  ],
   "compilerOptions": {
     "types": ["vuepress-types"],
     "resolveJsonModule": true
-
   }
 }

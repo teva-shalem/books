@@ -46,6 +46,13 @@ jobs:
     - name: Package Offline Zip
       run: npm run zip-offline
 
+      # The client id & secret will expire. when it happens:
+      # Go to https://console.cloud.google.com/auth/clients?project=teva-shalem-forum
+      # and re-create the client to get a new client id & secret to give rclone.
+      # If necessary, use this as reference: https://rclone.org/drive/#making-your-own-client-id
+      # Run "rclone config reconnect gdrive:" or if it's a new computer: "rclone config".
+      # Run "rclone config show gdrive" and replace RCLONE_CONFIG_GDRIVE with it
+      # in https://github.com/teva-shalem/books-world/settings/secrets/actions
     - name: Setup rclone
       uses: AnimMouse/setup-rclone@v1
       with:

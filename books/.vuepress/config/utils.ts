@@ -1,15 +1,12 @@
 import type { PageData } from 'vuepress'
-import type MarkdownIt from 'markdown-it'
-import type { Token } from 'markdown-it'
 
-import container from 'markdown-it-container'
+export function getBaseUrl(): `/${string}/` | undefined {
+  const isProd = process.env.NODE_ENV === 'production'
+  const githubRepo = process.env.GITHUB_REPOSITORY // "owner/repo-name"
 
-export function addContainer(md: MarkdownIt, name: string, el = 'div'): void {
-  md.use(container, name, {
-    render: (tokens: Token[], idx: number) => tokens[idx].nesting === 1 
-      ? `<${el} class="container ${name}">\n` 
-      : `</${el}>\n`,
-  })
+  return isProd && githubRepo && githubRepo.split('/')[1] === 'books-forever'
+    ? '/books-forever/'
+    : undefined
 }
 
 export function addPageClass($page: PageData): void {
