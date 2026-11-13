@@ -3,12 +3,12 @@ import { promisify } from 'node:util'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import AdmZip from 'adm-zip'
+import { exists, distDir, run } from './helpers.js'
 
 const exec = promisify(execFile)
 
 const CACHE_DIR = path.resolve('.cache/sws')
-const DIST_DIR = path.resolve('dist')
-const OUTPUT_ZIP = path.resolve('dist/offline-tevadynamica.zip')
+const OUTPUT_ZIP = path.resolve(distDir, 'offline-tevadynamica.zip')
 
 const SWS_EXE_PATH = path.join(CACHE_DIR, 'static-web-server.exe')
 const SWS_MAC_ARM_PATH = path.join(CACHE_DIR, 'static-web-server-macos-arm64')
@@ -25,7 +25,7 @@ const API_URL = 'https://api.github.com/repos/static-web-server/static-web-serve
 const START_BAT = `@echo off
 cd /d "%~dp0"
 start "" "http://127.0.0.1:8080"
-static-web-server.exe -p 8080 -d "./dist" --page-fallback "./dist/404.html"
+static-web-server.exe -p 8080 -d "./${distDir}" --page-fallback "./${distDir}/404.html"
 `
 
 const START_MAC = `#!/bin/bash
@@ -39,11 +39,8 @@ fi
 
 chmod +x "$SERVER"
 open "http://127.0.0.1:8080"
-"$SERVER" -p 8080 -d "./dist" --page-fallback "./dist/404.html"
+"$SERVER" -p 8080 -d "./${distDir}" --page-fallback "./${distDir}/404.html"
 `
-
-const exists = async (filePath) =>
-  fs.access(filePath).then(() => true).catch(() => false)
 
 const findBinary = async (directory, filename) => {
   const entries = await fs.readdir(directory, { withFileTypes: true })
@@ -138,7 +135,7 @@ const buildOfflineZip = async () => {
   console.log('Creating offline zip bundle...')
 
   const zip = new AdmZip()
-  zip.addLocalFolder(DIST_DIR, 'dist')
+  zip.addLocalFolder(distDir, 'dist')
   zip.addFile('static-web-server.exe', await fs.readFile(SWS_EXE_PATH))
   zip.addFile('static-web-server-macos-arm64', await fs.readFile(SWS_MAC_ARM_PATH))
   zip.addFile('static-web-server-macos-x64', await fs.readFile(SWS_MAC_X64_PATH))
@@ -155,16 +152,4 @@ const buildOfflineZip = async () => {
   console.log(`Done! Created ${OUTPUT_ZIP}`)
 }
 
-const main = async () => {
-  try {
-    if (!(await exists(DIST_DIR)))
-      throw new Error(`Build folder not found at ${DIST_DIR}. Run "npm run build" first.`)
-
-    await buildOfflineZip()
-  } catch (error) {
-    console.error('ERROR:', error.message)
-    process.exitCode = 1
-  }
-}
-
-main()
+run(buildOfflineZip, '❌ Error zipping offline:')

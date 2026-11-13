@@ -1,109 +1,110 @@
-import http from 'http'
+import http from 'node:http'
 import handler from 'serve-handler'
-import path from 'path'
-import fs from 'fs'
-import { fileURLToPath } from 'url'
+import path from 'node:path'
+import fs from 'node:fs/promises'
 import puppeteer from 'puppeteer'
+import { exists, distDir, run } from './helpers.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const DIST_DIR = path.resolve(__dirname, '../dist')
-const IGNORED_DIRS = ['assets', 'images']
+const IGNORED_DIRS = ['assets', 'images', 'pdfs']
+const OUTPUT_DIR = path.resolve(distDir, 'pdfs')
 const PORT = 5050
 const PAGE_TIMEOUT_MS = 60000
 
-const getHtmlFiles = (dir) => {
-  const results = []
-  if (!fs.existsSync(dir)) return results
-  const list = fs.readdirSync(dir)
+const getHtmlFiles = async (directory) => {
+  if (!(await exists(directory))) return []
 
-  list.forEach(file => {
-    const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
+  const entries = await fs.readdir(directory, { withFileTypes: true })
 
-    if (stat.isDirectory()) {
-      if (!IGNORED_DIRS.includes(file.toLowerCase())) {
-        const indexPath = path.join(filePath, 'index.html')
+  const directories = entries.filter((entry) =>
+    entry.isDirectory() && !IGNORED_DIRS.includes(entry.name.toLowerCase()))
 
-        if (fs.existsSync(indexPath)) {
-          const urlPath = `/${file}/`
-          const relPath = `${file}/index.html`
-          results.push({ urlPath, relPath })
-        }
-      }
-    }
-  })
+  const results = await Promise.all(directories.map(async ({ name }) => {
+    const indexPath = path.join(directory, name, 'index.html')
 
-  return results
+    if (!(await exists(indexPath))) return null
+
+    return {urlPath: `/${name}/`, relPath: `${name}/index.html`}
+  }))
+
+  return results.filter(Boolean)
 }
 
-const fail = (err) => {
-  console.error(`❌ Error generating PDF: ${err}`)
-  process.exit(1)
-}
+const generatePdf = async (browser, { urlPath, relPath }) => {
+  console.log(`⏳ Generating PDF for: ${urlPath}`)
 
-if (!fs.existsSync(DIST_DIR)) {
-  fail('Run "npm run build" first')
-}
-
-const server = http.createServer((req, res) => {
-  return handler(req, res, { public: DIST_DIR })
-})
-
-server.listen(PORT, async () => {
-  console.log(`🚀 Local static server running at http://localhost:${PORT}`)
+  const page = await browser.newPage()
 
   try {
-    const browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    await page.setViewport({ width: 1200, height: 800 })
+
+    await page.goto(`http://localhost:${PORT}${urlPath}`, {
+      waitUntil: 'networkidle2',
+      timeout: PAGE_TIMEOUT_MS,
     })
 
-    const htmlFiles = getHtmlFiles(DIST_DIR)
-    console.log(`📖 Found ${htmlFiles.length} pages to convert to individual PDFs...`)
+    // "derech-hapeima/index.html" -> "derech-hapeima.pdf"
+    const fileName = relPath
+      .replace(/\\/g, '/')
+      .replace(/\/index\.html$/, '.pdf')
+      .replace(/\.html$/, '.pdf')
 
-    await Promise.all(htmlFiles.map(async ({ urlPath, relPath }) => {
-      console.log(`⏳ Generating PDF for: ${urlPath}`)
+    const pdfPath = path.resolve(distDir, 'pdfs', fileName)
 
-      const page = await browser.newPage()
-      await page.setViewport({ width: 1200, height: 800 })
-      await page.goto(`http://localhost:${PORT}${urlPath}`, {
-        waitUntil: 'networkidle2',
-        timeout: PAGE_TIMEOUT_MS,
-      })
+    await page.pdf({
+      path: pdfPath,
+      format: 'A5',
+      printBackground: true,
+      margin: {
+        top: '0px',
+        bottom: '0px',
+        left: '0px',
+        right: '0px',
+      },
+      timeout: PAGE_TIMEOUT_MS,
+    })
 
-      // "derech-hapeima/index.html" -> "derech-hapeima.pdf"
-      const fileName = relPath
-        .replace(/\\/g, '/')
-        .replace(/\/index\.html$/, '.pdf')
-        .replace(/\.html$/, '.pdf')
-
-      const pdfPath = path.resolve(DIST_DIR, fileName)
-
-      await page.pdf({
-        path: pdfPath,
-        format: 'A5',
-        printBackground: true,
-        margin: {
-          top: '0px',
-          bottom: '0px',
-          left: '0px',
-          right: '0px',
-        },
-        timeout: PAGE_TIMEOUT_MS,
-      })
-
-      console.log(`   ✔ Saved: ${fileName}`)
-    }))
-
-    console.log('✅ All individual page PDFs successfully generated!')
-    await browser.close()
-  } catch (err) {
-    fail(err)
+    console.log(`   ✔ Saved: ${fileName}`)
   } finally {
-    server.close(() => {
-      console.log('🛑 Local server closed.')
-      process.exit(0)
-    })
+    await page.close()
   }
+}
+
+const generatePdfs = async (browser) => {
+  const htmlFiles = await getHtmlFiles(distDir)
+
+  if (await exists(OUTPUT_DIR))
+    await fs.unlink(OUTPUT_DIR)
+  await fs.mkdir(OUTPUT_DIR, { recursive: true })
+
+  console.log(`📖 Found ${htmlFiles.length} pages to convert to individual PDFs...`)
+
+  await Promise.all(htmlFiles.map((file) => generatePdf(browser, file)))
+
+  console.log('✅ All individual page PDFs successfully generated!')
+}
+
+const startServer = () => new Promise((resolve, reject) => {
+  const server = http.createServer((req, res) =>
+    handler(req, res, { public: distDir }))
+  server.once('error', reject)
+  server.listen(PORT, () => {
+    console.log(`🚀 Local static server running at http://localhost:${PORT}`)
+    resolve(server)
+  })
 })
+
+const buildPdfs = async () => {
+  const server = await startServer()
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  })
+
+  await generatePdfs(browser)
+
+  await browser?.close()
+  await new Promise((resolve) => {server.close(resolve)})
+  console.log('🛑 Local server closed.')
+}
+
+run(buildPdfs, '❌ Error generating PDF:')
