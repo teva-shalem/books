@@ -1,10 +1,29 @@
 {
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": [
+      "vuepress-types",
+      "node"
+    ]
+  },
   "include": [
     "**/*.ts",
     "types/*.d.ts"
-  ],
-  "compilerOptions": {
-    "types": ["vuepress-types"],
-    "resolveJsonModule": true
-  }
+  ]
 }

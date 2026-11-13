@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import Vue, {ComponentOptions} from 'vue'
+import type Vue, {ComponentOptions} from 'vue'
 
 interface LayoutComponent extends Vue {
   font?: string

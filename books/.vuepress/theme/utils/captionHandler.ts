@@ -11,7 +11,7 @@ const createCaption = (altText: string): void => {
 
   // Force layout calculation across double paint cycles before animating opacity
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => captionEl?.classList.add('is-visible'))
+    requestAnimationFrame(() => { captionEl?.classList.add('is-visible') })
   })
 }
 
@@ -24,10 +24,9 @@ const handleBodyClassChange = (): void => {
   const isZoomed = document.body.classList.contains('medium-zoom--opened')
 
   if (isZoomed) {
-    const openedImg = document.querySelector('img.medium-zoom-image--hidden') as HTMLImageElement | null
-    if (openedImg?.alt) {
+    const openedImg = document.querySelector<HTMLImageElement>('img.medium-zoom-image--hidden')
+    if (openedImg?.alt)
       createCaption(openedImg.alt)
-    }
   } else {
     forceDestroyCaption()
   }

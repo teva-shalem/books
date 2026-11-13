@@ -1,5 +1,6 @@
+import type {UserPlugins} from '@vuepress/types'
+
 import path from 'path'
-import {UserPlugins} from '@vuepress/types'
 import {attrs} from './attrs'
 
 const getComponentName = (file: string) => {

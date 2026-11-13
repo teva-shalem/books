@@ -32,7 +32,7 @@ const handlePopState = (): void => {
   ignoreNextPopState = true
 
   // Native medium-zoom unzooms automatically when its overlay is clicked
-  const zoomOverlay = document.querySelector(CONFIG.CLASSES.OVERLAY) as HTMLElement | null
+  const zoomOverlay = document.querySelector<HTMLElement>(CONFIG.CLASSES.OVERLAY)
   zoomOverlay?.click()
 }
 
@@ -103,6 +103,6 @@ export const handleZoom = (router: Router, selector: string = zoom.selector): vo
     bindGlobalListeners()
 
     // Buffer ensures VuePress finishes painting page layouts before scanning images
-    setTimeout(() => bindImageListeners(currentSelector), CONFIG.TIMEOUTS.DOM_HYDRATION_MS)
+    setTimeout(() => {bindImageListeners(currentSelector)}, CONFIG.TIMEOUTS.DOM_HYDRATION_MS)
   })
 }

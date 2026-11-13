@@ -1,7 +1,7 @@
 declare module 'vuepress' {
-  import Vue, {ComponentOptions} from 'vue'
+  import type Vue, {ComponentOptions} from 'vue'
+  import type VueRouter, {RawLocation as RouterRawLocation} from 'vue-router'
 
-  import VueRouter, {RawLocation as RouterRawLocation} from 'vue-router'
   export type Router = VueRouter
   export type RawLocation = RouterRawLocation
 

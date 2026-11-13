@@ -1,5 +1,6 @@
 {
   "name": "vuepress-theme-tevadynamica",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.cjs"
 }

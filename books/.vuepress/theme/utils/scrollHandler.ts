@@ -63,7 +63,7 @@ export const scrollToHash = (hash: string, behavior: ScrollBehavior = 'smooth'):
       if (behavior === 'auto') {
         scrollToElement(id, 'auto')
       } else {
-        setTimeout(() => scrollToElement(id, 'smooth'), CONFIG.SETTLE_MS)
+        setTimeout(() => {scrollToElement(id, 'smooth')}, CONFIG.SETTLE_MS)
       }
     } else if (attempts < CONFIG.MAX_ATTEMPTS) {
       attempts++
@@ -137,10 +137,8 @@ const bindPopStateHandler = (): void => {
 const bindAnchorClickHandler = (router: Router): void => {
   document.addEventListener('click', (e: MouseEvent) => {
     const target = e.target as HTMLElement | null
-    const anchor = target?.closest('a')
-    if (!anchor) return
 
-    const href = anchor.getAttribute('href')
+    const href = target?.closest('a')?.getAttribute('href')
     if (!href) return
 
     const isSamePageHash = href.startsWith('#') || href.includes(`${window.location.pathname}#`)
@@ -164,9 +162,9 @@ const bindAnchorClickHandler = (router: Router): void => {
       scrollToHash(hash, 'smooth')
     } else {
       router.push(targetLocation)
-        .then(() => scrollToHash(hash, 'smooth'))
+        .then(() => {scrollToHash(hash, 'smooth')})
         .catch((err: Error) => {
-          if (err?.name === 'NavigationDuplicated') scrollToHash(hash, 'smooth')
+          if (err.name === 'NavigationDuplicated') scrollToHash(hash, 'smooth')
         })
     }
   }, {capture: true})
@@ -181,9 +179,7 @@ export const handleScroll = (router: Router): void => {
   bindPopStateHandler()
   bindAnchorClickHandler(router)
 
-  if (router.options) {
-    router.options.scrollBehavior = () => null
-  }
+  router.options.scrollBehavior = () => null
 
   router.afterEach((to, from) => {
     const isCrossPage = to.path !== from.path
@@ -206,7 +202,7 @@ export const handleScroll = (router: Router): void => {
     if (document.readyState === 'complete') {
       scrollToHash(window.location.hash, 'auto')
     } else {
-      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), {once: true})
+      window.addEventListener('load', () => {scrollToHash(window.location.hash, 'auto')}, {once: true})
     }
   }
 }

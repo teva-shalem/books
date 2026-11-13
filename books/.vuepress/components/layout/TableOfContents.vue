@@ -1,6 +1,6 @@
 <script lang="ts">
-import Vue, {ComponentOptions, VNode} from 'vue'
-import {PageHeader} from 'vuepress-types'
+import type Vue, {ComponentOptions, VNode} from 'vue'
+import type {PageHeader} from 'vuepress-types'
 
 const HEADING_LEVEL = {
   H2: 2,

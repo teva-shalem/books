@@ -15,7 +15,7 @@ interface HtmlWebpackPluginInstance {
 
 export const configureWebpack = (config: Configuration, isServer: boolean) => {
   if (!isServer) {
-    const htmlPlugin = (config.plugins || [])
+    const htmlPlugin = (config.plugins ?? [])
       .find((plugin): plugin is WebpackPluginInstance & HtmlWebpackPluginInstance => plugin
         .constructor.name === 'HtmlWebpackPlugin')
 
@@ -39,7 +39,7 @@ export const chainWebpack = (config: Config) => {
       config.module.rule(rule).oneOfs.values().forEach((oneOf) => {
         oneOf.use('sass-loader').tap((options = {}) => {
           options.sassOptions = {
-            ...options?.sassOptions || {},
+            ...options.sassOptions || {},
             quietDeps          : true,
             silenceDeprecations: ['import', 'legacy-js-api'],
           }

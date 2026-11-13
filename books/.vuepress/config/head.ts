@@ -1,4 +1,4 @@
-import {HeadTags} from '@vuepress/types'
+import type {HeadTags} from '@vuepress/types'
 
 export const head: HeadTags = [
   ['link', {rel: 'manifest', href: '/manifest.json'}],

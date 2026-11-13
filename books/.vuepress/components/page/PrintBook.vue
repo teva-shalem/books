@@ -11,13 +11,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import type {Component} from 'vue'
+
 const PRINT_CONFIG = {
   LOAD_TIMEOUT_MS: 3000,
   SETTLE_DELAY_MS: 1000,
 }
 
-const PageContainer = {
+const PageContainer: Component = {
   name : 'PageContainer',
   props: ['page'],
   provide() {
