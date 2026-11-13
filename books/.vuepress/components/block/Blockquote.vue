@@ -9,22 +9,28 @@
   </figure>
 </template>
 
-<style lang="stylus" scoped>
-.blockquote-container
-  margin 2em 1em 2em 0
+<style lang="scss" scoped>
+.blockquote-container {
+  margin: 2em 1em 2em 0;
+}
 
-.blockquote-container + .blockquote-container
-  margin-top -2em
+.blockquote-container + .blockquote-container {
+  margin-top: -2em;
+}
 
-.blockquote-container:has(+ .blockquote-container)
-  padding-bottom 1em
+.blockquote-container:has(+ .blockquote-container) {
+  padding-bottom: 1em;
+}
 
-.blockquote
-  margin: 0
+.blockquote {
+  margin: 0;
+}
 
-.quote
-  font-style italic
+.quote {
+  font-style: italic;
+}
 
-.quoter
-  font-weight 600
+.quoter {
+  font-weight: 600;
+}
 </style>

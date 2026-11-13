@@ -1,15 +1,18 @@
 <template>
-  <div v-katex="{ expression: src || '-', options: {
-    throwOnError: true, displayMode: true,
-    strict: errorCode => ['newLineInDisplayMode', 'symbolNotInFont', 'unknownSymbol']
-      .includes(errorCode) ? 'ignore' : 'warn',
-  }}"></div>
+  <div v-katex="{
+    expression: src || '-',
+    options: {
+      throwOnError: true, displayMode: true,
+      strict: errorCode => ['newLineInDisplayMode', 'symbolNotInFont', 'unknownSymbol']
+        .includes(errorCode) ? 'ignore' : 'warn',
+    }
+  }" />
 </template>
 
 <script lang="ts">
 export default {
   props: {
-    src: String,
+    src: {type: String, required: false, default: '-'},
   },
 }
 </script>

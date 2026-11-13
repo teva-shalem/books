@@ -1,0 +1,21 @@
+{
+  "extends": [
+     "stylelint-config-standard-scss" 
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/*.vue"],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "indentation": 2,
+    "no-empty-source": null,
+    "selector-pseudo-class-no-unknown":
+      [true, {"ignorePseudoClasses": ["deep"]}]
+  }
+}

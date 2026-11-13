@@ -86,11 +86,11 @@
     }
 
     h1 {
-        width: 75%;
+      width: 75%;
     }
 
     h2 {
-        width: 75%;
+      width: 75%;
     }
   }
 }
@@ -111,12 +111,12 @@
 
 .rosetta-stone {
   .go-down-arrow {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
 
-      & > img {
-          max-width: 20%;
-      }
+    & > img {
+      max-width: 20%;
+    }
   }
 }

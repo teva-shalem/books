@@ -8,7 +8,7 @@
       <Link class="navbar-link is-arrowless" :href="'/'">ספרים</Link>
     </div>
     <div class="navbar-left">
-      <ButtonPrint></ButtonPrint>
+      <ButtonPrint />
     </div>
   </nav>
 </template>

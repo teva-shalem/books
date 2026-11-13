@@ -1,5 +1,5 @@
 <template>
-    <DataTable :data="qualities" :columns="columns" />
+  <DataTable :data="qualities" :columns="columns" />
 </template>
 
 <script lang="ts">

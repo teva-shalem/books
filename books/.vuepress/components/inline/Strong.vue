@@ -1,9 +1,10 @@
 <template>
-<strong><slot></slot></strong>
+  <strong><slot /></strong>
 </template>
 
-<style lang="stylus" scoped>
-strong
-  font-weight bold
-  white-space pre-line
+<style lang="scss" scoped>
+strong {
+  font-weight: bold;
+  white-space: pre-line;
+}
 </style>

@@ -16,10 +16,12 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.quote
-  font-style italic
+<style lang="scss" scoped>
+.quote {
+  font-style: italic;
 
-.quote::before, .quote::after
-    content '׳'
+  &::before, &::after {
+    content: '׳';
+  }
+}
 </style>

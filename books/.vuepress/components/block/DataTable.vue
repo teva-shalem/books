@@ -56,154 +56,154 @@ export default {
   .table {
     td.is-sticky,
     th.is-sticky {
-        right: 0;
+      right: 0;
     }
 
     th .th-wrap {
-        justify-content: center;
+      justify-content: center;
     }
 
     td.has-text-centered {
-        vertical-align: middle;
-        text-align: center;
+      vertical-align: middle;
+      text-align: center;
 
-        @media (max-width: 768px), print {
-            display: flex;
-            align-items: center;
-        }
+      @media (max-width: 768px), print {
+        display: flex;
+        align-items: center;
+      }
     }
 
     td.right-aligned {
-        text-align: right;
-        vertical-align: middle;
+      text-align: right;
+      vertical-align: middle;
     }
   }
 
   > .table-wrapper:not(:last-child) {
-      @media (min-width: 768px) {
-          margin-bottom: 0;
-      }
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
-      &::before {
-          margin: auto 0;
+    &::before {
+      margin: auto 0;
 
-          @media (max-width: 768px), print {
-              text-align: right;
-          }
+      @media (max-width: 768px), print {
+        text-align: right;
       }
+    }
 
-      &.right-aligned div {
-          @media (max-width: 768px), print {
-              margin-right: 1em;
-          }
+    &.right-aligned div {
+      @media (max-width: 768px), print {
+        margin-right: 1em;
       }
+    }
   }
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .column-toggles {
-    margin-bottom: 3em;
+  margin-bottom: 3em;
 
-    :deep(.is-grouped-multiline) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  :deep(.is-grouped-multiline) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .control {
-        margin-right: 0.5em;
-    }
+  .control {
+    margin-right: 0.5em;
+  }
 }
 
 .field-type-latex-image {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex: 0 1 30%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 1 30%;
+  align-items: center;
 
-    @media (max-width: 768px), print {
-        flex-direction: row;
+  @media (max-width: 768px), print {
+    flex-direction: row;
+  }
+
+  & > img {
+    margin-inline: 1em 0;
+
+    @media (max-width: 768px) {
+      max-width: 50% !important;
     }
-
-    & > img {
-        margin-inline: 1em 0;
-
-        @media (max-width: 768px) {
-            max-width: 50% !important;
-        }
-        @media print {
-            max-width: 75% !important;
-        }
+    @media print {
+      max-width: 75% !important;
     }
+  }
 }
 
 /* Adapted from ~node_modules/buefy/src/scss/components/_table.scss */
 @mixin table-cards {
-    :deep(.b-table) {
-      .table-wrapper {
-          &.has-sticky-header {
-              height: initial;
-              overflow-y: initial;
-          }
-      }
-
-      .table {
-          background-color: transparent;
-
-          thead {
-              tr {
-                  box-shadow: none;
-                  border-width: 0;
-                  th {
-                      display: none;
-                  }
-              }
-          }
-
-          tr {
-              box-shadow: 0 2px 3px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.1);
-              max-width: 100%;
-              position: relative;
-              display: block;
-              td {
-                  border: 0;
-
-                  display: flex;
-                  width: auto;
-                  justify-content: space-between;
-                  text-align: right;
-                  border-bottom: 1px solid hsl(0, 0%, 96%);
-                  &:before {
-                      content: attr(data-label);
-                      font-weight: 600;
-                      padding-right: 0.5em;
-                      text-align: left;
-                  }
-                  &:last-child {
-                      border-bottom: 0;
-                  }
-              }
-              &:not(:last-child) {
-                  margin-bottom: 1rem;
-              }
-              &:not([class*="is-"]) {
-                  background: white;
-                  &:hover {
-                      background-color: white;
-                  }
-              }
-          }
+  :deep(.b-table) {
+    .table-wrapper {
+      &.has-sticky-header {
+        height: initial;
+        overflow-y: initial;
       }
     }
+
+    .table {
+      background-color: transparent;
+
+      thead {
+        tr {
+          box-shadow: none;
+          border-width: 0;
+          th {
+            display: none;
+          }
+        }
+      }
+
+      tr {
+        box-shadow: 0 2px 3px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.1);
+        max-width: 100%;
+        position: relative;
+        display: block;
+        td {
+          border: 0;
+
+          display: flex;
+          width: auto;
+          justify-content: space-between;
+          text-align: right;
+          border-bottom: 1px solid hsl(0, 0%, 96%);
+          &:before {
+            content: attr(data-label);
+            font-weight: 600;
+            padding-right: 0.5em;
+            text-align: left;
+          }
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+        &:not([class*="is-"]) {
+          background: white;
+          &:hover {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media print {
-    @include table-cards;
+  @include table-cards;
 }
 </style>
