@@ -1,4 +1,4 @@
-name: Upload Online Versions
+name: Upload Online Version
 
 on:
   workflow_call:
@@ -8,42 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout PDF Script & Action
-      uses: actions/checkout@v7
-      with:
-        sparse-checkout: |
-          .github/actions/setup-node-env
-          package.json
-          package-lock.json
-          scripts/generate-pdfs.js
-
-    - name: Setup Node.js
-      uses: ./.github/actions/setup-node-env
-
-    - name: Cache Puppeteer Browser
-      uses: actions/cache@v5
-      with:
-        path: ~/.cache/puppeteer
-        key: ${{ runner.os }}-puppeteer-${{ hashFiles('package.json') }}
-        restore-keys: |
-          ${{ runner.os }}-puppeteer-
-
-    - name: Install PDF Dependencies Only
-      run: |
-        DEPS=$(node -e "const d = require('./package.json').devDependencies; console.log(['puppeteer', 'serve-handler'].map(p => p + '@' + d[p]).join(' '))")
-        npm install --prefix /tmp --no-save --no-package-lock $DEPS
-        ln -s /tmp/node_modules node_modules
-
     - name: Download Built Site
       uses: actions/download-artifact@v8
       with:
         name: built-dist
         path: dist
 
-    - name: Generate PDFs
-      run: npm run generate-pdfs
-
-    # --- GitHub Pages Deployment ---
     - name: Setup Pages
       uses: actions/configure-pages@v6
 
@@ -55,12 +25,3 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v5
-
-    # --- CloudFlare Pages Deployment ---
-    # - name: Deploy to Cloudflare Pages
-    #   if: github.repository == 'teva-shalem/books-world'
-    #   uses: cloudflare/wrangler-action@v3
-    #   with:
-    #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-    #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-    #     command: pages deploy dist --project-name=tevadynamica
