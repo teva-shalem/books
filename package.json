@@ -34,7 +34,7 @@
     "@vuepress/plugin-google-analytics": "^1.9.10",
     "@vuepress/plugin-medium-zoom": "^1.9.10",
     "@vuepress/plugin-pwa": "^1.9.10",
-    "adm-zip": "^0.5.16",
+    "adm-zip": "^0.6.1",
     "eslint": "^8.57.1",
     "eslint-plugin-vue": "^9.33.0",
     "markdown-it-attrs": "^4.1.6",
