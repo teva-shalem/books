@@ -1,16 +1,16 @@
 <template>
-<span>
-  <v-popover
-    placement="top-end"
-    trigger='click'
-    :content="this.$slots.default">
-    <sup class="tooltip tooltip-target">*</sup>
+  <span>
+    <v-popover
+      placement="top-end"
+      trigger='click'
+      :content="this.$slots.default">
+      <sup class="tooltip tooltip-target">*</sup>
 
-    <template slot="popover"><slot></slot></template>
-  </v-popover>
+      <template slot="popover"><slot></slot></template>
+    </v-popover>
 
-  <span class="print-footnote-content">[{{ resolvedContent }}]</span>
-</span>
+    <span class="print-footnote-content">[{{ resolvedContent }}]</span>
+  </span>
 </template>
 
 <script lang="ts">

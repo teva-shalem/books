@@ -58,7 +58,6 @@ module.exports = {
     'dot-notation'                            : 2,
     'default-case'                            : 2,
     'consistent-return'                       : 2,
-    'capitalized-comments'                    : 2,
     'camelcase'                               : 2,
     'require-atomic-updates'                  : 2,
     '@typescript-eslint/no-use-before-define' : 2,
@@ -197,14 +196,19 @@ module.exports = {
       rules: {'@typescript-eslint/no-var-requires': 0},
     },
     {
-      files        : ['**/*.vue'],
-      extends      : ['plugin:vue/essential'],
+      files  : ['**/*.vue'],
+      extends: ['plugin:vue/essential'],
+      // Extends: ['plugin:vue/strongly-recommended'],
+
       parser       : 'vue-eslint-parser',
       parserOptions: {
         parser             : '@typescript-eslint/parser',
         extraFileExtensions: ['.vue'],
       },
-      rules: {'vue/multi-word-component-names': 0},
+      rules: {
+        'vue/multi-word-component-names': 0,
+        'vue/html-indent'               : 2,
+      },
     },
   ],
 }

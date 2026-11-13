@@ -1,7 +1,7 @@
 <template>
   <span itemscope itemtype="https://schema.org/Quotation"><q
     class="quote" itemprop="text"><slot></slot></q><span
-      v-if="quoter"> (<span class="quoter" itemprop="author">{{ quoter }}</span>)</span>
+    v-if="quoter"> (<span class="quoter" itemprop="author">{{ quoter }}</span>)</span>
   </span>
 </template>
 
