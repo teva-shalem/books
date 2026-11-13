@@ -1,6 +1,8 @@
 <template>
   <div v-katex="{ expression: src || '-', options: {
-    throwOnError: true, displayMode: true
+    throwOnError: true, displayMode: true,
+    strict: errorCode => ['newLineInDisplayMode', 'symbolNotInFont', 'unknownSymbol']
+      .includes(errorCode) ? 'ignore' : 'warn',
   }}"></div>
 </template>
 
@@ -12,10 +14,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.katex-display {
+<style lang="scss" scoped>
+:deep(.katex-display) {
   direction: ltr;
-  unicode-bidi: isolate;
   margin: 0;
+}
+
+:deep(.katex .text) {
+  font-family: 'Shofar';
+  direction: rtl;
+  unicode-bidi: isolate;
 }
 </style>
