@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div 
-      v-for="page in orderedPages" 
-      :key="page.path" 
+    <div
+      v-for="page in orderedPages"
+      :key="page.path"
       :class="getPageClasses(page)">
       <PageContainer :page="page">
         <Content :page-key="page.key" />
@@ -18,7 +18,7 @@ const PRINT_CONFIG = {
 }
 
 const PageContainer = {
-  name: 'PageContainer',
+  name : 'PageContainer',
   props: ['page'],
   provide() {
     return {
@@ -31,7 +31,7 @@ const PageContainer = {
 }
 
 export default {
-  name: 'PrintBook',
+  name      : 'PrintBook',
   components: {
     PageContainer,
   },
@@ -83,7 +83,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const triggerPrintWhenReady = async () => {
+      const triggerPrintWhenReady = async() => {
         await this.waitForContentLoaded()
 
         setTimeout(() => {

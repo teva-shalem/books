@@ -15,20 +15,20 @@
 
 <script lang="ts">
 export default {
-  name: 'Footnote',
+  name : 'Footnote',
   props: {
     content: {
-      type: String,
+      type    : String,
       required: false,
     },
   },
   computed: {
     resolvedContent() {
-      return (this.$slots.default)
+      return this.$slots.default
         ? this.$slots.default
-            .map(vNode => vNode.text || '')
-            .join('')
-            .replaceAll('\n', ' ')
+          .map(vNode => vNode.text || '')
+          .join('')
+          .replaceAll('\n', ' ')
         : ''
     },
   },
@@ -107,7 +107,7 @@ export default {
 @media print
   .v-popover
     display none !important
-  
+
   .print-footnote-content
     display inline
     font-style italic

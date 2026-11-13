@@ -8,9 +8,9 @@
 <script lang="ts">
 export default {
   props: {
-    path: {type: String},
-    url: {type: String},
-    alt: {type: String},
+    path  : {type: String},
+    url   : {type: String},
+    alt   : {type: String},
     noZoom: {type: Boolean},
   },
 }

@@ -1,6 +1,6 @@
 <template>
-  <div v-katex="{ expression: src || '-', options: { 
-    throwOnError: true, displayMode: true 
+  <div v-katex="{ expression: src || '-', options: {
+    throwOnError: true, displayMode: true
   }}"></div>
 </template>
 

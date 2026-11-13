@@ -15,7 +15,7 @@
 
 <script lang="ts">
 export default {
-  name: 'Navbar',
+  name : 'Navbar',
   props: {},
 }
 </script>

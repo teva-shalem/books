@@ -1,5 +1,5 @@
-import type { Router } from 'vuepress'
-import { zoom } from '../../config/attrs'
+import type {Router} from 'vuepress'
+import {zoom} from '../../config/attrs'
 
 const CONFIG = {
   CLASSES: {
@@ -13,7 +13,7 @@ const CONFIG = {
   },
   TIMEOUTS: {
     OVERLAY_RENDER_MS: 50,
-    DOM_HYDRATION_MS: 300,
+    DOM_HYDRATION_MS : 300,
   },
 } as const
 
@@ -27,7 +27,7 @@ let isGlobalListenersAttached = false
  */
 const handlePopState = (): void => {
   if (!isZoomed) return
-  
+
   isZoomed = false
   ignoreNextPopState = true
 
@@ -43,7 +43,7 @@ const handleManualClose = (): void => {
   if (!isZoomed) return
 
   isZoomed = false
-  
+
   if (!ignoreNextPopState) {
     ignoreNextPopState = true
     history.back()
@@ -69,14 +69,14 @@ const bindGlobalListeners = (): void => {
       handleManualClose()
     }
   })
-  observer.observe(document.body, { childList: true, subtree: true })
+  observer.observe(document.body, {childList: true, subtree: true})
 
   isGlobalListenersAttached = true
 }
 
 const bindImageListeners = (selector: string): void => {
   const images = document.querySelectorAll<HTMLImageElement>(selector)
-  
+
   images.forEach((img) => {
     if (img.dataset[CONFIG.DATA_ATTRS.HISTORY_BOUND]) return
     img.dataset[CONFIG.DATA_ATTRS.HISTORY_BOUND] = 'true'
@@ -87,7 +87,7 @@ const bindImageListeners = (selector: string): void => {
         if (document.querySelector(CONFIG.CLASSES.OVERLAY) && !isZoomed) {
           isZoomed = true
           ignoreNextPopState = false
-          history.pushState({ mediumZoom: true }, '')
+          history.pushState({mediumZoom: true}, '')
         }
       }, CONFIG.TIMEOUTS.OVERLAY_RENDER_MS)
     })

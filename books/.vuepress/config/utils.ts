@@ -1,4 +1,4 @@
-import type { PageData } from 'vuepress'
+import type {PageData} from 'vuepress'
 
 const getGithubRepo = (): string | undefined => {
   return process.env.GITHUB_REPOSITORY?.split('/')[1] ?? ''
@@ -7,7 +7,7 @@ const getGithubRepo = (): string | undefined => {
 export const getBaseUrl = (): `/${string}/` | undefined => {
   if (getGithubRepo() === 'books-forever')
     return '/books-forever/'
-  
+
   return undefined
 }
 

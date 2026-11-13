@@ -45,7 +45,7 @@ export const handleCaption = (): void => {
   })
 
   observer.observe(document.body, {
-    attributes: true,
+    attributes     : true,
     attributeFilter: ['class'],
   })
 }

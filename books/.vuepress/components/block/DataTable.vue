@@ -47,11 +47,11 @@
 
 <script lang="ts">
 export default {
-    props: {
-        id     : String,
-        data   : {type: Array, required: true},
-        columns: {type: Array, required: true},
-    },
+  props: {
+    id     : String,
+    data   : {type: Array, required: true},
+    columns: {type: Array, required: true},
+  },
 }
 </script>
 
@@ -171,7 +171,7 @@ export default {
             display: block;
             td {
                 border: 0;
-                
+
                 display: flex;
                 width: auto;
                 justify-content: space-between;

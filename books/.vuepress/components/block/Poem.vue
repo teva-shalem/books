@@ -11,5 +11,5 @@
 
 .poem-decoration-bottom
   line-height 0
-  margin-top 1.7em  
+  margin-top 1.7em
 </style>

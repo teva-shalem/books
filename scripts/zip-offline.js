@@ -1,9 +1,9 @@
-import { execFile } from 'node:child_process'
-import { promisify } from 'node:util'
+import {execFile} from 'node:child_process'
+import {promisify} from 'node:util'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import AdmZip from 'adm-zip'
-import { exists, distDir, run } from './helpers.js'
+import {exists, distDir, run} from './helpers.js'
 
 const exec = promisify(execFile)
 
@@ -15,9 +15,9 @@ const SWS_MAC_ARM_PATH = path.join(CACHE_DIR, 'static-web-server-macos-arm64')
 const SWS_MAC_X64_PATH = path.join(CACHE_DIR, 'static-web-server-macos-x64')
 
 const ASSETS = [
-  { suffix: 'x86_64-pc-windows-msvc.zip', output: SWS_EXE_PATH, type: 'zip' },
-  { suffix: 'aarch64-apple-darwin.tar.gz', output: SWS_MAC_ARM_PATH, type: 'tar' },
-  { suffix: 'x86_64-apple-darwin.tar.gz', output: SWS_MAC_X64_PATH, type: 'tar' },
+  {suffix: 'x86_64-pc-windows-msvc.zip', output: SWS_EXE_PATH, type: 'zip'},
+  {suffix: 'aarch64-apple-darwin.tar.gz', output: SWS_MAC_ARM_PATH, type: 'tar'},
+  {suffix: 'x86_64-apple-darwin.tar.gz', output: SWS_MAC_X64_PATH, type: 'tar'},
 ]
 
 const API_URL = 'https://api.github.com/repos/static-web-server/static-web-server/releases/latest'
@@ -42,70 +42,65 @@ open "http://localhost:8080"
 "$SERVER" -p 8080 -d "./dist" --page-fallback "./dist/404.html"
 `
 
-const findBinary = async (directory, filename) => {
-  const entries = await fs.readdir(directory, { withFileTypes: true })
+const findBinary = async(directory, filename) => {
+  const entries = await fs.readdir(directory, {withFileTypes: true})
 
-  const directMatch = entries.find((entry) => entry.isFile() && entry.name === filename)
+  const directMatch = entries.find(entry => entry.isFile() && entry.name === filename)
 
   if (directMatch) {
     return path.join(directory, directMatch.name)
   }
 
   const subdirectories = entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => path.join(directory, entry.name))
+    .filter(entry => entry.isDirectory())
+    .map(entry => path.join(directory, entry.name))
 
-  const results = await Promise.all(
-    subdirectories.map((subdirectory) => findBinary(subdirectory, filename)),
-  )
+  const results = await Promise.all(subdirectories.map(subdirectory => findBinary(subdirectory, filename)))
 
   return results.find(Boolean) ?? null
 }
 
-const extractZip = async (archivePath, output) => {
+const extractZip = async(archivePath, output) => {
   const archive = new AdmZip(await fs.readFile(archivePath))
 
-  await fs.writeFile(output, archive.getEntries().find(({ entryName }) =>
-    entryName.endsWith('static-web-server.exe'),
-  ).getData())
+  await fs.writeFile(output, archive.getEntries()
+    .find(({entryName}) => entryName.endsWith('static-web-server.exe')).getData())
 }
 
-const extractTar = async (archivePath, output) => {
+const extractTar = async(archivePath, output) => {
   const extractDir = `${output}.extract`
 
-  await fs.mkdir(extractDir, { recursive: true })
+  await fs.mkdir(extractDir, {recursive: true})
 
   await exec('tar', [
     '-xzf',
     path.relative(process.cwd(), archivePath),
     '-C',
     path.relative(process.cwd(), extractDir),
-  ], { cwd: process.cwd() })
+  ], {cwd: process.cwd()})
 
   await fs.copyFile(await findBinary(extractDir, 'static-web-server'), output)
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   await fs.chmod(output, 0o755)
-  await fs.rm(extractDir, { recursive: true, force: true })
+  await fs.rm(extractDir, {recursive: true, force: true})
 }
 
-const downloadLatestSws = async () => {
-  if (await Promise.all(ASSETS.map(({ output }) => exists(output))).then(
-    (results) => results.every(Boolean),
-  )) {
+const downloadLatestSws = async() => {
+  if (await Promise.all(ASSETS.map(({output}) => exists(output))).then(results => results.every(Boolean))) {
     console.log('Using cached static-web-server binaries...')
     return
   }
 
   console.log(`Fetching latest release metadata from ${API_URL}...`)
 
-  const { stdout } = await exec('curl', ['-fsSL', API_URL])
+  const {stdout} = await exec('curl', ['-fsSL', API_URL])
   const {assets: releaseAssets, tag_name: releaseTag} = JSON.parse(stdout)
 
-  await fs.mkdir(CACHE_DIR, { recursive: true })
+  await fs.mkdir(CACHE_DIR, {recursive: true})
 
-  await Promise.all(ASSETS.map(async ({ suffix, output, type }) => {
-    const {name: assetName, browser_download_url: assetUrl} = 
-      releaseAssets.find(({ name }) => name.endsWith(suffix))
+  await Promise.all(ASSETS.map(async({suffix, output, type}) => {
+    const {name: assetName, browser_download_url: assetUrl}
+      = releaseAssets.find(({name}) => name.endsWith(suffix))
 
     const archivePath = path.join(CACHE_DIR, assetName)
 
@@ -125,7 +120,7 @@ const downloadLatestSws = async () => {
   console.log(`Downloaded static-web-server binaries (${releaseTag})`)
 }
 
-const buildOfflineZip = async () => {
+const buildOfflineZip = async() => {
   await downloadLatestSws()
 
   if (await exists(OUTPUT_ZIP)) {

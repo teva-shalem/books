@@ -12,7 +12,7 @@
 <style lang="stylus" scoped>
 .blockquote-container
   margin 2em 1em 2em 0
-  
+
 .blockquote-container + .blockquote-container
   margin-top -2em
 
@@ -23,7 +23,7 @@
   margin: 0
 
 .quote
-  font-style italic 
+  font-style italic
 
 .quoter
   font-weight 600

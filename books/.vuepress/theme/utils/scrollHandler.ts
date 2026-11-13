@@ -1,20 +1,20 @@
-import type { Router, RawLocation } from 'vuepress'
+import type {Router, RawLocation} from 'vuepress'
 
 const CONFIG = {
-  POLL_MS: 25,
-  MAX_ATTEMPTS: 100,
-  SETTLE_MS: 350,
-  RESTORE_LOCK_MS: 150,
-  POP_DELAY_MS: 50,
-  POP_MAX_ATTEMPTS: 20,
-  POP_RETRY_MS: 50,
-  POP_SAME_PAGE_LOCK_MS: 600,
+  POLL_MS               : 25,
+  MAX_ATTEMPTS          : 100,
+  SETTLE_MS             : 350,
+  RESTORE_LOCK_MS       : 150,
+  POP_DELAY_MS          : 50,
+  POP_MAX_ATTEMPTS      : 20,
+  POP_RETRY_MS          : 50,
+  POP_SAME_PAGE_LOCK_MS : 600,
   POP_CROSS_PAGE_LOCK_MS: 200,
 } as const
 
 interface HistoryState {
-  key?: string;
-  [key: string]: unknown;
+  key?: string
+  [key: string]: unknown
 }
 
 const scrollMap = new Map<string, number>()
@@ -24,7 +24,7 @@ let lastPathname = ''
 
 const getKey = (state: unknown): string => {
   if (state && typeof state === 'object' && 'key' in state) {
-    const { key } = state as HistoryState
+    const {key} = state as HistoryState
     if (typeof key === 'string') return key
   }
   return window.location.href
@@ -50,7 +50,7 @@ const scrollToElement = (id: string, behavior: ScrollBehavior = 'smooth'): void 
     top += current.offsetTop
     current = current.offsetParent as HTMLElement | null
   }
-  window.scrollTo({ top, behavior })
+  window.scrollTo({top, behavior})
 }
 
 export const scrollToHash = (hash: string, behavior: ScrollBehavior = 'smooth'): void => {
@@ -84,7 +84,7 @@ const bindScrollRecorder = (): void => {
     if (!isHistoryPop && !isRestoring) {
       scrollMap.set(getKey(history.state), window.scrollY)
     }
-  }, { passive: true })
+  }, {passive: true})
 }
 
 const bindPopStateHandler = (): void => {
@@ -102,11 +102,14 @@ const bindPopStateHandler = (): void => {
         let attempts = 0
 
         const attemptScroll = (): void => {
-          window.scrollTo({ top: targetTop, behavior: isSamePage ? 'smooth' : 'auto' })
+          window.scrollTo({
+            top     : targetTop,
+            behavior: isSamePage ? 'smooth' : 'auto',
+          })
           if (
-            window.scrollY < targetTop &&
-            attempts < CONFIG.POP_MAX_ATTEMPTS &&
-            document.documentElement.scrollHeight <= targetTop
+            window.scrollY < targetTop
+            && attempts < CONFIG.POP_MAX_ATTEMPTS
+            && document.documentElement.scrollHeight <= targetTop
           ) {
             attempts++
             setTimeout(attemptScroll, CONFIG.POP_RETRY_MS)
@@ -116,7 +119,7 @@ const bindPopStateHandler = (): void => {
       } else if (isSamePage && window.location.hash) {
         scrollToHash(window.location.hash, 'smooth')
       } else {
-        window.scrollTo({ top: 0, behavior: isSamePage ? 'smooth' : 'auto' })
+        window.scrollTo({top: 0, behavior: isSamePage ? 'smooth' : 'auto'})
       }
 
       const lockDuration = isSamePage
@@ -152,11 +155,11 @@ const bindAnchorClickHandler = (router: Router): void => {
     if (!hash) return
 
     scrollMap.set(getKey(history.state), window.scrollY)
-    const targetLocation: RawLocation = { path: window.location.pathname, hash }
+    const targetLocation: RawLocation = {path: window.location.pathname, hash}
 
     if (decodeHashId(window.location.hash) === decodeHashId(hash)) {
       const manualKey = `man-${crypto.randomUUID()}`
-      history.pushState({ key: manualKey }, '', window.location.pathname + hash)
+      history.pushState({key: manualKey}, '', window.location.pathname + hash)
       scrollMap.set(manualKey, window.scrollY)
       scrollToHash(hash, 'smooth')
     } else {
@@ -166,7 +169,7 @@ const bindAnchorClickHandler = (router: Router): void => {
           if (err?.name === 'NavigationDuplicated') scrollToHash(hash, 'smooth')
         })
     }
-  }, { capture: true })
+  }, {capture: true})
 }
 
 export const handleScroll = (router: Router): void => {
@@ -190,7 +193,7 @@ export const handleScroll = (router: Router): void => {
         if (to.hash) {
           scrollToHash(to.hash, 'auto')
         } else {
-          safeScrollTo({ top: 0, behavior: 'auto' })
+          safeScrollTo({top: 0, behavior: 'auto'})
         }
       })
     } else if (to.hash && !isHistoryPop) {
@@ -203,7 +206,7 @@ export const handleScroll = (router: Router): void => {
     if (document.readyState === 'complete') {
       scrollToHash(window.location.hash, 'auto')
     } else {
-      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), { once: true })
+      window.addEventListener('load', () => scrollToHash(window.location.hash, 'auto'), {once: true})
     }
   }
 }

@@ -1,5 +1,5 @@
 declare module 'vue-katex' {
-  import { PluginObject } from 'vue'
+  import {PluginObject} from 'vue'
   const VueKatex: PluginObject<{globalOptions: unknown}>
   export default VueKatex
 }

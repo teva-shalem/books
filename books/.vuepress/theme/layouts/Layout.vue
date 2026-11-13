@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { ComponentOptions } from 'vue'
+import Vue, {ComponentOptions} from 'vue'
 
 interface LayoutComponent extends Vue {
   font?: string
@@ -18,14 +18,14 @@ interface LayoutComponent extends Vue {
 }
 
 const Layout: ComponentOptions<Vue> = {
-  name: 'Layout',
+  name : 'Layout',
   props: {
     className: String,
   },
   computed: {
-      font(this: LayoutComponent): string | null {
-        return this.$frontmatter.customFont
-      },
+    font(this: LayoutComponent): string | null {
+      return this.$frontmatter.customFont
+    },
   },
 }
 

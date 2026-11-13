@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ButtonPrint',
+  name   : 'ButtonPrint',
   methods: {
     isHome() {
       return this.$page.path === '/'
@@ -27,7 +27,7 @@ export default {
       if (this.isHome()) {
         window.location.href = this.$withBase('/pdfs/tevadynamica.pdf')
       } else {
-        window.location.href = this.$withBase(`/pdfs${this.$page.path.replace(/\/$/, "")}.pdf`)
+        window.location.href = this.$withBase(`/pdfs${this.$page.path.replace(/\/$/, '')}.pdf`)
       }
     },
   },
