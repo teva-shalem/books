@@ -13,13 +13,13 @@
     "prebuild": "npm run lint",
     "build": "vuepress build books",
     "postbuild": "npm run generate-pdfs",
-    "serve": "npx serve dist",
+    "serve": "serve dist",
     "deploy:stage": "git push -f stage master",
     "deploy:world": "git push -f world master && git push -f forever master",
     "upgrade": "npx npm-check-updates@16 --interactive"
   },
   "dependencies": {
-    "buefy": "^0.9.23",
+    "buefy": "^0.9.29",
     "katex": "^0.19.1",
     "v-tooltip": "^2.1.3",
     "vue": "^2.7.16",
@@ -35,16 +35,17 @@
     "@vuepress/plugin-google-analytics": "^1.9.10",
     "@vuepress/plugin-medium-zoom": "^1.9.10",
     "@vuepress/plugin-pwa": "^1.9.10",
-    "adm-zip": "^0.5.16",
+    "adm-zip": "^0.6.1",
     "eslint": "^8.57.1",
     "eslint-plugin-vue": "^9.33.0",
-    "markdown-it-attrs": "^4.1.6",
-    "puppeteer": "^21.5.0",
-    "sass": "~1.77.8",
+    "markdown-it-attrs": "^5.0.1",
+    "puppeteer": "^21.11.0",
+    "sass": "~1.79.6",
     "sass-loader": "^10.5.2",
+    "serve": "^13.0.4",
     "serve-handler": "^6.1.8",
-    "ts-loader": "^8.2.0",
-    "typescript": "~5.3.3",
+    "ts-loader": "^8.4.0",
+    "typescript": "~5.5.4",
     "vue-eslint-parser": "^9.4.3",
     "vuepress": "^1.9.10",
     "vuepress-plugin-table-of-contents": "^1.1.7",
@@ -53,7 +54,7 @@
   },
   "overrides": {
     "vuepress-plugin-typescript": {
-      "ts-loader": "^8.2.0"
+      "ts-loader": "^8.4.0"
     },
     "minimatch": "9.0.5",
     "node-releases": "2.0.18"

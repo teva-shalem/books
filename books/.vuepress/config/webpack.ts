@@ -41,7 +41,7 @@ export const chainWebpack = (config: Config) => {
           options.sassOptions = {
             ...options.sassOptions || {},
             quietDeps          : true,
-            silenceDeprecations: ['import', 'legacy-js-api'],
+            silenceDeprecations: ['legacy-js-api'],
           }
           return options
         })
