@@ -7,7 +7,7 @@ const getGithubRepo = (): string | undefined => {
 export const getBaseUrl = (): `/${string}/` | undefined => {
   if (getGithubRepo() === 'books-forever')
     return '/books-forever/'
-  // eslint-disable-next-line no-undefined
+  
   return undefined
 }
 

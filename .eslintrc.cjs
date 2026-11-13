@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers */
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 module.exports = {
   root: true,
   env: {
@@ -6,16 +6,19 @@ module.exports = {
     node: true,
     es2021: true,
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
+  plugins: ['@stylistic'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:vue/essential',
+    'plugin:@typescript-eslint/stylistic',
   ],
   rules: {
+    /* JavaScript rules */
     'line-comment-position': 2,
     'vars-on-top': 2,
     'require-await': 2,
@@ -28,17 +31,16 @@ module.exports = {
     'no-useless-return': 2,
     'no-useless-rename': 2,
     'no-useless-concat': 2,
-    'no-unused-expressions': 2,
+    '@typescript-eslint/no-unused-expressions': 2,
     'no-unneeded-ternary': 2,
-    'no-undefined': 2,
     'no-undef-init': 2,
     'no-throw-literal': 2,
-    'no-shadow': 2,
+    '@typescript-eslint/no-shadow': 2,
     'no-multi-assign': 2,
     'no-return-assign': 2,
     'no-param-reassign': 2,
     'no-negated-condition': 2,
-    'no-magic-numbers': [2, {ignore: [0, 1]}],
+    '@typescript-eslint/no-magic-numbers': [2, {ignore: [0, 1]}],
     'no-loop-func': 2,
     'no-lonely-if': 2,
     'no-lone-blocks': 2,
@@ -48,10 +50,9 @@ module.exports = {
     'no-eq-null': 2,
     'no-else-return': 2,
     'no-console': 2,
-    'no-array-constructor': 2,
     'no-alert': 2,
     'multiline-comment-style': 2,
-    'init-declarations': 2,
+    '@typescript-eslint/init-declarations': 2,
     'func-style': 2,
     'eqeqeq': 2,
     'dot-notation': 2,
@@ -60,7 +61,7 @@ module.exports = {
     'capitalized-comments': 2,
     'camelcase': 2,
     'require-atomic-updates': 2,
-    'no-use-before-define': 2,
+    '@typescript-eslint/no-use-before-define': 2,
     'no-template-curly-in-string': 2,
     'no-self-compare': 2,
     'no-promise-executor-return': 2,
@@ -68,10 +69,12 @@ module.exports = {
     'no-duplicate-imports': 2,
     'no-await-in-loop': 2,
     'array-callback-return': 2,
+    /* TypeScript rules */
     
-    'semi': [2, 'never'],
-    'comma-dangle': [2, 'always-multiline'],
-    'vue/multi-word-component-names': 0,
+    /* Stylistic rules */
+    '@stylistic/array-bracket-spacing': 2,
+    '@stylistic/semi': [2, 'never'],
+    '@stylistic/comma-dangle': [2, 'always-multiline'],
   },
   overrides: [
     {
@@ -83,19 +86,27 @@ module.exports = {
     {
       files: ['**/*.d.ts'],
       rules: {
-        'init-declarations': 0,
+        '@typescript-eslint/init-declarations': 0,
       },
     },
     {
-      files: ['**/*.ts'],
-      parser: '@typescript-eslint/parser',
+      files: ['**/*.cjs'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 0,
+      },
     },
     {
       files: ['**/*.vue'],
+      extends: [
+        'plugin:vue/essential',
+      ],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.vue'],
+      },
+      rules: {
+        'vue/multi-word-component-names': 0,
       },
     },
   ],
