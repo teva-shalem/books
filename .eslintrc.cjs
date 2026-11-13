@@ -100,7 +100,7 @@ module.exports = {
     '@stylistic/eol-last'                      : 2,
     '@stylistic/function-call-argument-newline': [2, 'consistent'],
     '@stylistic/function-paren-newline'        : [2, 'consistent'],
-    '@stylistic/linebreak-style'               : [2, 'windows'],
+    '@stylistic/linebreak-style'               : [2, 'unix'],
     '@stylistic/lines-around-comment'          : 2,
     '@stylistic/multiline-comment-style'       : [2, 'separate-lines'],
     '@stylistic/multiline-ternary'             : [2, 'always-multiline'],
