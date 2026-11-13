@@ -38,7 +38,7 @@ else
 fi
 
 chmod +x "$SERVER"
-open "http://127.0.0.1:8080"
+open "http://localhost:8080"
 "$SERVER" -p 8080 -d "./dist" --page-fallback "./dist/404.html"
 `
 
