@@ -34,7 +34,17 @@ export const configureWebpack = (config: Configuration, isServer: boolean) => {
 }
 
 export const chainWebpack = (config: Config) => {
-  ['scss', 'sass'].forEach((rule) => {
+  config.module
+    .rule('vue')
+    .use('vue-loader')
+    .tap((options) => {
+      options.compilerOptions = {
+        ...options.compilerOptions,
+        whitespace: 'condense',
+      }
+      return options
+    })
+  ;['scss', 'sass'].forEach((rule) => {
     if (config.module.rules.has(rule)) {
       config.module.rule(rule).oneOfs.values().forEach((oneOf) => {
         oneOf.use('sass-loader').tap((options = {}) => {

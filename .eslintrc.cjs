@@ -197,8 +197,7 @@ module.exports = {
     },
     {
       files  : ['**/*.vue'],
-      extends: ['plugin:vue/essential'],
-      // Extends: ['plugin:vue/strongly-recommended'],
+      extends: ['plugin:vue/strongly-recommended'],
 
       parser       : 'vue-eslint-parser',
       parserOptions: {
@@ -206,8 +205,14 @@ module.exports = {
         extraFileExtensions: ['.vue'],
       },
       rules: {
-        'vue/multi-word-component-names': 0,
-        'vue/html-indent'               : 2,
+        'vue/multi-word-component-names'             : 0,
+        'vue/first-attribute-linebreak'              : [2, {singleline: 'beside', multiline: 'beside'}],
+        'vue/html-closing-bracket-newline'           : [2, {multiline: 'never', selfClosingTag: {multiline: 'never'}}],
+        'vue/html-quotes'                            : [2, 'double', {avoidEscape: true}],
+        'vue/max-attributes-per-line'                : [2, {singleline: {max: 3}, multiline: {max: 2}}],
+        'vue/no-multi-spaces'                        : [2, {ignoreProperties: true}],
+        'vue/singleline-html-element-content-newline': 0,
+
       },
     },
   ],

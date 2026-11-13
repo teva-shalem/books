@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div
-      v-for="page in orderedPages"
-      :key="page.path"
-      :class="getPageClasses(page)">
+    <div v-for="page in orderedPages"
+         :key="page.path"
+         :class="getPageClasses(page)">
       <PageContainer :page="page">
         <Content :page-key="page.key" />
       </PageContainer>

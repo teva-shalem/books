@@ -1,10 +1,13 @@
 <template>
   <section>
-    <Navbar></Navbar>
+    <Navbar />
 
-    <div class="main-container" :class="[className, $page.frontmatter.pageClass]" :data-font="font">
-      <main><Content/></main>
-      <ScrollToTop/>
+    <div class="main-container"
+         :class="[className, $page.frontmatter.pageClass]"
+         :data-font="font">
+      <main><Content /></main>
+
+      <ScrollToTop />
     </div>
   </section>
 </template>
