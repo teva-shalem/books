@@ -84,8 +84,8 @@ const generatePdfs = async(browser) => {
 }
 
 const startServer = () => new Promise((resolve, reject) => {
-  const server = http.createServer((req, res)
-  => handler(req, res, {public: distDir}))
+  const server = http.createServer((req, res) =>
+    handler(req, res, {public: distDir}))
   server.once('error', reject)
   server.listen(PORT, () => {
     console.log(`🚀 Local static server running at http://localhost:${PORT}`)

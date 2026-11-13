@@ -1,10 +1,11 @@
 {
+  "eslint.nodePath": "node_modules",
   "eslint.format.enable": true,
   "eslint.validate": ["javascript", "typescript", "vue"],
   "eslint.lintTask.enable": true,
   "eslint.options": {
     "extensions": [".js", ".ts", ".vue", ".cjs"],
-    "cache": false
+    "cache": true
   },
   "[vue]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
   "[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
@@ -13,7 +14,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "editor.formatOnSave": true,
-  "[json]": { "editor.formatOnSave": false },
-  "[jsonc]": { "editor.formatOnSave": false }
+  "editor.formatOnSave": false,
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true
+  },
 }
