@@ -1,5 +1,5 @@
 {
-  "name": "vuepress-theme-derech-hapeima",
+  "name": "vuepress-theme-tevadynamica",
   "version": "1.0.0",
-  "main": "layouts/Layout.vue"
+  "main": "index.cjs"
 }

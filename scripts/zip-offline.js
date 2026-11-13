@@ -17,7 +17,7 @@ start "" "http://127.0.0.1:8080"
 static-web-server.exe -p 8080 -d "./dist" --page-fallback "./dist/404.html"
 `
 
-function downloadLatestSws() {
+const downloadLatestSws = () => {
   if (fs.existsSync(SWS_EXE_PATH)) {
     console.log('Using cached static-web-server.exe...')
     return SWS_EXE_PATH
@@ -64,7 +64,7 @@ function downloadLatestSws() {
   return SWS_EXE_PATH
 }
 
-function buildOfflineZip() {
+const buildOfflineZip = () => {
   if (!fs.existsSync(DIST_DIR)) {
     throw new Error(`Build folder not found at ${DIST_DIR}. Run your VuePress build first.`)
   }

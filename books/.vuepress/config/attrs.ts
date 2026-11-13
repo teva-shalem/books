@@ -8,4 +8,4 @@ export const attrs = {
   },
 }
 
-export const zoom = attrs.zoom
+export const {zoom} = attrs

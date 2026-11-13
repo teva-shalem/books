@@ -97,7 +97,7 @@ const bindImageListeners = (selector: string): void => {
 /**
  * Initializes or updates the zoom-to-history binding for the current page context
  */
-export function handleZoom(router: Router, selector: string = zoom.selector): void {
+export const handleZoom = (router: Router, selector: string = zoom.selector): void => {
   router.afterEach(() => {
     currentSelector = selector
     bindGlobalListeners()

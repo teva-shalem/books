@@ -2,7 +2,7 @@ import path from 'path'
 import { UserPlugins } from "@vuepress/types"
 import { attrs } from './attrs'
 
-function getComponentName(file: string) {
+const getComponentName = (file: string) => {
   const baseName = path.basename(file, '.vue')
   
   if (baseName === 'index') {

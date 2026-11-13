@@ -1,15 +1,17 @@
 import type { PageData } from 'vuepress'
 
-export function getBaseUrl(): `/${string}/` | undefined {
-  const isProd = process.env.NODE_ENV === 'production'
-  const githubRepo = process.env.GITHUB_REPOSITORY // "owner/repo-name"
-
-  return isProd && githubRepo && githubRepo.split('/')[1] === 'books-forever'
-    ? '/books-forever/'
-    : undefined
+const getGithubRepo = (): string | undefined => {
+  return process.env.GITHUB_REPOSITORY?.split('/')[1] ?? ''
 }
 
-export function addPageClass($page: PageData): void {
+export const getBaseUrl = (): `/${string}/` | undefined => {
+  if (getGithubRepo() === 'books-forever')
+    return '/books-forever/'
+  // eslint-disable-next-line no-undefined
+  return undefined
+}
+
+export const addPageClass = ($page: PageData): void => {
   if ($page.frontmatter.pageClass)
     return
 

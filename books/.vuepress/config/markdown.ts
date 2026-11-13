@@ -1,14 +1,13 @@
 import type { MarkdownConfig } from "@vuepress/types"
-import type MarkdownIt from 'markdown-it'
-import type { Token } from 'markdown-it'
+import MarkdownIt, { type Token } from 'markdown-it'
 
 import container from 'markdown-it-container'
 import markdownItAttrs from 'markdown-it-attrs'
 
-function addContainer(md: MarkdownIt, name: string, el = 'div'): void {
+const addContainer = (md: MarkdownIt, name: string, el = 'div'): void => {
   md.use(container, name, {
-    render: (tokens: Token[], idx: number) => tokens[idx].nesting === 1 
-      ? `<${el} class="container ${name}">\n` 
+    render: (tokens: Token[], idx: number) => tokens[idx].nesting === 1
+      ? `<${el} class="container ${name}">\n`
       : `</${el}>\n`,
   })
 }

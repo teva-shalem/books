@@ -12,9 +12,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .katex-display {
   direction: ltr;
+  unicode-bidi: isolate;
   margin: 0;
 }
 </style>

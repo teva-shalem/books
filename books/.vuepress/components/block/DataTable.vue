@@ -120,14 +120,6 @@ export default {
     }
 }
 
-.katex-display {
-    direction: ltr;
-    
-    @media (max-width: 768px), print {
-        margin: 0;
-    }
-}
-
 .field-type-latex-image {
     display: flex;
     flex-direction: column;

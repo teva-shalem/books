@@ -4,6 +4,12 @@ const CONFIG = {
   POLL_MS: 25,
   MAX_ATTEMPTS: 100,
   SETTLE_MS: 350,
+  RESTORE_LOCK_MS: 150,
+  POP_DELAY_MS: 50,
+  POP_MAX_ATTEMPTS: 20,
+  POP_RETRY_MS: 50,
+  POP_SAME_PAGE_LOCK_MS: 600,
+  POP_CROSS_PAGE_LOCK_MS: 200,
 } as const
 
 interface HistoryState {
@@ -18,17 +24,19 @@ let lastPathname = ''
 
 const getKey = (state: unknown): string => {
   if (state && typeof state === 'object' && 'key' in state) {
-    const key = (state as HistoryState).key
+    const { key } = state as HistoryState
     if (typeof key === 'string') return key
   }
   return window.location.href
 }
 
 const decodeHashId = (hash: string): string => {
+  const rawId = hash.replace(/^#/, '')
+
   try {
-    return decodeURIComponent(hash.slice(1))
+    return decodeURIComponent(rawId)
   } catch {
-    return hash.slice(1)
+    return rawId
   }
 }
 
@@ -68,7 +76,7 @@ export const scrollToHash = (hash: string, behavior: ScrollBehavior = 'smooth'):
 const safeScrollTo = (options: ScrollToOptions): void => {
   isRestoring = true
   window.scrollTo(options)
-  setTimeout(() => { isRestoring = false }, 150)
+  setTimeout(() => { isRestoring = false }, CONFIG.RESTORE_LOCK_MS)
 }
 
 const bindScrollRecorder = (): void => {
@@ -83,7 +91,7 @@ const bindPopStateHandler = (): void => {
   window.addEventListener('popstate', (e: PopStateEvent) => {
     isHistoryPop = true
     isRestoring = true
-    
+
     const targetKey = getKey(e.state)
     const isSamePage = window.location.pathname === lastPathname
     lastPathname = window.location.pathname
@@ -92,12 +100,16 @@ const bindPopStateHandler = (): void => {
       if (scrollMap.has(targetKey)) {
         const targetTop = scrollMap.get(targetKey) ?? 0
         let attempts = 0
-        
+
         const attemptScroll = (): void => {
           window.scrollTo({ top: targetTop, behavior: isSamePage ? 'smooth' : 'auto' })
-          if (window.scrollY < targetTop && attempts < 20 && document.documentElement.scrollHeight <= targetTop) {
+          if (
+            window.scrollY < targetTop &&
+            attempts < CONFIG.POP_MAX_ATTEMPTS &&
+            document.documentElement.scrollHeight <= targetTop
+          ) {
             attempts++
-            setTimeout(attemptScroll, 50)
+            setTimeout(attemptScroll, CONFIG.POP_RETRY_MS)
           }
         }
         attemptScroll()
@@ -107,8 +119,15 @@ const bindPopStateHandler = (): void => {
         window.scrollTo({ top: 0, behavior: isSamePage ? 'smooth' : 'auto' })
       }
 
-      setTimeout(() => { isHistoryPop = isRestoring = false }, isSamePage ? 600 : 200)
-    }, 50)
+      const lockDuration = isSamePage
+        ? CONFIG.POP_SAME_PAGE_LOCK_MS
+        : CONFIG.POP_CROSS_PAGE_LOCK_MS
+
+      setTimeout(() => {
+        isHistoryPop = false
+        isRestoring = false
+      }, lockDuration)
+    }, CONFIG.POP_DELAY_MS)
   })
 }
 
@@ -121,20 +140,22 @@ const bindAnchorClickHandler = (router: Router): void => {
     const href = anchor.getAttribute('href')
     if (!href) return
 
-    const isSamePageHash = href.startsWith('#') || href.includes(window.location.pathname + '#')
+    const isSamePageHash = href.startsWith('#') || href.includes(`${window.location.pathname}#`)
     if (!isSamePageHash) return
 
     e.preventDefault()
     e.stopImmediatePropagation()
 
-    const hash = href.substring(href.indexOf('#'))
+    const hashIndex = href.indexOf('#')
+    if (hashIndex < 0) return
+    const hash = href.slice(hashIndex)
     if (!hash) return
 
     scrollMap.set(getKey(history.state), window.scrollY)
     const targetLocation: RawLocation = { path: window.location.pathname, hash }
 
     if (decodeHashId(window.location.hash) === decodeHashId(hash)) {
-      const manualKey = `man-${Math.random().toString(36).substring(2, 10)}`
+      const manualKey = `man-${crypto.randomUUID()}`
       history.pushState({ key: manualKey }, '', window.location.pathname + hash)
       scrollMap.set(manualKey, window.scrollY)
       scrollToHash(hash, 'smooth')
@@ -163,13 +184,13 @@ export const handleScroll = (router: Router): void => {
 
   router.afterEach((to, from) => {
     const isCrossPage = to.path !== from.path
-    
+
     if (isCrossPage && !isHistoryPop) {
       requestAnimationFrame(() => {
-        if (!to.hash) {
-          safeScrollTo({ top: 0, behavior: 'auto' })
-        } else {
+        if (to.hash) {
           scrollToHash(to.hash, 'auto')
+        } else {
+          safeScrollTo({ top: 0, behavior: 'auto' })
         }
       })
     } else if (to.hash && !isHistoryPop) {

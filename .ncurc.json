@@ -1,0 +1,4 @@
+{
+  "enginesNode": true,
+  "reject": ["vue", "buefy", "sass"]
+}

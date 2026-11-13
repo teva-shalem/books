@@ -33,7 +33,7 @@ const handleBodyClassChange = (): void => {
   }
 }
 
-export function handleCaption(): void {
+export const handleCaption = (): void => {
   observer?.disconnect()
 
   observer = new MutationObserver((mutations) => {
