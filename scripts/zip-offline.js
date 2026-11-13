@@ -25,7 +25,7 @@ const API_URL = 'https://api.github.com/repos/static-web-server/static-web-serve
 const START_BAT = `@echo off
 cd /d "%~dp0"
 start "" "http://127.0.0.1:8080"
-static-web-server.exe -p 8080 -d "./${distDir}" --page-fallback "./${distDir}/404.html"
+static-web-server.exe -p 8080 -d "./dist" --page-fallback "./dist/404.html"
 `
 
 const START_MAC = `#!/bin/bash
@@ -39,7 +39,7 @@ fi
 
 chmod +x "$SERVER"
 open "http://127.0.0.1:8080"
-"$SERVER" -p 8080 -d "./${distDir}" --page-fallback "./${distDir}/404.html"
+"$SERVER" -p 8080 -d "./dist" --page-fallback "./dist/404.html"
 `
 
 const findBinary = async (directory, filename) => {
