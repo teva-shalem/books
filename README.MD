@@ -16,3 +16,7 @@
 * <Img :path="'path_to_file_in_.vuepress_public_images.ext'"></Img>
 * [link text](/path-to-md-filename-in-books/#hash)
 * ***נטוי ומודגש***
+
+## Caveats in md files
+* When a line follows an empty line (a new paragprah), when that line begins with a Vue component, wrap that component with a <span> so that the lines following would belong to the same paragraph.
+* Inside a block-level Vue component with a text slot, it must be wrapped with <p> and have <br/>s after every line before every line break.

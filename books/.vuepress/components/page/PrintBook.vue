@@ -56,6 +56,30 @@ export default {
         .filter(Boolean)
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      const triggerPrintWhenReady = async() => {
+        await this.waitForContentLoaded()
+
+        setTimeout(() => {
+          const handleAfterPrint = () => {
+            window.removeEventListener('afterprint', handleAfterPrint)
+
+            if (window.history.length > 1) {
+              this.$router.back()
+            } else {
+              this.$router.push('/')
+            }
+          }
+
+          window.addEventListener('afterprint', handleAfterPrint)
+          window.print()
+        }, PRINT_CONFIG.SETTLE_DELAY_MS)
+      }
+
+      triggerPrintWhenReady()
+    })
+  },
   methods: {
     getPageClasses(page) {
       const classes = ['print-book']
@@ -81,30 +105,6 @@ export default {
         setTimeout(resolve, PRINT_CONFIG.LOAD_TIMEOUT_MS)
       })
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      const triggerPrintWhenReady = async() => {
-        await this.waitForContentLoaded()
-
-        setTimeout(() => {
-          const handleAfterPrint = () => {
-            window.removeEventListener('afterprint', handleAfterPrint)
-
-            if (window.history.length > 1) {
-              this.$router.back()
-            } else {
-              this.$router.push('/')
-            }
-          }
-
-          window.addEventListener('afterprint', handleAfterPrint)
-          window.print()
-        }, PRINT_CONFIG.SETTLE_DELAY_MS)
-      }
-
-      triggerPrintWhenReady()
-    })
   },
 }
 </script>

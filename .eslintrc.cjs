@@ -51,7 +51,6 @@ module.exports = {
     'no-else-return'                          : 2,
     'no-console'                              : 2,
     'no-alert'                                : 2,
-    'multiline-comment-style'                 : 2,
     '@typescript-eslint/init-declarations'    : 2,
     'func-style'                              : 2,
     'eqeqeq'                                  : 2,
@@ -197,7 +196,7 @@ module.exports = {
     },
     {
       files  : ['**/*.vue'],
-      extends: ['plugin:vue/strongly-recommended'],
+      extends: ['plugin:vue/recommended'],
 
       parser       : 'vue-eslint-parser',
       parserOptions: {
