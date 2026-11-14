@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vuepress dev books --no-clear-screen",
     "generate-pdfs": "node scripts/generate-pdfs.js",
     "zip-offline": "node scripts/zip-offline.js",
@@ -13,7 +14,6 @@
     "lint:style": "stylelint \"books/.vuepress/**/*.{vue,scss}\"",
     "lint:style:watch": "chokidar \".stylelintrc.json\" \"books/.vuepress/**/*.{vue,scss}\" --initial -c \"node scripts/watch-stylelint.js\"",
     "lint": "npm run lint:style && npm run lint:code",
-    "prebuild": "npm run lint",
     "build": "vuepress build books",
     "postbuild": "npm run generate-pdfs",
     "serve": "serve dist",
@@ -42,6 +42,7 @@
     "chokidar-cli": "^3.0.0",
     "eslint": "^8.57.1",
     "eslint-plugin-vue": "^9.33.0",
+    "husky": "^8.0.3",
     "markdown-it-attrs": "^5.0.1",
     "postcss-html": "^1.8.1",
     "puppeteer": "^21.11.0",
