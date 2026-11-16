@@ -1,14 +1,10 @@
-.main-heading {
+header {
   img {
-    width:150px;
-    float:left;
+    width: 150px;
+    float: inline-end;
   }
 
-  h1 {
-    width: 75%;
-  }
-
-  h2 {
+  hgroup {
     width: 75%;
   }
 }

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-for="page in orderedPages"
-         :key="page.path"
-         :class="getPageClasses(page)">
+    <article v-for="page in orderedPages"
+             :key="page.path"
+             :class="getPageClasses(page)">
       <PageContainer :page="page">
         <Content :page-key="page.key" />
       </PageContainer>
-    </div>
+    </article>
   </div>
 </template>
 
@@ -74,18 +74,17 @@ export default {
 
   methods: {
     getPageClasses(page: PageComputed) {
-      const classes = ['print-book']
-      if (!page.frontmatter) return classes
-
-      if (page.frontmatter.pageClass) {
-        classes.push(page.frontmatter.pageClass
-          .toLowerCase()
-          .replace(/\s+/g, '-'))
-      }
+      const classes = []
 
       if (page.frontmatter.layout) {
         classes.push(page.frontmatter.layout
           .replace(/([a-z])([A-Z])/g, '$1-$2')
+          .toLowerCase()
+          .replace(/\s+/g, '-'))
+      }
+
+      if (page.frontmatter.pageClass) {
+        classes.push(page.frontmatter.pageClass
           .toLowerCase()
           .replace(/\s+/g, '-'))
       }
@@ -103,7 +102,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.print-book {
+article {
   break-after: page;
 
   &:last-child {

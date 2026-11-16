@@ -1,22 +1,22 @@
-.book-title,
-.book-subtitle,
-.books-list > p {
+hgroup {
   text-align: center;
-}
+  font-weight: bold;
 
-.book-title {
-  font-size: 6vw;
-}
+  h1 {
+    font-size: 6vw;
+  }
 
-.book-subtitle {
-  font-size: 5vw;
+  p {
+    font-size: 5vw;
+  }
 }
 
 .books-list {
-  font-family: $base-font-family;
+  font-family: var(--font-sans-serif);
   font-size: xxx-large;
 
   > p {
     margin: 0;
+    text-align: center;
   }
 }

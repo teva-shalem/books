@@ -10,7 +10,7 @@ import ButtonPrint from '../components/layout/ButtonPrint.vue'
 import Navbar from '../components/layout/Navbar.vue'
 import ScrollToTop from '../components/layout/ScrollToTop.vue'
 
-// @see https://floating-vue.starpad.dev/legacy/v2/
+// see https://floating-vue.starpad.dev/legacy/v2/
 export interface VPopoverProps {
   placement?: 'top-end'
   trigger?: 'click' | 'hover' | 'focus' | 'manual'

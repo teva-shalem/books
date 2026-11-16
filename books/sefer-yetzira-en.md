@@ -4,11 +4,13 @@ description: The ancient Sefer Yetzira. Attributed to Abraham. Translated to Eng
 permalink: /composition-book
 layout: EnglishReadingLayout
 ---
-
-<div class="main-heading">
-  <h1>תרגום המשכיל לספר יצירה</h1>
-  <h2>מיוחס למלכיצדק</h2>
-  <h4>הוריד מהרשת אור לנדאו</h4>
+<Book>
+<div slot="header">
+  <hgroup lang="he">
+    <h1>תרגום המשכיל לספר יצירה</h1>
+    <h2>מיוחס למלכיצדק</h2>
+    <h4>הוריד מהרשת אור לנדאו</h4>
+  </hgroup>
 </div>
 
 <TableOfContents :includeLevel="[2, 3]" />
@@ -108,3 +110,5 @@ make 'em as kind of fight & evaluate 'em as kind of war also this for that made 
 three one one alone i standing seven three 'em divided on three & one i law resolving in 'tween twelve 'em standing in war three enemies & three lovers three revivers & three depressors & All 'em 'em intertwined this in that
 
 as that understood Father of Sky will understand i & form & compound & research & think & Ascended in i hand I Revealed onIi II
+
+</Book>

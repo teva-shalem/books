@@ -11,9 +11,13 @@ html {
 }
 
 body {
-  font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-family: var(--font-sans-serif);
+  font-size: 16px;
   margin: 0;
+}
+
+code, pre {
+  font-family: var(--font-monospace);
 }
 
 strong {
@@ -41,18 +45,16 @@ a {
   color: #005A61;
 }
 
-p, ul, ol {
-  line-height: 1.7;
-
-}
-
 p {
   white-space: pre-line;
 }
 
-p > small:only-child {
-  display: block;
-  line-height: 1.5;
+p, ul, ol {
+  line-height: 1.7;
+}
+
+hgroup p {
+  line-height: 1;
 }
 
 .header-anchor[href="#"],

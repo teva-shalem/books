@@ -4,10 +4,14 @@ description:
 permalink: /slideshow
 layout: ReadingLayout
 ---
-
-<h1>iבולוציה על פי טבע שלם</h1>
-<h3>מצגת מאת דוד ישראל כהן ואור לנדאו</h3>
-<h4>12/07/2020 תל אביב</h4>
+<Book>
+<div slot="header">
+  <hgroup>
+    <h1>iבולוציה על פי טבע שלם</h1>
+    <h3>מצגת מאת דוד ישראל כהן ואור לנדאו</h3>
+    <h4>12/07/2020 תל אביב</h4>
+  </hgroup>
+</div>
 
 <TableOfContents :includeLevel="[2, 3]" />
 
@@ -48,3 +52,5 @@ layout: ReadingLayout
 המודל הקוסמולוגי של טבע שלם מציג [תפישת עולם שלמה](/rosetta-stone/) של האדם בטבע. מודל בר יישום ובר קיימא המשלב ומחבר את כל בני האדם במסע משותף אל עבר גן עדן עלי אדמות.
 
 <Pic path="slideshow/cosmology-model.jpg" alt="המודל הקוסמולוגי טבע שלם" print-fill/>
+
+</Book>

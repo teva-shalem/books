@@ -4,15 +4,16 @@ description: ספר זה הוא תמצית אחת, מתוך 'ספר החיים' 
 permalink: /derech-hapeima
 layout: ReadingLayout
 ---
-
-<div class="main-heading">
-  <h1>דרך הפעימה</h1>
-  <h2>לימוד הנפש - ספר 1 מתוך 4</h2>
-  <h2>חיים דרך טבע</h2>
-  <h3>דוד ישראל כהן - יוצר ומורה פעימה</h3>
+<Book>
+<div slot="header">
+  <hgroup>
+    <h1>דרך הפעימה</h1>
+    <h2>לימוד הנפש - ספר 1 מתוך 4</h2>
+    <h2>חיים דרך טבע</h2>
+    <h3>דוד ישראל כהן - יוצר ומורה פעימה</h3>
+  </hgroup>
+  <Pic path="derech-hapeima/cover.jpg" alt="כריכת הספר" center print-fill/>
 </div>
-
-<Pic path="derech-hapeima/cover.jpg" alt="כריכת הספר" class="cover-image"/>
 
 <Blockquote><p>'והרוח הייתה לאחד עם הטבע, וההכרה לאחד עם אלוהים'</p></Blockquote>
 
@@ -29,7 +30,7 @@ layout: ReadingLayout
 'האדם הוא עולם קטן, והעולם הוא אדם גדול'.
 על פי המסורת (חז"ל), ישנה אזהרה לגבי סכנות העיסוק ב'מעשה המרכבה': "רק ביחיד וחכם מבין בדעתו."</Footnote>, מאת המחבר.
 
-<span><Bigger>דרך הפעימה היא דרך הלב.</Bigger></span>
+&nbsp;<Bigger>דרך הפעימה היא דרך הלב.</Bigger>
 התנועה המחזורית, משתנה ומרככת,
 כמנגנון נשימה בין קטבי החיים.
 בין הגוף לרוח,
@@ -56,7 +57,7 @@ layout: ReadingLayout
 
 <Pic path="derech-hapeima/david-symbol.jpg" alt="סמל החיים הסינגולרי" print-dont-center/>
 
-<aside><i>האיורים בספר מאת המחבר</i></aside>
+<i>האיורים בספר מאת המחבר</i>
 
 <h2>תודות</h2>
 
@@ -546,7 +547,7 @@ layout: ReadingLayout
 
 ### אושר
 
-<span><Bigger>ילד קטן</Bigger></span> מול האושר;
+&nbsp;<Bigger>ילד קטן</Bigger> מול האושר;
 עומד נבוך
 קצת מבולבל
 חיוך מבויש על פני,
@@ -800,13 +801,13 @@ layout: ReadingLayout
 
 # פרק ג׳ - דרך. סינתזה
 
-<span><Strong>בניין הדמות.
+&nbsp;<Strong>בניין הדמות.
 מסע. הליכה. בסוג של דרך.
 דרך קשה של חופש, אמת,
 חיים, יצירה, הארה.
 להכיל מבלי להישרף.
 לעוף מבלי למות.
-לחיות.</Strong></span>
+לחיות.</Strong>
 
 ## יסודות
 
@@ -1284,10 +1285,10 @@ layout: ReadingLayout
 
 # פרק ד׳ - פעימה. סינרגיה
 
-<span><Strong>מערכת יחסים מופלאה,
+&nbsp;<Strong>מערכת יחסים מופלאה,
 יחידה וקדושה,
 של הקליפות עם הלב.
-של האור ההולך וחוזר.</Strong></span>
+של האור ההולך וחוזר.</Strong>
 
 <Poem>
 
@@ -1504,7 +1505,7 @@ layout: ReadingLayout
 שלא ניתן היה לדמיין
 כמה הוא דמיוני.
 
-<span><Strong>המהפכה המטאפיזית</Strong></span>. –
+&nbsp;<Strong>המהפכה המטאפיזית</Strong>. –
 מהפכה חד פעמית ומתמשכת
 אדירה בעוצמתה וחדה כמו
 תער
@@ -1597,7 +1598,7 @@ layout: ReadingLayout
 במורכבות האדירה, ההרמונית,
 שסחררה את ראשי.
 
-<span><Bigger>היופי היה בזה שהכל נשטף בכל פעם,</Bigger></span>
+&nbsp;<Bigger>היופי היה בזה שהכל נשטף בכל פעם,</Bigger>
 והתחיל נקי,
 כמו מנדלה ענקית, אין סופית.
 
@@ -1656,10 +1657,10 @@ layout: ReadingLayout
 
 ### פעימה
 
-<span><Bigger>'מערכת יחסים מופלאה,
+&nbsp;<Bigger>'מערכת יחסים מופלאה,
 יחידה וקדושה,
 של הקליפות עם הלב.
-של האור ההולך וחוזר.'</Bigger></span>
+של האור ההולך וחוזר.'</Bigger>
 
 <a href="https://facebook.com/davidcohenpeima/" target="_blank">דוד ישראל כהן</a>, יליד 1979 , חי בתל-אביב. נולד וגדל בירושלים.
 שירת בצבא כמפקד ספינה. לאחר מכן יצא למסע תודעתי וגיאוגרפי נטול גבולות,
@@ -1673,3 +1674,5 @@ layout: ReadingLayout
 ספר יצירת כח חי.
 
 <Strong><Bigger>'והרוח הייתה לאחד עם הטבע...'</Bigger></Strong>
+
+</Book>

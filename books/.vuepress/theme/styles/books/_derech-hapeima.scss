@@ -1,5 +1,9 @@
-@media print {
-  .cover-image {
-    max-height: 68vh !important;
+header {
+  text-align: center;
+
+  @media print {
+    img {
+      max-height: 68vh !important;
+    }
   }
 }

@@ -42,7 +42,7 @@ export default {
 }
 
 :deep(.katex .text) {
-  font-family: "Shofar", serif;
+  font-family: var(--font-serif);
   direction: rtl;
   unicode-bidi: isolate;
 }

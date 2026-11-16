@@ -1,5 +1,6 @@
 <template>
   <img :class="[{
+         center,
          'disable-zoom'     : noZoom,
          'print-dont-center': printDontCenter,
          'print-fill'       : printFill,
@@ -16,6 +17,7 @@ export default {
     path           : {type: String, default: ''},
     url            : {type: String, default: ''},
     alt            : {type: String, default: ''},
+    center         : {type: Boolean},
     noZoom         : {type: Boolean},
     printDontCenter: {type: Boolean},
     printFill      : {type: Boolean},
@@ -28,9 +30,14 @@ img {
   max-width: 100%;
 }
 
+.center {
+  margin: 0 auto;
+  display: block;
+}
+
 @media print {
   img {
-    max-height: 55vh !important;
+    max-height: 55vh;
     display: block;
     margin-inline: auto;
   }
@@ -40,7 +47,7 @@ img {
   }
 
   .print-fill {
-    max-height: 90vh !important;
+    max-height: 90vh;
   }
 }
 </style>

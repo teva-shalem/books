@@ -20,7 +20,7 @@ module.exports = {
   rules: {
     /*
      * JavaScript rules
-     * @see https://eslint.org/docs/v8.x/rules/
+     * see https://eslint.org/docs/v8.x/rules/
      */
     'vars-on-top'                             : 2,
     'require-await'                           : 2,
@@ -73,7 +73,7 @@ module.exports = {
 
     /*
      * Stylistic rules
-     * @see https://v4.eslint.style/rules
+     * see https://v4.eslint.style/rules
      */
     '@stylistic/line-comment-position'    : 2,
     '@stylistic/array-bracket-spacing'    : 2,
@@ -131,7 +131,7 @@ module.exports = {
 
     /*
      * TypeScript rules
-     * @see https://v6--typescript-eslint.netlify.app/rules/
+     * see https://v6--typescript-eslint.netlify.app/rules/
      */
     '@typescript-eslint/array-type'                             : 2,
     '@typescript-eslint/ban-types'                              : 2,
@@ -212,7 +212,7 @@ module.exports = {
         parser             : '@typescript-eslint/parser',
         extraFileExtensions: ['.vue'],
       },
-      // @see https://eslint.vuejs.org/rules/
+      // see https://eslint.vuejs.org/rules/
       rules: {
         'vue/multi-word-component-names'             : 0,
         'vue/first-attribute-linebreak'              : [2, {singleline: 'beside', multiline: 'beside'}],
@@ -257,6 +257,7 @@ module.exports = {
         'vue/v-for-delimiter-style'                  : 2,
         'vue/v-on-handler-style'                     : 2,
 
+        // Stylistic rules
         'vue/array-bracket-newline'  : [2, 'consistent'],
         'vue/array-bracket-spacing'  : 2,
         'vue/array-element-newline'  : [2, 'consistent'],

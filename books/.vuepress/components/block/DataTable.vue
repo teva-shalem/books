@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <figure>
     <b-field grouped group-multiline class="column-toggles">
       <div v-for="(column, index) in columns" :key="index" class="control">
         <b-checkbox v-model="column.visible">{{ column.title }}</b-checkbox>
@@ -33,7 +33,7 @@
         </b-table-column>
       </b-table>
     </div>
-  </section>
+  </figure>
 </template>
 
 <script lang="ts">
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+figure {
+  margin: 0;
+}
+
 :deep(.b-table) {
   .table {
     .is-sticky {
@@ -148,8 +152,11 @@ export default {
   }
 
   > img {
-    @media (width <= 768px) {
+    @media (width <= 768px), print {
       margin-inline: 1em 0;
+    }
+
+    @media (width <= 768px) {
       max-width: 50% !important;
     }
 

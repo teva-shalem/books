@@ -2,13 +2,13 @@
 permalink: /
 layout: ReadingLayout
 pageClass: home
-customFont: Shofar
 ---
+<header><hgroup>
+<h1>טבעדינמיקה</h1>
+<p>הגישה המגשרת</p>
+</hgroup></header>
 
-<h1 class="book-title">טבעדינמיקה</h1>
-<h2 class="book-subtitle">הגישה המגשרת</h2>
-
-<span><Go to="/derech-hapeima/">דרך הפעימה</Go></span> היא דרך החיים. דרך הלב.
+&nbsp;<Go to="/derech-hapeima/">דרך הפעימה</Go> היא דרך החיים. דרך הלב.
 היא התפתחה מתוך <Go to="/sipur-hayahhid/">סיפור היחיד</Go> שהוא המסע.
 המסע של האדם הוא להגיע למרכז הלב.
 ולפתוח בו את הנביעה של הקול הפנימי.

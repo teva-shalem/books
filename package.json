@@ -1,9 +1,7 @@
 {
   "name": "tevadynamica",
   "description": "מערכת יחסים מופלאה, יחידה וקדושה, של הקליפות עם הלב. של האור ההולך וחוזר",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
   "type": "module",
   "scripts": {
     "prepare": "husky install",
@@ -14,7 +12,7 @@
     "lint:type": "vue-tsc -p books/.vuepress",
     "lint:style": "stylelint \"books/.vuepress/**/*.{vue,scss}\"",
     "lint:style:watch": "chokidar \".stylelintrc.cjs\" \"books/.vuepress/**/*.{vue,scss}\" --initial -c \"node scripts/watch-stylelint.js\"",
-    "lint": "npm run lint:style && npm run lint:code",
+    "lint": "npm run lint:type && npm run lint:code && npm run lint:style",
     "build": "vuepress build books",
     "postbuild": "npm run generate-pdfs",
     "serve": "serve dist",

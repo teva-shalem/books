@@ -1,17 +1,3 @@
-.main-container {
-  direction:rtl;
-
-  &[data-font="Shofar"] {
-    font-family: "Shofar", serif;
-  }
-
-  &[data-font="Courier New"] {
-    &, code, pre {
-      font-family: "Courier New", monospace;
-    }
-  }
-}
-
 %common-layout {
   margin: 0 1em;
 

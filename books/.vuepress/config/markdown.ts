@@ -13,8 +13,7 @@ const addContainer = (md: MarkdownIt, name: string, el = 'div'): void => {
 }
 
 export const markdownConfig: MarkdownConfig = {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  extractHeaders: ['h1' as any, 'h2', 'h3', 'h4'],
+  extractHeaders: ['h1' as 'h2', 'h2', 'h3', 'h4'],
   extendMarkdown: (md) => {
     md.set({breaks: true})
 

@@ -3,19 +3,17 @@ title: סיפור היחיד
 description:
 permalink: /sipur-hayahhid
 layout: ReadingLayout
-customFont: Shofar
 ---
-
-<div class="main-heading">
-  <h1>אוטוביוגרפיה פועמת</h1>
-  <h2>לימוד הנפש - ספר 2 מתוך 4</h2>
-  <h2>דוד ישראל כהן או ׳סיפור היחיד׳</h2>
-  <h3>מאת: שער עולם כותב</h3>
+<Book>
+<div slot="header">
+  <hgroup>
+    <h1>אוטוביוגרפיה פועמת</h1>
+    <h2>לימוד הנפש - ספר 2 מתוך 4</h2>
+    <h2>דוד ישראל כהן או ׳סיפור היחיד׳</h2>
+    <h3>מאת: שער עולם כותב</h3>
+  </hgroup>
+  <Pic path="sipur-hayahhid/cover.jpg" alt="כריכת הספר" center print-fill/>
 </div>
-
-<Pic path="sipur-hayahhid/cover.jpg" alt="כריכת הספר" class="cover-image"/>
-
-<div class="page-break"></div>
 
 <TableOfContents :includeLevel="[1, 2, 3]" />
 
@@ -42,7 +40,6 @@ customFont: Shofar
 יש ללכת דרך. לכיוון פתיחת הלב - הוא ירושלים, ואנו משחרריה.
 
 דויד ישראל כהן
-
 תל אביב. דצמבר 2020.
 
 # חלק א׳ - חכמה
@@ -694,3 +691,5 @@ customFont: Shofar
 <Pic path="sipur-hayahhid/hahome.jpg" alt="הבית" print-fill/>
 
 תם הספר.
+
+</Book>

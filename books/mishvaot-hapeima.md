@@ -4,12 +4,13 @@ description: ספר זה הוא תמצית של אמת ומציאות. האמת 
 permalink: /mishvaot-hapeima
 layout: ReadingLayout
 ---
-
-<div class="main-heading">
+<Book>
+<div slot="header">
   <Pic path="mishvaot-hapeima/merkavah-logo.jpg" alt="סמל תורת החיים, ואדם"/>
-
-  <h1>מעשה המרכבה</h1>
-  <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>
+  <hgroup>
+    <h1>מעשה המרכבה</h1>
+    <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>
+  </hgroup>
 </div>
 
 התעדכן לאחרונה: 21/6/2020
@@ -67,11 +68,11 @@ layout: ReadingLayout
 
 ## שרטוט 1: מיפוי המרכבה עפ״י ספר היצירה
 
-<Pic path="mishvaot-hapeima/merkavah-mapping.jpg" print-fill alt='ל"ב נתיבות פליאות חכמה ע"ג  האין'/>
+<Pic path="mishvaot-hapeima/merkavah-mapping.jpg" print-fill alt='ל"ב נתיבות פליאות חכמה ע"ג האין'/>
 
 ## טבלה 1: פירוט ערכי כל האותיות עפ״י ספר היצירה
 
-<Pic path="mishvaot-hapeima/merkavah-letter-values.jpg" print-fill  alt="תלת מימדי איכויות האין"/>
+<Pic path="mishvaot-hapeima/merkavah-letter-values.jpg" print-fill alt="תלת מימדי איכויות האין"/>
 
 כל אוסף הנתונים המרכיבים מרכבה ברגע נתון הוא הצורה של המרכבה. הצורה נקבעת מתוך הפוטנציאליות עפ״י הערכים של כל אחד מהמימדים. 
 
@@ -197,7 +198,7 @@ y = עץ החיים, מים, ספירה ארבע
 
 ## האיזון - ההווה - אדמה - סינרגיה - בורא קרקע - IV
 
-<Pic path="mishvaot-hapeima/equation-balance.jpg"  alt="שתיים פחות אחד פחות אפס איי אפס ועוד אחד ועוד שתיים"/>
+<Pic path="mishvaot-hapeima/equation-balance.jpg" alt="שתיים פחות אחד פחות אפס איי אפס ועוד אחד ועוד שתיים"/>
 
 בגאומטריה המקודשת: השדה המאוחד של המערכות
 
@@ -290,3 +291,5 @@ i קיים במרכז כל מרכבה
   <Pic path="mishvaot-hapeima/equation-way.jpg" alt="מרחב כפול אדמה שווה דרך"/>
   <Pic path="mishvaot-hapeima/equation-maaseh-merkavah.jpg" alt="נפש כפול אדם כפול דרך שווה מעשה המרכבה"/>
 </div>
+
+</Book>

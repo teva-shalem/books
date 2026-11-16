@@ -1,14 +1,16 @@
 @use "sass:string";
 
-main {
-  --longest-line: 48;
-  --font-scaling-factor: 1.45;
-
-  line-height: 1.5;
+header {
+  text-align: center;
 }
 
-@media (width <= 492px) {
-  pre {
+pre {
+  line-height: 1.5;
+
+  @media (width <= 492px) {
+    --longest-line: 48;
+    --font-scaling-factor: 1.45;
+
     font-size: string.unquote("calc((100vw / var(--longest-line)) * var(--font-scaling-factor))");
   }
 }

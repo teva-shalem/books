@@ -1,12 +1,9 @@
 <template>
   <figure class="blockquote-container" itemscope itemtype="https://schema.org/Quotation">
-    <blockquote class="blockquote">
-      <div class="quote" itemprop="text"><slot /></div>
-
-      <figcaption v-if="$scopedSlots.quoter" class="quoter">
-        <span itemprop="author"><slot name="quoter" /></span>
-      </figcaption>
-    </blockquote>
+    <blockquote class="blockquote" itemprop="text"><slot /></blockquote>
+    <figcaption v-if="$scopedSlots.quoter" class="quoter">
+      <span itemprop="author"><slot name="quoter" /></span>
+    </figcaption>
   </figure>
 </template>
 

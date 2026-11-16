@@ -3,14 +3,15 @@ title: סוד העיבור
 description: 
 permalink: /sod-haiibur
 layout: ReadingLayout
-customFont: Courier New
 ---
-
-<div class="main-heading">
-  <h1>סוד העיבור</h1>
-  <h2>לימוד הנפש - ספר 3 מתוך 4</h2>
-  <h2>ראשית הנביעה</h2>
-  <h3>מאת: שער עולם כותב</h3>
+<Book>
+<div slot="header">
+  <hgroup>
+    <h1>סוד העיבור</h1>
+    <h2>לימוד הנפש - ספר 3 מתוך 4</h2>
+    <h2>ראשית הנביעה</h2>
+    <h3>מאת: שער עולם כותב</h3>
+  </hgroup>
 </div>
 
 <TableOfContents :includeLevel="[1, 2]" />
@@ -542,3 +543,5 @@ customFont: Courier New
  
                 ּ
 ```
+
+</Book>
