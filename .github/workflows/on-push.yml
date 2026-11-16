@@ -21,14 +21,10 @@ jobs:
     # if: github.repository == 'teva-shalem/books-world'
     needs: build
     uses: ./.github/workflows/offline.yml
-    secrets:
-      RCLONE_CONFIG_GDRIVE: ${{ secrets.RCLONE_CONFIG_GDRIVE }}
-      GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+    secrets: inherit
   
   backup:
     # if: github.repository == 'teva-shalem/books-world'
     needs: build
     uses: ./.github/workflows/backup.yml
-    secrets:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    secrets: inherit

@@ -171,7 +171,7 @@ layout: ReadingLayout
 
 <Blockquote>
 <p>'לך בעקבות הטבע, והכל כבר יקרה'</p>
-<template #quoter>ספר הדאו</template>
+<template #from>ספר הדאו</template>
 </Blockquote>
 
 <Poem>
@@ -427,7 +427,7 @@ layout: ReadingLayout
 <Blockquote>
 <p>"אם הגיון ומשמעות מתנגשים זה עם זה<br/>
 היה מוכן להשהות את השיפוט"</p>
-<template #quoter>צ'נג מאן-צ'ינג</template>
+<template #by>צ'נג מאן-צ'ינג</template>
 </Blockquote>
 
 <Pic path="derech-hapeima/paradoxality.jpg" alt="נוף העמק מהכפר טוש"/>
@@ -459,7 +459,7 @@ layout: ReadingLayout
 <p>"רוח מעל ארץ –<br/>
 ההיטהרות הסתיימה,<br/>
 אך טרם הוגשה המנחה"</p>
-<template #quoter>אי צ'ינג</template>
+<template #from>אי צ'ינג</template>
 </Blockquote>
 
 ## מעון הקודש
@@ -516,7 +516,7 @@ layout: ReadingLayout
 כמו את גופו,<br/>
 ניתן להפקיד בידיו בבטחה את<br/>
 העולם כולו'</p>
-<template #quoter>ספר הדאו</template>
+<template #from>ספר הדאו</template>
 </Blockquote>
 
 </Poem>
@@ -637,7 +637,7 @@ layout: ReadingLayout
 דיוקנו של זעזוע.<br/>
 כך האדם הנעלה, בחיל ורעדה<br/>
 מתקן הליכותיו ובוחן עצמו.'</p>
-<template #quoter>אי צ'ינג</template>
+<template #from>אי צ'ינג</template>
 </Blockquote>
 
 <Poem>

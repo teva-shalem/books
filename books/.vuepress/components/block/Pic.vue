@@ -6,7 +6,7 @@
          'print-fill'       : printFill,
        }]"
        :src="path ? $withBase(`/images/${path}`) : url ? url : ''"
-       :alt="alt">
+       :alt="alt" />
 </template>
 
 <script lang="ts">

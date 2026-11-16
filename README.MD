@@ -10,8 +10,8 @@
 
 # Content
 ```
-* <Blockquote><p>ציטוט כפסקה</p><template #quoter>מי אמר</template></Quote>
-* <Quote quoter="מי אמר">ציטוט בשורה</Quote>
+* <Blockquote><p>ציטוט כפסקה</p><template #by>מי</template><template #from>מאיפה</template></Blockquote>
+* <Quote from="מי אמר<"ציטוט בשורה</Quote>
 * # heading
 * ## subheading
 * <Go to="/page">text</Go>

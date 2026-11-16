@@ -288,6 +288,7 @@ module.exports = {
         'vue/space-infix-ops'        : 2,
         'vue/space-unary-ops'        : [2, {words: true, nonwords: false}],
         'vue/template-curly-spacing' : 2,
+        'vue/html-self-closing'      : ['error', {html: {void: 'always'}}],
       },
     },
   ],
