@@ -1,8 +1,8 @@
 # Setup
-* npm i
-* git remote add stage https://github.com/teva-shalem/books-staging.git
-* git remote add world https://github.com/teva-shalem/books-world.git
-* git remote add forever https://github.com/teva-shalem/books-forever.git
+* `npm i`
+* `git remote add stage https://github.com/teva-shalem/books-staging.git`
+* `git remote add world https://github.com/teva-shalem/books-world.git`
+* `git remote add forever https://github.com/teva-shalem/books-forever.git`
 
 # Deploy
 * `npm run deploy:stage` to staging

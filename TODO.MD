@@ -15,4 +15,4 @@
 * one h1 per page (& update extractHeaders & print.scss)
 * #table-of-qualities margin-top or vh including checkboxes
 * schema.org/Book
-* disable gh workflow in main repo
+
