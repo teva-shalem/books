@@ -1,14 +1,21 @@
 <template>
-  <span>
+  <span @keydown.esc="onEsc">
     <v-popover placement="top-end"
                trigger="click"
                :container="false">
-      <sup class="tooltip tooltip-target">*</sup>
+      <button ref="trigger"
+              type="button"
+              class="trigger"
+              :aria-label="`הערת שוליים: ${content}`">
+        <span aria-hidden="true">*</span>
+      </button>
 
-      <template slot="popover"><slot /></template>
+      <template slot="popover">
+        <span aria-hidden="true"><slot /></span>
+      </template>
     </v-popover>
 
-    <span class="print-footnote-content">&nbsp;[{{ content }}]</span>
+    <span class="print-footnote-content" aria-hidden="true">&nbsp;[{{ content }}]</span>
   </span>
 </template>
 
@@ -17,6 +24,10 @@ export default {
   name: 'Footnote',
 
   computed: {
+    trigger() {
+      return this.$refs.trigger as HTMLButtonElement
+    },
+
     content() {
       return this.$slots.default
         ? this.$slots.default
@@ -24,6 +35,12 @@ export default {
           .join('')
           .replaceAll('\n', ' ')
         : ''
+    },
+  },
+
+  methods: {
+    onEsc() {
+      this.trigger.focus()
     },
   },
 }
@@ -38,12 +55,27 @@ export default {
   display: none;
 }
 
-:deep(.tooltip) {
-  cursor: pointer;
+:deep(.tooltip),
+.trigger > span {
   font-size: 1.3em;
-  line-height: 0;
-  max-width: calc(100vw - 10px);
   font-weight: 600;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+  line-height: 0;
+  vertical-align: super;
+
+  &:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
+:deep(.tooltip) {
+  max-width: calc(100vw - 10px);
 
   .tooltip-inner {
     cursor: initial;
@@ -75,6 +107,21 @@ export default {
       border-right-color: transparent !important;
       border-bottom-color: transparent !important;
       bottom: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: 5px;
+
+    .tooltip-arrow {
+      border-width: 0 5px 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      top: -5px;
       left: calc(50% - 5px);
       margin-top: 0;
       margin-bottom: 0;

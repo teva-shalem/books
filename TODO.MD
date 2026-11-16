@@ -1,7 +1,5 @@
 * robots.txt
 * <meta name="author"/>
-* footnote accesibility
-* footnote placement bottom
 * Bigger > em
 * Strong > strong
 * derech: small > semantic
