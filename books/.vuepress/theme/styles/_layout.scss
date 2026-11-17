@@ -14,9 +14,3 @@
 .reading-layout {
   @extend %common-layout;
 }
-
-.english-reading-layout {
-  @extend %common-layout;
-
-  direction: ltr;
-}

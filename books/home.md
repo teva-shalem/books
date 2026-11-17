@@ -1,6 +1,5 @@
 ---
 permalink: /
-layout: ReadingLayout
 pageClass: home
 subtitle: הגישה המגשרת
 ---

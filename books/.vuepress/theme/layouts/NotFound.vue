@@ -8,7 +8,6 @@
 
 <style lang="scss" scoped>
 main {
-  direction:rtl;
   margin-block: 1rem;
 }
 </style>

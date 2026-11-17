@@ -2,7 +2,6 @@
 title: סיפור היחיד
 description:
 permalink: /sipur-hayahhid
-layout: ReadingLayout
 author: שער עולם כותב
 cover: sipur-hayahhid/cover.jpg
 subtitle: אוטוביוגרפיה פועמת

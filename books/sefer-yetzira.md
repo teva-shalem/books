@@ -2,7 +2,6 @@
 title: ספר יצירה
 description: ספר יצירה הקדום. מיוחס לאברהם אבינו. ערך פיטר היימן.
 permalink: /sefer-yetzira
-layout: ReadingLayout
 author: אברהם
 ---
 <Book>

@@ -1,6 +1,7 @@
 declare module 'vuepress' {
   import type Vue, {ComponentOptions} from 'vue'
   import type VueRouter, {RawLocation as RouterRawLocation} from 'vue-router'
+  import type {Page} from 'vuepress-types'
 
   export type Router = VueRouter
   export type RawLocation = RouterRawLocation
@@ -9,7 +10,7 @@ declare module 'vuepress' {
     Vue: typeof Vue
     options: ComponentOptions<Vue>
     router: VueRouter
-    siteData: unknown
+    siteData: {pages: Page[]}
     isServer: boolean
   }
   export type EnhanceApp = (context: EnhanceAppContext)=> void

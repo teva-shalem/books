@@ -9,13 +9,16 @@ import {head} from './config/head'
 import {plugins} from './config/plugins'
 
 const config: UserConfig<object> = {
-  title      : siteTitle,
-  description: siteDescription,
-  theme      : 'derech-hapeima',
-  base       : getBaseUrl(),
-  dest       : './dist',
-  port       : 8082,
-  evergreen  : true,
+  dest     : './dist',
+  base     : getBaseUrl(),
+  port     : 8082,
+  evergreen: true,
+  theme    : 'derech-hapeima',
+  locales  : {'/': {
+    lang       : 'he',
+    title      : siteTitle,
+    description: siteDescription,
+  }},
   markdown,
   configureWebpack,
   chainWebpack,

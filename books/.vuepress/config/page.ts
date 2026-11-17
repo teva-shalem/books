@@ -17,4 +17,6 @@ const addClass = ($page: Page): void => {
 
 export const extendPageData = ($page: Page): void => {
   addClass($page)
+
+  $page.frontmatter.layout ||= 'ReadingLayout'
 }

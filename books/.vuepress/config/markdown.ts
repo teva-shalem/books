@@ -17,7 +17,7 @@ export const markdown: MarkdownConfig = {
   extendMarkdown: (md) => {
     md.set({breaks: true})
 
-    md.use(markdownItAttrs, {allowedAttributes: ['dir']})
+    md.use(markdownItAttrs, {allowedAttributes: ['lang']})
 
     addContainer(md, 'full-width')
     addContainer(md, 'hebrew-list')

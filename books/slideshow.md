@@ -2,7 +2,6 @@
 title: מצגת
 description: 
 permalink: /slideshow
-layout: ReadingLayout
 author: דוד ישראל כהן ואור לנדאו
 subtitle: iבולוציה
 ---

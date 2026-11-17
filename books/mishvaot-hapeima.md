@@ -2,7 +2,6 @@
 title: משוואות הפעימה
 description: ספר זה הוא תמצית של אמת ומציאות. האמת והמציאות בעיניי המתבונן
 permalink: /mishvaot-hapeima
-layout: ReadingLayout
 author: דוד ישראל כהן ואור לנדאו
 subtitle: מעשה המרכבה
 datePublished: 21/6/2020
