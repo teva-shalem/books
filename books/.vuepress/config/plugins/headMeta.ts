@@ -57,7 +57,7 @@ export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): H
     'publisher': {
       '@type': 'Organization',
       'name' : 'בית ספר פעימה',
-      'url'  : 'https://tevashalem.com/',
+      'url'  : 'https://tevashalem.com',
     },
   }
 
@@ -72,7 +72,7 @@ export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): H
     jsonLd.position = bookNumber
   }
 
-  const tags: HeadEntry[] = [
+  return [
     {tag: 'script', attrs: {type: 'application/ld+json'}, content: JSON.stringify(jsonLd)},
 
     // Canonical & Author
@@ -94,8 +94,6 @@ export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): H
     {tag: 'meta', attrs: {name: 'twitter:description', content: description}},
     {tag: 'meta', attrs: {name: 'twitter:image', content: imageUrl}},
   ]
-
-  return tags
 }
 
 const escapeAttr = (val: string): string =>

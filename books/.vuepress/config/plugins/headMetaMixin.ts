@@ -6,32 +6,42 @@ const MANAGED_SELECTOR = [
   'meta[name="author"]',
   'meta[property^="og:"]',
   'meta[name^="twitter:"]',
-  'script[type="application/ld+json"]',
 ].join(', ')
 
 export default Vue.extend({
   mounted() {
-    this.syncHead()
+    this.syncMetaAndLinks()
   },
 
   watch: {
     '$route.path'() {
-      this.syncHead()
+      this.syncMetaAndLinks()
+      this.syncJsonLd()
     },
   },
 
   methods: {
-    syncHead(): void {
+    syncMetaAndLinks(): void {
       document.querySelectorAll(MANAGED_SELECTOR).forEach((el) => { el.remove() })
 
-      const entries = buildHeadMeta(this.$page)
-
-      for (const {tag, attrs, content} of entries) {
+      for (const {tag, attrs} of buildHeadMeta(this.$page)) {
+        if (tag === 'script') continue
         const el = document.createElement(tag)
         Object.entries(attrs).forEach(([k, v]) => { el.setAttribute(k, v) })
-        if (content) el.textContent = content
         document.head.appendChild(el)
       }
+    },
+
+    syncJsonLd(): void {
+      document.querySelectorAll('script[type="application/ld+json"]').forEach((el) => { el.remove() })
+
+      const scriptEntry = buildHeadMeta(this.$page).find(({tag}) => tag === 'script')
+      if (!scriptEntry?.content) return
+
+      const el = document.createElement('script')
+      el.setAttribute('type', 'application/ld+json')
+      el.textContent = scriptEntry.content
+      document.head.appendChild(el)
     },
   },
 })
