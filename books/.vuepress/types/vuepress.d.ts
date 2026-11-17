@@ -13,11 +13,6 @@ declare module 'vuepress' {
     isServer: boolean
   }
   export type EnhanceApp = (context: EnhanceAppContext)=> void
-
-  export interface PageData {
-    path: string
-    frontmatter: Record<string, string>
-  }
 }
 
 declare module 'markdown-it-container' {

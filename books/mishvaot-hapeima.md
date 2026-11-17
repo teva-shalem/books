@@ -3,10 +3,13 @@ title: משוואות הפעימה
 description: ספר זה הוא תמצית של אמת ומציאות. האמת והמציאות בעיניי המתבונן
 permalink: /mishvaot-hapeima
 layout: ReadingLayout
+author: דוד ישראל כהן ואור לנדאו
+subtitle: מעשה המרכבה
+datePublished: 21/6/2020
 ---
 <Book>
 <div slot="header">
-  <Pic path="mishvaot-hapeima/merkavah-logo.jpg" alt="סמל תורת החיים, ואדם"/>
+  <Pic path="merkavah-logo.jpg" alt="סמל תורת החיים, ואדם"/>
   <hgroup>
     <h1>מעשה המרכבה</h1>
     <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>

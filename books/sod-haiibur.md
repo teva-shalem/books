@@ -3,6 +3,9 @@ title: סוד העיבור
 description: 
 permalink: /sod-haiibur
 layout: ReadingLayout
+author: שער עולם כותב
+subtitle: ראשית הנביעה
+series: [לימוד הנפש, 3]
 ---
 <Book>
 <div slot="header">

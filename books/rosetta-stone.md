@@ -3,6 +3,8 @@ title: ספר האיכויות
 description:
 permalink: /rosetta-stone
 layout: ReadingLayout
+author: דוד ישראל כהן ואור לנדאו
+subtitle: מפתח הקשר הסמנטי
 ---
 <Book>
 <div slot="header">

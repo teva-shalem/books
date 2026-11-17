@@ -3,6 +3,7 @@ title: Composition Book
 description: The ancient Sefer Yetzira. Attributed to Abraham. Translated to English.
 permalink: /composition-book
 layout: EnglishReadingLayout
+author: Abraham
 ---
 <Book>
 <div slot="header">

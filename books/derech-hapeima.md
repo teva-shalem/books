@@ -3,6 +3,9 @@ title: דרך הפעימה
 description: ספר זה הוא תמצית אחת, מתוך 'ספר החיים' אשר יצא במהדורה מוגבלת ב-2012. הספר מכיל כתבים שנכתבו בין השנים 2009-2004, ביומנים אישיים, במקומות שונים בעולם ומהווים חלק מהיצירה הרב-תחומית - 'מעשה מרכבה', מאת המחבר
 permalink: /derech-hapeima
 layout: ReadingLayout
+cover: derech-hapeima/cover.jpg
+subtitle: חיים דרך טבע
+series: [לימוד הנפש, 1]
 ---
 <Book>
 <div slot="header">

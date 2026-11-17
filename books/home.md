@@ -2,6 +2,7 @@
 permalink: /
 layout: ReadingLayout
 pageClass: home
+subtitle: הגישה המגשרת
 ---
 <header><hgroup>
 <h1>טבעדינמיקה</h1>

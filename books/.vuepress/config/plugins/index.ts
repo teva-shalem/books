@@ -1,7 +1,8 @@
 import type {UserPlugins} from '@vuepress/types'
 
 import path from 'path'
-import {attrs} from './attrs'
+import {attrs} from '../attrs'
+import {headMetaPlugin} from './headMeta'
 
 const getComponentName = (file: string) => {
   const baseName = path.basename(file, '.vue')
@@ -15,19 +16,24 @@ const getComponentName = (file: string) => {
 
 export const plugins: UserPlugins = [
   ['@vuepress/register-components', {
-    componentsDir: path.resolve(__dirname, '../components'),
+    componentsDir: path.resolve(__dirname, '../../components'),
     getComponentName,
   }],
+
   ['@vuepress/back-to-top'],
+
   ['@vuepress/medium-zoom', attrs.zoom],
+
   ['vuepress-plugin-typescript', {
     tsLoaderOptions: {
       transpileOnly: true,
     },
   }],
+
   ['@vuepress/google-analytics', {
     ga: 'UA-163403399-1',
   }],
+
   ['@vuepress/pwa', {
     serviceWorker   : true,
     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -36,4 +42,6 @@ export const plugins: UserPlugins = [
       globIgnores: ['**/*.pdf'],
     },
   }],
+
+  headMetaPlugin,
 ]

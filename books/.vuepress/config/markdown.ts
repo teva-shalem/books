@@ -12,7 +12,7 @@ const addContainer = (md: MarkdownIt, name: string, el = 'div'): void => {
   }})
 }
 
-export const markdownConfig: MarkdownConfig = {
+export const markdown: MarkdownConfig = {
   extractHeaders: ['h1' as 'h2', 'h2', 'h3', 'h4'],
   extendMarkdown: (md) => {
     md.set({breaks: true})

@@ -1,27 +1,27 @@
 import type {UserConfig} from './types/config'
 
 import {configureWebpack, chainWebpack} from './config/webpack'
-import {addPageClass, getBaseUrl} from './config/utils'
-import {markdownConfig} from './config/markdown'
+import {getBaseUrl} from './config/utils'
+import {siteTitle, siteDescription} from './config/attrs'
+import {markdown} from './config/markdown'
+import {extendPageData} from './config/page'
 import {head} from './config/head'
 import {plugins} from './config/plugins'
 
 const config: UserConfig<object> = {
-  title      : 'טבע שלם - ספרים',
-  description: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
+  title      : siteTitle,
+  description: siteDescription,
   theme      : 'derech-hapeima',
   base       : getBaseUrl(),
   dest       : './dist',
   port       : 8082,
   evergreen  : true,
-  markdown   : markdownConfig,
+  markdown,
   configureWebpack,
   chainWebpack,
   head,
   plugins,
-  extendPageData($page) {
-    addPageClass($page)
-  },
+  extendPageData,
 }
 
 export default config

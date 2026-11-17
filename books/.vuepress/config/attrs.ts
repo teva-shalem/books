@@ -1,4 +1,7 @@
 export const attrs = {
+  siteTitle      : 'טבע שלם - ספרים',
+  siteDescription: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
+
   zoom: {
     selector: 'img:not(.disable-zoom)',
     options : {
@@ -8,4 +11,4 @@ export const attrs = {
   },
 }
 
-export const {zoom} = attrs
+export const {siteTitle, siteDescription, zoom} = attrs

@@ -1,8 +1,10 @@
 ---
-title: מבוא 
-description: המבוא לטבעדינמיקה 
+title: מבוא לטבעדינמיקה
+description:
 permalink: /intro 
 layout: ReadingLayout
+author: שער עולם כותב
+subtitle: מנגנון הל"ב הפועם
 ---
 <Book>
 <div slot="header">

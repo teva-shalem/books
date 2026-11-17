@@ -1,6 +1,6 @@
-import type {Config as OfficialConfig} from 'vuepress/config'
-import type {PageData} from 'vuepress'
+import type {Config} from 'vuepress/config'
+import type {Page} from 'vuepress-types'
 
-export type UserConfig<T> = OfficialConfig<T> & {
-  extendPageData($page: PageData): void
+export type UserConfig<T> = Config<T> & {
+  extendPageData($page: Page): void
 }
