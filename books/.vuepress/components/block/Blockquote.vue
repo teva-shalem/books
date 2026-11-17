@@ -1,10 +1,8 @@
 <template>
   <figure class="blockquote-container" itemscope itemtype="https://schema.org/Quotation">
     <blockquote class="blockquote" itemprop="text"><slot /></blockquote>
-    <figcaption v-if="$scopedSlots.by || $scopedSlots.from" class="attribution">
-      <span v-if="$scopedSlots.by" itemprop="author"><slot name="by" /></span>
-      <template v-if="$scopedSlots.by && $scopedSlots.from"><br /></template>
-      <cite v-if="$scopedSlots.from" itemprop="isPartOf"><slot name="from" /></cite>
+    <figcaption v-if="$scopedSlots.from" class="attribution">
+      <span itemprop="author"><slot name="from" /></span>
     </figcaption>
   </figure>
 </template>

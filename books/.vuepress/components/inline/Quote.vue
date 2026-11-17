@@ -1,7 +1,7 @@
 <template>
   <span itemscope itemtype="https://schema.org/Quotation">
     <q class="quote" itemprop="text"><slot /></q>
-    <cite v-if="from">&nbsp;(<span itemprop="isPartOf">{{ from }}</span>)</cite>
+    <span v-if="from">&nbsp;(<span itemprop="author">{{ from }}</span>)</span>
   </span>
 </template>
 

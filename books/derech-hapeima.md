@@ -430,7 +430,7 @@ series: [לימוד הנפש, 1]
 <Blockquote>
 <p>"אם הגיון ומשמעות מתנגשים זה עם זה<br/>
 היה מוכן להשהות את השיפוט"</p>
-<template #by>צ'נג מאן-צ'ינג</template>
+<template #from>צ'נג מאן-צ'ינג</template>
 </Blockquote>
 
 <Pic path="derech-hapeima/paradoxality.jpg" alt="נוף העמק מהכפר טוש"/>
