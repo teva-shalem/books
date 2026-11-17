@@ -11,9 +11,7 @@ const MANAGED_SELECTOR = [
 
 export default Vue.extend({
   mounted() {
-    if (!document.querySelector('script[type="application/ld+json"]')) {
-      this.syncHead()
-    }
+    this.syncHead()
   },
 
   watch: {
