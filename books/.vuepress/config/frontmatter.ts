@@ -1,8 +1,10 @@
+import type {PageFrontmatter} from 'vuepress-types'
 import {siteDescription, siteTitle} from './attrs'
 
 type Language = 'english' | 'hebrew'
 
 export interface Frontmatter {
+  permalink: string
   title: string
   subtitle?: string
   description: string
@@ -27,6 +29,7 @@ export const getLang = (language: Language) => {
 }
 
 const FRONTMATTER_DEFAULTS = {
+  permalink  : '',
   language   : 'hebrew',
   title      : siteTitle,
   description: siteDescription,
@@ -34,6 +37,6 @@ const FRONTMATTER_DEFAULTS = {
   cover      : 'merkavah-logo.jpg',
 } as const
 
-export const buildFrontmatter = (frontmatter: Partial<Frontmatter>): Frontmatter => {
+export const buildFrontmatter = (frontmatter: Partial<Frontmatter>): PageFrontmatter & Frontmatter => {
   return {...FRONTMATTER_DEFAULTS, ...frontmatter}
 }
