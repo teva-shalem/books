@@ -1,8 +1,8 @@
-:lang(he) {
+[lang="he"] {
   direction: rtl;
 }
 
-:lang(en) {
+[lang="en"] {
   direction: ltr;
 }
 
@@ -17,11 +17,18 @@ html {
 body {
   font-family: var(--font-sans-serif);
   font-size: 16px;
-  margin: 0;
 }
 
 code, pre {
   font-family: var(--font-monospace);
+}
+
+hr {
+  border: 0;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+  text-align: start;
 }
 
 strong {

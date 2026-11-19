@@ -39,10 +39,6 @@
 <script lang="ts">
 import {PropType} from 'vue'
 
-export interface ColumnMeta {
-  type?: 'latex' | 'latexImage' | (string & unknown)
-}
-
 export interface TableColumn {
   'title': string
   'field': string
@@ -51,7 +47,7 @@ export interface TableColumn {
   'sticky'?: boolean
   'numeric'?: boolean
   'cell-class'?: string
-  'meta'?: ColumnMeta
+  'meta'?: {type: 'latex' | 'latexImage' | (string & unknown)}
 }
 
 export type TableCellValue = string | string[] | null

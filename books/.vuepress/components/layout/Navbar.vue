@@ -14,13 +14,6 @@
   </nav>
 </template>
 
-<script lang="ts">
-export default {
-  name : 'Navbar',
-  props: {},
-}
-</script>
-
 <style lang="scss" scoped>
 .navbar {
   height: 56px;

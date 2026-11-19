@@ -1,12 +1,11 @@
 import type {PluginTuple} from '@vuepress/types'
-
+import {type Frontmatter, buildFrontmatter, getLang, getLocale} from '../frontmatter'
 import path from 'path'
 import fs from 'fs'
-import {siteDescription, siteTitle} from '../attrs'
 
 interface PageContext {
   path: string
-  frontmatter: ReadingLayoutFrontmatter
+  frontmatter: Partial<Frontmatter>
 }
 
 interface BuildContext {
@@ -20,39 +19,26 @@ interface HeadEntry {
   content?: string
 }
 
-export interface ReadingLayoutFrontmatter {
-  layout?: string
-  title?: string
-  subtitle?: string
-  description?: string
-  author?: string
-  cover?: string
-  coverAlt?: string
-  datePublished?: string | number
-  series?: [string, number]
-}
+export const buildHeadMeta = ({frontmatter, path: pagePath}: PageContext): HeadEntry[] => {
+  const {
+    language, title, description, author, cover, datePublished, series, subtitle,
+  } = buildFrontmatter(frontmatter)
 
-export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): HeadEntry[] => {
-  if (!['ReadingLayout', 'EnglishReadingLayout'].includes(fm.layout ?? '')) return []
-  const isEnglish = fm.layout === 'EnglishReadingLayout'
-  const title = fm.title ?? siteTitle
-  const description = fm.description ?? siteDescription
-  const authorName = fm.author ?? 'דוד ישראל כהן'
   const baseUrl = 'https://books.tevashalem.com'
   const pageUrl = `${baseUrl}${pagePath}`
-  const imageUrl = `${baseUrl}/images/${fm.cover ? fm.cover : 'merkavah-logo.jpg'}`
+  const imageUrl = `${baseUrl}/images/${cover}`
 
   const jsonLd: Record<string, unknown> = {
     '@context'  : 'https://schema.org',
     '@type'     : pagePath === '/' ? 'WebSite' : 'Book',
     'name'      : title,
     description,
-    'inLanguage': isEnglish ? 'en' : 'he',
+    'inLanguage': getLang(language),
     'url'       : pageUrl,
     'image'     : imageUrl,
     'author'    : {
       '@type': 'Person',
-      'name' : authorName,
+      'name' : author,
     },
     'publisher': {
       '@type': 'Organization',
@@ -61,10 +47,10 @@ export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): H
     },
   }
 
-  if (fm.subtitle) jsonLd.alternativeHeadline = fm.subtitle
-  if (fm.datePublished) jsonLd.datePublished = String(fm.datePublished)
-  if (Array.isArray(fm.series)) {
-    const [seriesName, bookNumber] = fm.series
+  if (subtitle) jsonLd.alternativeHeadline = subtitle
+  if (datePublished) jsonLd.datePublished = String(datePublished)
+  if (Array.isArray(series)) {
+    const [seriesName, bookNumber] = series
     jsonLd.isPartOf = {
       '@type': 'CreativeWorkSeries',
       'name' : seriesName,
@@ -77,12 +63,12 @@ export const buildHeadMeta = ({frontmatter: fm, path: pagePath}: PageContext): H
 
     // Canonical & Author
     {tag: 'link', attrs: {rel: 'canonical', href: pageUrl}},
-    {tag: 'meta', attrs: {name: 'author', content: authorName}},
+    {tag: 'meta', attrs: {name: 'author', content: author}},
 
     // Open Graph
     {tag: 'meta', attrs: {property: 'og:type', content: pagePath === '/' ? 'website' : 'book'}},
-    {tag: 'meta', attrs: {property: 'og:site_name', content: siteTitle}},
-    {tag: 'meta', attrs: {property: 'og:locale', content: isEnglish ? 'en_US' : 'he_IL'}},
+    {tag: 'meta', attrs: {property: 'og:site_name', content: title}},
+    {tag: 'meta', attrs: {property: 'og:locale', content: getLocale(language)}},
     {tag: 'meta', attrs: {property: 'og:title', content: title}},
     {tag: 'meta', attrs: {property: 'og:description', content: description}},
     {tag: 'meta', attrs: {property: 'og:url', content: pageUrl}},

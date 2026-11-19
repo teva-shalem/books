@@ -1,5 +1,5 @@
 import type {Router} from 'vuepress'
-import {zoom} from '../../config/attrs'
+import {zoom} from '../config/attrs'
 
 const CONFIG = {
   CLASSES: {

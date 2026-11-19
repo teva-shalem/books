@@ -1,8 +1,10 @@
 import type {HeadTags} from '@vuepress/types'
 
+const THEME_COLOR = '#3eaf7c'
+
 export const head: HeadTags = [
   ['link', {rel: 'manifest', href: '/manifest.json'}],
-  ['meta', {name: 'theme-color', content: '#3eaf7c'}],
+  ['meta', {name: 'theme-color', content: THEME_COLOR}],
 
   ['meta', {name: 'mobile-web-app-capable', content: 'yes'}],
   ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent'}],
@@ -10,7 +12,7 @@ export const head: HeadTags = [
   ['link', {rel: 'apple-touch-icon', href: '/images/pwa/apple-touch-icon.png'}],
 
   ['meta', {name: 'msapplication-TileImage', content: '/images/pwa/icon-144x144.png'}],
-  ['meta', {name: 'msapplication-TileColor', content: '#3eaf7c'}],
+  ['meta', {name: 'msapplication-TileColor', content: THEME_COLOR}],
 
   ['link', {rel: 'icon', href: '/images/favicon.ico', sizes: '48x48'}],
   ['link', {rel: 'icon', href: '/images/pwa/icon-192x192.png', sizes: '192x192', type: 'image/png'}],

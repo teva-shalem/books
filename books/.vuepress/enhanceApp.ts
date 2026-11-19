@@ -6,9 +6,9 @@ import VTooltip from 'v-tooltip'
 import Buefy from 'buefy'
 import VueKatex from 'vue-katex'
 
-import {handleScroll} from './theme/utils/scrollHandler'
-import {handleZoom} from './theme/utils/zoomHandler'
-import {handleCaption} from './theme/utils/captionHandler'
+import {handleScroll} from './handlers/scroll'
+import {handleZoom} from './handlers/zoom'
+import {handleCaption} from './handlers/caption'
 
 const enhanceApp: EnhanceApp = ({
   Vue,

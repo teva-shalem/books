@@ -1,4 +1,9 @@
-%common-layout {
+body {
+  container-type: inline-size;
+  margin: 0;
+}
+
+.layout {
   margin: 0 1em;
 
   @media (width >= 659px) {
@@ -9,8 +14,4 @@
   @media (width >= 959px) {
     max-width: 40vw;
   }
-}
-
-.reading-layout {
-  @extend %common-layout;
 }

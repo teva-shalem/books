@@ -1,6 +1,5 @@
 ---
 title: סיפור היחיד
-description:
 permalink: /sipur-hayahhid
 author: שער עולם כותב
 cover: sipur-hayahhid/cover.jpg

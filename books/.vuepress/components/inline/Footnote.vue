@@ -6,9 +6,7 @@
       <button ref="trigger"
               type="button"
               class="trigger"
-              :aria-label="`הערת שוליים: ${content}`">
-        <span aria-hidden="true">*</span>
-      </button>
+              :aria-label="`הערת שוליים: ${content}`" />
 
       <template slot="popover">
         <span aria-hidden="true"><slot /></span>
@@ -40,7 +38,7 @@ export default {
 
   methods: {
     onEsc() {
-      this.trigger.focus()
+      this.trigger.click()
     },
   },
 }
@@ -56,21 +54,25 @@ export default {
 }
 
 :deep(.tooltip),
-.trigger > span {
+.trigger::after {
   font-size: 1.3em;
   font-weight: 600;
 }
 
 .trigger {
   all: unset;
-  cursor: pointer;
-  line-height: 0;
-  vertical-align: super;
 
   &:focus-visible {
     outline: 2px solid currentcolor;
     outline-offset: 2px;
     border-radius: 3px;
+  }
+
+  &::after {
+    content: "*";
+    cursor: pointer;
+    vertical-align: super;
+    line-height: 0;
   }
 }
 

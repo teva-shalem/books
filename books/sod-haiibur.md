@@ -1,6 +1,5 @@
 ---
 title: סוד העיבור
-description: 
 permalink: /sod-haiibur
 author: שער עולם כותב
 subtitle: ראשית הנביעה

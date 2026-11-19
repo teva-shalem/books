@@ -1,5 +1,5 @@
 <template>
-  <div v-katex="katexConfig" lang="en" />
+  <div v-katex="katexConfig" />
 </template>
 
 <script lang="ts">
@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 :deep(.katex-display) {
+  direction: ltr;
   margin: 0;
 }
 

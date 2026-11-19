@@ -1,19 +1,13 @@
 .container.full-width {
-  margin: 0 1em;
+  width: 100cqw;
+  position: relative;
+  inset-inline-start: 50%;
+  margin-inline: -50cqw;
+  padding-inline: .5em;
+  box-sizing: border-box;
 
   @media print {
     margin: 0;
-  }
-
-  .reading-layout & {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    box-sizing: border-box;
-    padding: 0 1em;
   }
 }
 

@@ -1,8 +1,11 @@
 <template>
   <figure class="blockquote-container" itemscope itemtype="https://schema.org/Quotation">
-    <blockquote class="blockquote" itemprop="text"><slot /></blockquote>
-    <figcaption v-if="$scopedSlots.from" class="attribution">
-      <span itemprop="author"><slot name="from" /></span>
+    <blockquote class="blockquote" itemprop="text">
+      <slot />
+    </blockquote>
+
+    <figcaption v-if="$scopedSlots.from" class="attribution" itemprop="author">
+      <slot name="from" />
     </figcaption>
   </figure>
 </template>
@@ -22,10 +25,6 @@
 
 .blockquote {
   margin: 0;
-}
-
-.quote {
-  font-style: italic;
 }
 
 .attribution {

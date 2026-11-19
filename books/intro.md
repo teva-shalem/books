@@ -1,6 +1,5 @@
 ---
 title: מבוא לטבעדינמיקה
-description:
 permalink: /intro
 author: שער עולם כותב
 subtitle: מנגנון הל"ב הפועם

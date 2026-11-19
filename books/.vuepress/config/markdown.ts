@@ -4,7 +4,7 @@ import MarkdownIt, {type Token} from 'markdown-it'
 import container from 'markdown-it-container'
 import markdownItAttrs from 'markdown-it-attrs'
 
-const addContainer = (md: MarkdownIt, name: string, el = 'div'): void => {
+const registerContainer = (md: MarkdownIt, name: string, el = 'div'): void => {
   md.use(container, name, {render: (tokens: Token[], idx: number) => {
     return tokens[idx].nesting === 1
       ? `<${el} class="container ${name}">\n`
@@ -19,7 +19,7 @@ export const markdown: MarkdownConfig = {
 
     md.use(markdownItAttrs, {allowedAttributes: ['lang']})
 
-    addContainer(md, 'full-width')
-    addContainer(md, 'hebrew-list')
+    registerContainer(md, 'full-width')
+    registerContainer(md, 'hebrew-list')
   },
 }
