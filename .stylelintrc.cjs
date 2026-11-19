@@ -10,10 +10,8 @@ module.exports = {
       customSyntax: 'postcss-html',
     },
   ],
-  /*
-   * see https://github.com/stylelint/stylelint/blob/15.11.0/docs/user-guide/rules.md
-   * see https://github.com/stylelint-scss/stylelint-scss/tree/v5.3.2
-   */
+  // see https://github.com/stylelint/stylelint/blob/15.11.0/docs/user-guide/rules.md
+  // see https://github.com/stylelint-scss/stylelint-scss/tree/v5.3.2
   rules: {
     'declaration-property-value-no-unknown'      : true,
     'media-feature-name-value-no-unknown'        : true,

@@ -4,17 +4,16 @@ const addClass = ($page: Page): void => {
   if ($page.frontmatter.pageClass)
     return
 
-  const permalink = $page.frontmatter.permalink ?? $page.path
+  const cleanClass = ($page.frontmatter.permalink ?? '').replace(/\//g, '')
 
-  if (permalink) {
-    const cleanClass = permalink.replace(/\//g, '')
-
-    if (cleanClass) {
-      $page.frontmatter.pageClass = cleanClass
-    }
+  if (cleanClass) {
+    $page.frontmatter.pageClass = cleanClass
   }
 }
 
 export const extendPageData = ($page: Page): void => {
+  const fm = $page.frontmatter
+  fm.canonicalUrl = `https://books.tevashalem.com${fm.permalink}`
+
   addClass($page)
 }

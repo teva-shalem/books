@@ -11,6 +11,7 @@ export interface Frontmatter {
   datePublished?: string | number
   series?: [string, number]
   language: Language
+  meta?: Record<string, string>[]
 }
 
 const LANGUAGES = {

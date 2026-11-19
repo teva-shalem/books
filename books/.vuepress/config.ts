@@ -1,14 +1,13 @@
-import type {UserConfig} from './types/config'
+import type {Config} from 'vuepress/config'
 
 import {configureWebpack, chainWebpack} from './config/webpack'
 import {getBaseUrl} from './config/baseUrl'
 import {siteTitle, siteDescription} from './config/attrs'
 import {markdown} from './config/markdown'
-import {extendPageData} from './config/page'
 import {head} from './config/head'
 import {plugins} from './config/plugins'
 
-const config: UserConfig = {
+const config: Config<object> = {
   dest     : './dist',
   base     : getBaseUrl(),
   port     : 8082,
@@ -24,7 +23,6 @@ const config: UserConfig = {
   chainWebpack,
   head,
   plugins,
-  extendPageData,
 }
 
 export default config
