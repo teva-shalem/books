@@ -17,7 +17,7 @@ export const markdown: MarkdownConfig = {
   extendMarkdown: (md) => {
     md.set({breaks: true})
 
-    md.use(markdownItAttrs, {allowedAttributes: ['lang']})
+    md.use(markdownItAttrs, {allowedAttributes: ['lang', 'class']})
 
     registerContainer(md, 'full-width')
     registerContainer(md, 'hebrew-list')

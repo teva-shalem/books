@@ -11,6 +11,11 @@
 }
 
 .decoration-bottom {
+  border: 0;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+  text-align: start;
   line-height: 0;
   margin-top: 1.7em;
 

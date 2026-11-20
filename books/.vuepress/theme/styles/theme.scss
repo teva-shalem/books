@@ -1,13 +1,14 @@
 // overrides
 $table-sticky-header-height: 100vh;
 $navbar-background-color: #2B8C96;
+.icon.outbound { display: none !important; }
 
 @import "./variables";
 @import "./fonts";
 @import "./3rd-party";
 @import "./base";
 @import "./layout";
-@import "./containers";
+@import "./markdown";
 @import "./caption";
 @import "./books";
 @import "./print";

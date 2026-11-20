@@ -4,6 +4,7 @@ description: תפישה חדשנית של התמרת משבר לצמיחה בח�
 permalink: /slideshow
 author: דוד ישראל כהן ואור לנדאו
 subtitle: iבולוציה
+datePublished: 12/7/2020
 ---
 <Book>
 <div slot="header">

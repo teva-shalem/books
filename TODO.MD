@@ -1,7 +1,4 @@
 * robots.txt
-* Bigger > em
-* Strong > strong
-* derech: small > semantic?
 * mishvaot: last updated > semantic
 * mishvaot: dfn
 * <Pic path="spacer.png" noZoom/> > hr
