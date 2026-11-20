@@ -1,6 +1,6 @@
 import type {HeadTags} from '@vuepress/types'
 
-const THEME_COLOR = '#3eaf7c'
+const THEME_COLOR = '#2B8C96'
 
 export const head: HeadTags = [
   ['link', {rel: 'manifest', href: '/manifest.json'}],
