@@ -8,33 +8,26 @@
   "eslint.lintTask.enable": true,
   "eslint.lintTask.options": "--ext .js,.cjs,.ts,.vue .",
   "eslint.options": {
-    "extensions": [
-      ".js",
-      ".ts",
-      ".vue",
-      ".cjs"
-    ]
+    "extensions": [".js", ".ts", ".vue", ".cjs"]
   },
   "[vue]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
   "[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
   "[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
 
   "stylelint.enable": true,
-  "stylelint.validate": [
-    "vue",
-    "scss"
-  ],
+  "stylelint.validate": ["vue", "scss"],
   "css.validate": false,
   "scss.validate": false,
+  
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
   "editor.formatOnSave": false,
   "[json]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   },
   "[jsonc]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   }
 }

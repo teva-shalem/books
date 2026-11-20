@@ -6,7 +6,7 @@
       </div>
     </b-field>
 
-    <div :id="id">
+    <div :id="href">
       <b-table :data="data" bordered striped hoverable focusable sticky-header>
         <b-table-column v-for="(column, index) in columns" :key="index"
                         :label="`${column.title}:`"
@@ -19,7 +19,7 @@
             <div v-if="column.meta && column.meta.type === 'latexImage'"
                  class="field-type-latex-image">
               <Latex :src="props.row[column.field][0]" />
-              <Pic :path="props.row[column.field][1]" />
+              <Pic :path="props.row[column.field][1]" :alt="props.row[column.field][2]" />
             </div>
 
             <div v-else-if="column.meta && column.meta.type === 'latex'">
@@ -57,7 +57,7 @@ export default {
   name: 'DataTable',
 
   props: {
-    id     : {type: String, required: false, default: null},
+    href   : {type: String, required: false, default: null},
     data   : {type: Array as PropType<TableRow[]>, required: true},
     columns: {type: Array as PropType<TableColumn[]>, required: true},
   },

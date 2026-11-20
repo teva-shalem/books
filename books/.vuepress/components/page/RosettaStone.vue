@@ -1,5 +1,5 @@
 <template>
-  <DataTable :data="qualities" :columns="columns" />
+  <DataTable :href="href" :data="qualities" :columns="columns" />
 </template>
 
 <script lang="ts">
@@ -11,6 +11,10 @@ import {qualities} from '../../artifacts/rosetta-stone/qualities.json'
 export default {
   name      : 'RosettaStone',
   components: {DataTable},
+
+  props: {
+    href: {type: String, required: false, default: null},
+  },
 
   data() {
     return {qualities, columns}

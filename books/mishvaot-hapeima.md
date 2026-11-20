@@ -42,13 +42,13 @@ datePublished: 21/6/2020
 
 ## האחד - פרי הדעת - אש - תזה - בורא השראה - II
 
-<Pic path="mishvaot-hapeima/equation-one.jpg" alt="אם בחזקת אין שווה אחד"/>
+<Pic path="mishvaot-hapeima/equation-one.jpg" alt="אם בחזקת אן שווה אחד"/>
 
 בגאומטריה המקודשת: פרח החיים
 
 ### הקבוע N
 
-<Pic path="mishvaot-hapeima/constant-n.jpg" alt="אין שווה שש ועוד אחד, בחזקת אין קטן"/>
+<Pic path="mishvaot-hapeima/constant-n.jpg" alt="אן שווה שש ועוד אחד, בחזקת אן קטן"/>
 
 ***N*** זה כל המרכבות יחד
 ***n*** זה מרכבה אחת
@@ -70,17 +70,17 @@ datePublished: 21/6/2020
 
 ## שרטוט 1: מיפוי המרכבה עפ״י ספר היצירה
 
-<Pic path="mishvaot-hapeima/merkavah-mapping.jpg" print-fill alt='ל"ב נתיבות פליאות חכמה ע"ג האין'/>
+<Pic path="mishvaot-hapeima/merkavah-mapping.jpg" print-fill alt='ל"ב נתיבות פליאות חכמה ע"ג האן'/>
 
 ## טבלה 1: פירוט ערכי כל האותיות עפ״י ספר היצירה
 
-<Pic path="mishvaot-hapeima/merkavah-letter-values.jpg" print-fill alt="תלת מימדי איכויות האין"/>
+<Pic path="mishvaot-hapeima/merkavah-letter-values.jpg" print-fill alt="תלת מימדי איכויות האן"/>
 
 כל אוסף הנתונים המרכיבים מרכבה ברגע נתון הוא הצורה של המרכבה. הצורה נקבעת מתוך הפוטנציאליות עפ״י הערכים של כל אחד מהמימדים. 
 
 ### הקבוע M
 
-<Pic path="mishvaot-hapeima/constant-m.jpg" alt="אם שווה שתים עשרה בחזקת אין קטן"/>
+<Pic path="mishvaot-hapeima/constant-m.jpg" alt="אם שווה שתים עשרה בחזקת אן קטן"/>
 
 ***M*** זה כל המערכות יחד
 ***m*** זה מערכת אחת
@@ -103,7 +103,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 ## טבלה 2: ערכי צירי המערכת
 
-<Pic path="mishvaot-hapeima/system-axes-values.jpg" print-fill alt="העולם שבין אין לאין"/>
+<Pic path="mishvaot-hapeima/system-axes-values.jpg" print-fill alt="העולם שבין אן לאן"/>
 
 כל נקודה - מרכבה - אחת היא כל הסיפור כולו.
 
@@ -133,7 +133,7 @@ z נובע ממכפלה של כל ערכי x וy:
 
 <Blockquote><p>״בית ואם בישראל״</p></Blockquote>
 
-<Pic path="mishvaot-hapeima/variable-m.jpg" alt="אם קטן שווה אין קטן בחזקת שתיים"/>
+<Pic path="mishvaot-hapeima/variable-m.jpg" alt="אם קטן שווה אן קטן בחזקת שתיים"/>
 
 המערכת נובעת ממכפלה של מרכבה במרכבה בזווית של 90 מעלות בין 2 צירי הz2 שלהן. בכל מרכז משותף של 2 מרכבות מתהווה מערכת ([ראו שרטוט 3](#שרטוט-3-מיפוי-המערכת-או-עץ-המלך)).
 

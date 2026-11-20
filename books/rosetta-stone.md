@@ -29,7 +29,7 @@ Columns are vertical and they form a horizontal axis - or reality. Rows are hori
 <div class="page-break"></div>
 
 ::: full-width
-<RosettaStone :id="'table-of-qualities'" />
+<RosettaStone href="table-of-qualities" />
 :::
 
 </Book>
