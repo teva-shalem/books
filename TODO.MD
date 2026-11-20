@@ -1,4 +1,5 @@
 * disable print on dev
+ׂ* title | rtl?
 * robots.txt
 * mishvaot: last updated > semantic
 * mishvaot: dfn
