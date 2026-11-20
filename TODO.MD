@@ -1,3 +1,4 @@
+* disable print on dev
 * robots.txt
 * mishvaot: last updated > semantic
 * mishvaot: dfn

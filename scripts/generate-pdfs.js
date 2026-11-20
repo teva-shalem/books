@@ -73,7 +73,7 @@ const generatePdfs = async(browser) => {
   const htmlFiles = await getHtmlFiles(distDir)
 
   if (await exists(OUTPUT_DIR))
-    await fs.unlink(OUTPUT_DIR)
+    await fs.rm(OUTPUT_DIR, {recursive: true, force: true})
   await fs.mkdir(OUTPUT_DIR, {recursive: true})
 
   console.log(`📖 Found ${htmlFiles.length} pages to convert to individual PDFs...`)
@@ -96,8 +96,9 @@ const startServer = () => new Promise((resolve, reject) => {
 const buildPdfs = async() => {
   const server = await startServer()
   const browser = await puppeteer.launch({
-    headless: 'new',
-    args    : ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless      : 'new',
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+    args          : ['--no-sandbox', '--disable-setuid-sandbox'],
   })
 
   await generatePdfs(browser)
