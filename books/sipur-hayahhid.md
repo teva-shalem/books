@@ -1,5 +1,6 @@
 ---
 title: סיפור היחיד
+description: אוטוביוגרפיה פועמת של דוד ישראל כהן. מסע מפותל בין תחנות רוחניות, נפשיות וגיאוגרפיות, בדרך לריפוי הנפש ויצירת היצירה הסינגולרית.
 permalink: /sipur-hayahhid
 author: שער עולם כותב
 cover: sipur-hayahhid/cover.jpg
