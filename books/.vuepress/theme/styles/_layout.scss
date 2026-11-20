@@ -14,4 +14,8 @@ body {
   @media (width >= 959px) {
     max-width: 40vw;
   }
+
+  @media print {
+    max-width: 100%;
+  }
 }

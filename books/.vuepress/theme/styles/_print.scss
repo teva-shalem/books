@@ -1,5 +1,5 @@
 .page-break {
-  page-break-after: right;
+  break-after: right;
 }
 
 @media print {
@@ -19,25 +19,25 @@
     line-height: 1.7;
   }
 
-  main {
-    max-width: 100% !important;
-  }
-
   p {
     orphans: 3;
     widows: 3;
   }
 
-  h1 {
-    margin-block-start: 0;
-    break-before: page;
+  h1, h2, h3 {
+    break-after: avoid;
   }
 
   h2, h3 {
     break-inside: avoid;
   }
 
-  h1, h2, h3 {
-    break-after: avoid;
+  h1 {
+    margin-block-start: 0;
+    break-before: page;
+
+    header & {
+      break-before: avoid;
+    }
   }
 }

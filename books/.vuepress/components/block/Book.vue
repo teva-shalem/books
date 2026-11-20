@@ -25,10 +25,6 @@ export default {
 
 <style lang="scss" scoped>
 @media print {
-  header h1 {
-    break-before: avoid;
-  }
-
   p {
     text-align: justify;
   }

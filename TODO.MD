@@ -17,3 +17,4 @@
 * manifest.json > manifest.js
 * check webpack chunking disable
 * htmlPlugin.options.scriptLoading = 'defer' instead async
+* print: add alts
