@@ -9,8 +9,8 @@ subtitle: מפתח הקשר הסמנטי
 <div slot="header">
   <hgroup>
     <h1>ספר האיכויות - Book of Qualities</h1>
-    <h2>מפתח הקשר הסמנטי - Semantic Connection Index</h2>
-    <h2>מקרא המרכבה - Legend of Composition</h2>
+    <p class="h2">מפתח הקשר הסמנטי - Semantic Connection Index</p>
+    <p class="h2">מקרא המרכבה - Legend of Composition</p>
   </hgroup>
 </div>
 

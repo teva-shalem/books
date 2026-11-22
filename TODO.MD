@@ -4,8 +4,6 @@
 * mishvaot: last updated > semantic
 * mishvaot: dfn
 * <Pic path="spacer.png" noZoom/> > hr
-* one h1 per page (& update extractHeaders & print.scss)
-* extractHeaders h6
 * <div slot="header"> no div
 * katex font in css
 * non-blocking fonts https://artofstyleframe.com/tools/font-fallback-calculator/

@@ -27,21 +27,20 @@ strong {
   font-weight: 600;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.25;
+h1, .h1 {
+  @include h1;
 }
 
-h1 {
-  color: #231F20;
+h2, .h2 {
+  @include h2;
 }
 
-h2 {
-  font-weight: bold;
+h3, .h3 {
+  @include h3;
 }
 
-h3 {
-  color: #2771B3;
+h4, .h4 {
+  @include h4;
 }
 
 a {
@@ -54,10 +53,6 @@ p {
 
 p, ul, ol {
   line-height: 1.7;
-}
-
-hgroup p {
-  line-height: 1;
 }
 
 .header-anchor[href="#"],

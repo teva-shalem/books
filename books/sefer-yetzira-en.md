@@ -9,8 +9,8 @@ author: Abraham
 <div slot="header">
   <hgroup lang="he">
     <h1>תרגום המשכיל לספר יצירה</h1>
-    <h2>מיוחס למלכיצדק</h2>
-    <h4>הוריד מהרשת אור לנדאו</h4>
+    <p class="h2">מיוחס למלכיצדק</p>
+    <p class="h4">הוריד מהרשת אור לנדאו</p>
   </hgroup>
 </div>
 

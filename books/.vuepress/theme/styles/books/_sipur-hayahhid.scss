@@ -7,3 +7,15 @@ header {
     }
   }
 }
+
+h2 {
+  @include h1;
+}
+
+h3 {
+  @include h2;
+}
+
+h4 {
+  @include h3;
+}

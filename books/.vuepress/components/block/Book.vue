@@ -3,7 +3,7 @@
     <header v-if="$slots.header">
       <slot name="header" />
     </header>
-    <slot />
+    <div class="book"><slot /></div>
   </article>
 </template>
 
@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+header p {
+  line-height: 1.25;
+}
+
 @media print {
   p {
     text-align: justify;

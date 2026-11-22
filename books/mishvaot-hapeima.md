@@ -11,7 +11,7 @@ datePublished: 21/6/2020
   <Pic path="merkavah-logo.jpg" alt="סמל תורת החיים, ואדם"/>
   <hgroup>
     <h1>מעשה המרכבה</h1>
-    <h2>משוואות טבע שלם - נוסחאות הפעימה</h2>
+    <p class="h2">משוואות טבע שלם - נוסחאות הפעימה</p>
   </hgroup>
 </div>
 
