@@ -29,7 +29,7 @@ header p {
 }
 
 @media print {
-  p {
+  p:not(:where(header p)) {
     text-align: justify;
   }
 }

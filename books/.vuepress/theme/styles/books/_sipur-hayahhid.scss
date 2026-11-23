@@ -3,13 +3,15 @@ header {
 
   @media print {
     img {
-      max-height: 71vh !important;
+      max-height: 69vh !important;
     }
   }
 }
 
 h2 {
   @include h1;
+
+  break-before: page;
 }
 
 h3 {

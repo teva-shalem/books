@@ -8,11 +8,23 @@
       <Go to="/" class="navbar-link is-arrowless">ספרים</Go>
     </div>
 
-    <div class="navbar-left">
+    <div v-if="showPrintButton" class="navbar-left">
       <ButtonPrint />
     </div>
   </nav>
 </template>
+
+<script lang="ts">
+export default {
+  name: 'Navbar',
+
+  computed: {
+    showPrintButton(): boolean {
+      return process.env.NODE_ENV === 'production'
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .navbar {

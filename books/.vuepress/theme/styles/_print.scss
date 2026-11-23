@@ -1,5 +1,5 @@
 .page-break {
-  break-after: right;
+  break-after: page;
 }
 
 @media print {
@@ -24,20 +24,12 @@
     widows: 3;
   }
 
-  h1, h2, h3 {
+  h2, h3, h4 {
+    break-inside: avoid;
     break-after: avoid;
   }
 
   h2, h3 {
-    break-inside: avoid;
-  }
-
-  h1 {
-    margin-block-start: 0;
-    break-before: page;
-
-    header & {
-      break-before: avoid;
-    }
+    margin-block-start: 0 !important;
   }
 }

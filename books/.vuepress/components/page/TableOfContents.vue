@@ -15,15 +15,10 @@ interface TOFHeader extends PageHeader {
 interface TableOfContentsComponent extends Vue {
   includeLevel: number[]
   headers: TOFHeader[] | null
-  pageContext?: {headers?: PageHeader[]}
 }
 
 export default {
   name: 'TableOfContents',
-
-  inject: {
-    pageContext: {default: null},
-  },
 
   props: {
     includeLevel: {
@@ -35,7 +30,7 @@ export default {
 
   computed: {
     headers(this: TableOfContentsComponent): TOFHeader[] | null {
-      const targetPage = this.pageContext ?? this.$page
+      const targetPage = this.$page
 
       if (targetPage && targetPage.headers) {
         const [minLevel] = this.includeLevel
