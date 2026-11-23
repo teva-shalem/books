@@ -58,9 +58,8 @@ const generateBooksPdfs = async(pages, outputDir) => {
   try {
     const origin = `http://127.0.0.1:${server.address().port}`
     const browser = await puppeteer.launch({
-      headless      : 'new',
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-      args          : ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: 'new',
+      args    : ['--no-sandbox', '--disable-setuid-sandbox'],
     })
     try {
       await Promise.all(pages.map(async(name) => {

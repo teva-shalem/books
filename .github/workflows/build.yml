@@ -14,25 +14,16 @@ jobs:
     - name: Setup Node.js
       uses: ./.github/actions/setup-node-env
 
-    - name: Install Dependencies
-      run: npm ci --ignore-scripts
-      env:
-        PUPPETEER_SKIP_DOWNLOAD: "true"
-
-    - name: Get Puppeteer's Chrome revision
-      id: chrome
-      run: node -p "'revision=' + require('puppeteer-core').PUPPETEER_REVISIONS.chrome" >> "$GITHUB_OUTPUT"
-
-    - name: Cache Chrome for Puppeteer
-      id: chrome-cache
-      uses: actions/cache@v6
+    - name: Cache Puppeteer Browser
+      uses: actions/cache@v5
       with:
         path: ~/.cache/puppeteer
-        key: puppeteer-chrome-${{ runner.os }}-${{ runner.arch }}-${{ steps.chrome.outputs.revision }}
-
-    - name: Install Chrome for Puppeteer
-      if: steps.chrome-cache.outputs.cache-hit != 'true'
-      run: npx --no-install puppeteer browsers install chrome
+        key: ${{ runner.os }}-puppeteer-${{ hashFiles('package.json') }}
+        restore-keys: |
+          ${{ runner.os }}-puppeteer-
+            
+    - name: Install Dependencies
+      run: npm ci
 
     - name: Build Site
       run: npm run build
