@@ -2,5 +2,6 @@
 !.*
 
 node_modules/
-dist/
+/dist/
+/.cache/
 books/.vuepress/artifacts/
