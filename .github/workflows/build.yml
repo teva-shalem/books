@@ -19,10 +19,23 @@ jobs:
       env:
         PUPPETEER_SKIP_DOWNLOAD: "true"
 
+    - name: Get Puppeteer's Chrome revision
+      id: chrome
+      run: node -p "'revision=' + require('puppeteer-core').PUPPETEER_REVISIONS.chrome" >> "$GITHUB_OUTPUT"
+
+    - name: Cache Chrome for Puppeteer
+      id: chrome-cache
+      uses: actions/cache@v6
+      with:
+        path: ~/.cache/puppeteer
+        key: puppeteer-chrome-${{ runner.os }}-${{ runner.arch }}-${{ steps.chrome.outputs.revision }}
+
+    - name: Install Chrome for Puppeteer
+      if: steps.chrome-cache.outputs.cache-hit != 'true'
+      run: npx --no-install puppeteer browsers install chrome
+
     - name: Build Site
       run: npm run build
-      env:
-        PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
 
     - name: Save Built Site
       uses: actions/upload-artifact@v7
