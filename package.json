@@ -45,7 +45,7 @@
     "markdown-it-attrs": "^5.0.1",
     "pdf-lib": "1.17.1",
     "postcss-html": "^1.8.1",
-    "puppeteer": "^21.11.0",
+    "puppeteer": "^25.18.1",
     "sass": "~1.79.6",
     "sass-loader": "^10.5.2",
     "serve": "^13.0.4",
