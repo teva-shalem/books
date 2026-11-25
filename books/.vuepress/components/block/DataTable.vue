@@ -101,7 +101,8 @@ figure {
     }
   }
 
-  .table-wrapper.has-mobile-cards tr:not(.detail, .is-empty, .table-footer) {
+  /* stylelint-disable-next-line selector-not-notation */
+  .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) {
     td::before {
       margin: auto 0;
 
@@ -145,6 +146,10 @@ figure {
 
   @media (width <= 768px), print {
     flex-direction: row;
+  }
+
+  @media (width <= 392px) {
+    flex-direction: column;
   }
 
   > img {
