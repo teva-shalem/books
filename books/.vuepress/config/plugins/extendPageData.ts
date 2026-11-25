@@ -1,5 +1,6 @@
 import type {PluginTuple} from '@vuepress/types'
 import type {Page, Plugin} from 'vuepress-types'
+import {siteDomain} from '../attrs'
 
 const addClass = ($page: Page): void => {
   if ($page.frontmatter.pageClass)
@@ -16,7 +17,7 @@ const plugin: Plugin = () => ({
   name          : 'extend-page-data-plugin',
   extendPageData: ($page: Page) => {
     const fm = $page.frontmatter
-    fm.canonicalUrl = `https://books.tevashalem.com${fm.permalink}`
+    fm.canonicalUrl = `${siteDomain}${fm.permalink}`
 
     addClass($page)
   },

@@ -1,4 +1,3 @@
-* robots.txt
 * mishvaot: last updated > semantic
 * mishvaot: dfn
 * <Pic path="spacer.png" noZoom/> > hr

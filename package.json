@@ -57,6 +57,7 @@
     "vue-eslint-parser": "^9.4.3",
     "vue-tsc": "~3.0.0",
     "vuepress": "^1.9.10",
+    "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-table-of-contents": "^1.1.7",
     "vuepress-plugin-typescript": "^0.3.1",
     "vuepress-types": "^0.9.4"

@@ -1,6 +1,7 @@
 import path from 'path'
 
 const attrs = {
+  siteDomain     : 'https://books.tevashalem.com',
   siteTitle      : 'טבע שלם - ספרים',
   siteDescription: 'הספרים של דוד ישראל כהן - גוף הידע - 1א2',
 
@@ -41,4 +42,4 @@ const attrs = {
   },
 }
 
-export const {siteTitle, siteDescription, components, pwa, ts, zoom} = attrs
+export const {siteTitle, siteDescription, siteDomain, components, pwa, ts, zoom} = attrs

@@ -2,12 +2,11 @@ import type {Page, PageFrontmatter, Plugin} from 'vuepress-types'
 import type {PluginTuple} from '@vuepress/types'
 
 import {type Frontmatter, buildFrontmatter, getLang, getLocale} from '../frontmatter'
-import {siteTitle} from '../attrs'
+import {siteTitle, siteDomain} from '../attrs'
 import path from 'path'
 
-const DOMAIN = 'https://books.tevashalem.com'
-const getPageUrl = (pagePath: string) => `${DOMAIN}${pagePath}`
-const getImageUrl = (coverPath: string) => `${DOMAIN}/images/${coverPath}`
+const getPageUrl = (pagePath: string) => `${siteDomain}${pagePath}`
+const getImageUrl = (coverPath: string) => `${siteDomain}/images/${coverPath}`
 
 const buildMeta = (fm: Frontmatter): PageFrontmatter['meta'] => {
   const existingMeta = fm.meta ?? []

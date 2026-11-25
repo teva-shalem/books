@@ -1,6 +1,6 @@
 import type {UserPlugins} from '@vuepress/types'
 
-import {components, pwa, ts, zoom} from '../attrs'
+import {components, pwa, ts, zoom, siteDomain} from '../attrs'
 import {pageMetaPlugin} from './pageMeta'
 import {extendPageDataPlugin} from './extendPageData'
 
@@ -11,6 +11,7 @@ export const plugins: UserPlugins = [
   ['vuepress-plugin-typescript', ts],
   ['@vuepress/google-analytics', {ga: 'UA-163403399-1'}],
   ['@vuepress/pwa', pwa],
+  ['vuepress-plugin-sitemap', {hostname: siteDomain, exclude: ['/404.html']}],
   extendPageDataPlugin,
   pageMetaPlugin,
 ]
