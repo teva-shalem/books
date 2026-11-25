@@ -52,11 +52,16 @@ const renderPage = async(browser, url, outputPath) => {
 }
 
 const generateBooksPdfs = async(pages, outputDir) => {
-  const server = http.createServer((req, res) => handler(req, res, {public: distDir}))
+  const base = process.env.GITHUB_REPOSITORY?.endsWith('/books-forever') ? '/books-forever' : ''
+  const server = http.createServer((req, res) => {
+    if (base && req.url.startsWith(`${base}/`))
+      req.url = req.url.replace(base, '')
+    return handler(req, res, {public: distDir})
+  })
   server.listen(PORT, '127.0.0.1')
   await once(server, 'listening')
   try {
-    const origin = `http://127.0.0.1:${server.address().port}`
+    const origin = `http://127.0.0.1:${server.address().port}${base}`
     const browser = await puppeteer.launch({
       headless: 'new',
       args    : ['--no-sandbox', '--disable-setuid-sandbox'],
